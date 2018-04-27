@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Teach.Negocio.Models
 {
-    class Professor
+    public class Professor
     {
         public String Nome { get; set; }
         public String Email { get; set; }
