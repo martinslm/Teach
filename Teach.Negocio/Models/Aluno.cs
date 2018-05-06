@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Teach.Negocio.Models
 {
-    class Aluno
+    public class Aluno
     {
         //Neste cadastro deve constar o nome do aluno, e-mail, celular, disciplina, carga horária máxima por semestre, endereço, contrato (opcional), situação financeira e valor por hora aula.   
         public String Nome { get; set; }

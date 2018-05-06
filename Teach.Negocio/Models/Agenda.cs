@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Teach.Negocio.Models
 {
-    class Agenda
+    public class Agenda
     {
         public Aluno aluno { get; set; }
         public Aluno endereco { get; set;  } //?????????? it's ok?

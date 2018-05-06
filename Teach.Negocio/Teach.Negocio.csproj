@@ -45,6 +45,7 @@
     <Compile Include="Models\Aluno.cs" />
     <Compile Include="Models\Disciplina.cs" />
     <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Fatura.cs" />
     <Compile Include="Models\FechamentoDeFatura.cs" />
     <Compile Include="Models\Professor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

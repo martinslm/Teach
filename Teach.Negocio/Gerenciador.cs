@@ -7,7 +7,7 @@ using Teach.Negocio.Models;
 
 namespace Teach.Negocio
 {
-    class Gerenciador
+    public class Gerenciador
     {
         public List<Professor> Prof;
         public List<Aluno> Alunos;
@@ -64,7 +64,7 @@ namespace Teach.Negocio
 
         public Validacao cadastroAluno (Aluno AlunoAdicionado)
         {
-
+           
         }
     }
 }

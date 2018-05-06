@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Teach.Negocio
 {
-    class Validacao
+    public class Validacao
     {
         public Dictionary<String, String> Mensagens { get; set; }
         public Boolean Valido
