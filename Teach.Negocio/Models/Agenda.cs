@@ -8,11 +8,11 @@ namespace Teach.Negocio.Models
 {
     public class Agenda
     {
-        public Aluno aluno { get; set; }
-        public Aluno endereco { get; set;  } //?????????? it's ok?
+        public Aluno Aluno { get; set; }
+        public Aluno Endereco { get; set; } //?????????? it's ok?
         public DateTime HoraInicial { get; set; }
         public DateTime HoraFinal { get; set; }
-        public String observacoes { get; set; }
+        public String Observacoes { get; set; }
 
     }
 }

@@ -13,7 +13,7 @@ namespace Teach.Negocio
         public List<Aluno> Alunos;
         public List<Agenda> Agendamentos;
 
-        
+
         public Gerenciador()
         {
             this.Prof = new List<Professor>();
@@ -21,8 +21,8 @@ namespace Teach.Negocio
             this.Agendamentos = new List<Agenda>();
         }
 
-        public Validacao CadastroProfessor (Professor Usuario)
-            {
+        public Validacao CadastroProfessor(Professor Usuario)
+        {
             Validacao validacao = new Validacao();
             //VERIFICAR DISCIPLINAS.
             if (this.Prof.Where(c => c.Email == Usuario.Email).Any())
@@ -30,41 +30,42 @@ namespace Teach.Negocio
                 validacao.Mensagens.Add("E-mail já cadastrado", "Já existe uma conta com este endereço de e-mail");
             }
             //melhorar validação do E-mail.
-           if (!Usuario.Email.Contains("@"))
+            if (!Usuario.Email.Contains("@"))
             {
                 validacao.Mensagens.Add("E-mail", "E-mail no formato inválido");
             }
-           if (String.IsNullOrEmpty(Usuario.Email))
+            if (String.IsNullOrEmpty(Usuario.Email))
             {
-                validacao.Mensagens.Add("Email", "O e-mail não pode ser nulo ou vazio");
+                validacao.Mensagens.Add("Email", "Você deve preencher o e-mail");
             }
-           if(String.IsNullOrEmpty(Usuario.Nome))
-                {
-                validacao.Mensagens.Add("Nome", "O nome não pode ser nulo ou vazio");
-                }
-           if(String.IsNullOrEmpty(Usuario.Senha))
+            if (String.IsNullOrEmpty(Usuario.Nome))
+            {
+                validacao.Mensagens.Add("Nome", "Você deve preencher o nome");
+            }
+            if (String.IsNullOrEmpty(Usuario.Senha))
             {
                 validacao.Mensagens.Add("Senha", "Você deve preencher a senha");
             }
-           if(String.IsNullOrEmpty(Usuario.ConfirmacaoSenha))
+            if (String.IsNullOrEmpty(Usuario.ConfirmacaoSenha))
             {
                 validacao.Mensagens.Add("Confirmação de Senha", "O preenchimento da confirmação de senha é obrigatória");
             }
-           if(Usuario.Senha != Usuario.ConfirmacaoSenha)
+            if (Usuario.Senha != Usuario.ConfirmacaoSenha)
             {
-                validacao.Mensagens.Add("Senhas", "Os parâmetros senha e ConfirmaçãoSenha são divergentes");
+                validacao.Mensagens.Add("Senhas", "Os parâmetros de senha e Confirmação de senha são divergentes");
             }
 
-           if(validacao.Valido)
+            if (validacao.Valido)
             {
                 this.Prof.Add(Usuario);
             }
             return validacao;
         }
 
-        public Validacao cadastroAluno (Aluno AlunoAdicionado)
+        public Validacao CadastroAluno(Aluno AlunoAdicionado)
         {
-           
+            Validacao validacao = new Validacao();
+            return validacao;
         }
     }
 }

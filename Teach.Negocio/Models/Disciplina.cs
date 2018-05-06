@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Teach.Negocio.Models
 {
-    class Disciplina
+    public class Disciplina
     {
         public String disciplina { get; set; }
     }

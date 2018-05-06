@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Teach.Negocio.Models
 {
-    class FechamentoDeFatura
+    public class FechamentoDeFatura
     {
 
     }

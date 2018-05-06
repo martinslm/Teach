@@ -12,14 +12,14 @@ namespace Teach.Negocio.Models
         public String Nome { get; set; }
         public String Email { get; set; }
         public Int64 Celular { get; set; }
-        public List<Disciplina> DisciplinaCursada {get; set;}
+        public List<Disciplina> DisciplinaCursada { get; set; }
         public Int32 CargaHoraria { get; set; }
         public decimal ValorHoraAula { get; set; }
         public List<Endereco> EnderecoDeAula { get; set; }
 
         //verificar contrato
 
-            public Aluno()
+        public Aluno()
         {
             this.DisciplinaCursada = new List<Disciplina>();
             this.EnderecoDeAula = new List<Endereco>();
