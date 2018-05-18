@@ -24,7 +24,6 @@ namespace Teach.Negocio
         public Validacao CadastroProfessor(Professor Usuario)
         {
             Validacao validacao = new Validacao();
-            //VERIFICAR DISCIPLINAS.
             if (this.Prof.Where(c => c.Email == Usuario.Email).Any())
             {
                 validacao.Mensagens.Add("E-mail já cadastrado", "Já existe uma conta com este endereço de e-mail");
@@ -55,10 +54,56 @@ namespace Teach.Negocio
                 validacao.Mensagens.Add("Senhas", "Os parâmetros de senha e Confirmação de senha são divergentes");
             }
 
+            if(Usuario.Discplina.Count == 0)
+            {
+                validacao.Mensagens.Add("Disciplina", "Você deve incluir pelo menos uma disciplina");
+            }
+            foreach(var disc in Usuario.Discplina)
+            {
+                if (String.IsNullOrEmpty(disc))
+                {
+                    validacao.Mensagens.Add("Disciplina", "Disciplina com nome inválido");
+                }
+            }
+
             if (validacao.Valido)
             {
                 this.Prof.Add(Usuario);
             }
+            return validacao;
+        }
+
+        public Validacao EfetuaLogin(String email, String senha)
+        {
+            Validacao validacao = new Validacao();
+            /*
+             * 
+             * CODIGO FEITO PELO PROFESSOR 
+             * var professorDb = this.banco.Professores.Where(p => p.Email == email).FirstOrDefault();
+            if(professorDb == null)
+            {
+                validacao.Mensagens.Add("Email", "Não existe ninguém com esse email");
+            }
+            else
+            {
+                if(professorDb.Senha != senha)
+                {
+                    validacao.Mensagens.Add("Senha", "Senha inválida");
+                }
+            }
+
+
+
+            FOR ME :D
+            if (!this.Prof.Where(d =>d.Email == email.Email).Any())
+            {
+                validacao.Mensagens.Add("Email não cadastrado", "Não existe nenhuma conta cadastrada para este e-mail, crie uma nova conta para ter acesso ao sistema.");
+            }
+            else
+            {
+                if(senha.Senha != this.Prof)
+            } */
+
             return validacao;
         }
 
