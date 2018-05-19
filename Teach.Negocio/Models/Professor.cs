@@ -13,11 +13,11 @@ namespace Teach.Negocio.Models
         public String Senha { get; set; }
         public String ConfirmacaoSenha { get; set; }
         public int Telefone { get; set; }
-        public List<String> Discplina { get; set; }
+        public List<Disciplina> Discplina { get; set; }
 
         public Professor()
         {
-            this.Discplina = new List<string>();
+            this.Discplina = new List<Disciplina>();
         }
     }
 }

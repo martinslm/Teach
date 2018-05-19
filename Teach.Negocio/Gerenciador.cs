@@ -60,7 +60,7 @@ namespace Teach.Negocio
             }
             foreach(var disc in Usuario.Discplina)
             {
-                if (String.IsNullOrEmpty(disc))
+                if (String.IsNullOrEmpty(disc.disciplina))
                 {
                     validacao.Mensagens.Add("Disciplina", "Disciplina com nome inválido");
                 }
@@ -110,6 +110,72 @@ namespace Teach.Negocio
         public Validacao CadastroAluno(Aluno AlunoAdicionado)
         {
             Validacao validacao = new Validacao();
+            //celular
+            if (String.IsNullOrEmpty(AlunoAdicionado.Nome))
+            {
+                validacao.Mensagens.Add("Nome", "O nome do aluno deve ser preenchido");
+            }
+            if(!AlunoAdicionado.Email.Contains('@'))
+            {
+                validacao.Mensagens.Add("Email", "O e-mail informado é inválido.");
+            }
+            if(this.Alunos.Where(p => p.Email == AlunoAdicionado.Email).Any())
+            {
+                validacao.Mensagens.Add("Aluno/Email", "Já existe um aluno cadastrado com este e-mail.");
+            }
+            if(String.IsNullOrEmpty(AlunoAdicionado.DisciplinaCursada.disciplina))
+            {
+                validacao.Mensagens.Add("Disciplina", "Selecione uma disciplina");
+            }
+            if(AlunoAdicionado.CargaHoraria <= 0)
+            {
+                validacao.Mensagens.Add("CH","Você deve preencher uma carga horária máxima de aulas para este aluno");
+            }
+            if(String.IsNullOrEmpty(AlunoAdicionado.Rua)) 
+            {
+                validacao.Mensagens.Add("Rua", "O campo rua deve ser preenchido");
+            }
+            if(String.IsNullOrEmpty(AlunoAdicionado.Numero))
+            {
+                validacao.Mensagens.Add("Numero", "O campo numero deve ser preenchido");
+            }
+
+            if (String.IsNullOrEmpty(AlunoAdicionado.Bairro))
+            {
+                validacao.Mensagens.Add("Bairro", "O campo bairro deve ser preenchido");
+            }
+
+            if (String.IsNullOrEmpty(AlunoAdicionado.Cidade))
+            {
+                validacao.Mensagens.Add("Cidade", "O campo cidade deve ser preenchido");
+            }
+
+            if (String.IsNullOrEmpty(AlunoAdicionado.CEP))
+            {
+                validacao.Mensagens.Add("CEP", "O campo CEP deve ser preenchido");
+            }
+
+            if (AlunoAdicionado.ValorHoraAula <= 0)
+            {
+                validacao.Mensagens.Add("HoraAula", "Você deve preencher o valor por hora aula");
+            }
+            
+
+
+            if(validacao.Valido)
+            {
+                this.Alunos.Add(AlunoAdicionado);
+            }
+            return validacao;
+        }
+
+        public Validacao NovoAgendamento (Aluno aluno)
+        {
+            Validacao validacao = new Validacao();
+            //
+            //
+            //
+
             return validacao;
         }
     }
