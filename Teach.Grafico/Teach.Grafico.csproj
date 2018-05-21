@@ -45,6 +45,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CadastroProfessor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CadastroProfessor.Designer.cs">
+      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncluirDisciplina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncluirDisciplina.Designer.cs">
+      <DependentUpon>IncluirDisciplina.cs</DependentUpon>
+    </Compile>
     <Compile Include="TelaLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +71,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CadastroProfessor.resx">
+      <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncluirDisciplina.resx">
+      <DependentUpon>IncluirDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TelaLogin.resx">
       <DependentUpon>TelaLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +104,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Teach.Negocio\Teach.Negocio.csproj">
+      <Project>{5DFD0B08-BB60-4AEC-A4E8-633F4C544EB6}</Project>
+      <Name>Teach.Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -24,11 +24,6 @@ namespace Teach.Negocio.Models
 
         //verificar contrato
 
-        public Aluno()
-        {
-            this.DisciplinaCursada = new List<Disciplina>();
-            this.EnderecoDeAula = new List<Endereco>();
-        }
         public String SituacaoFinanceira()
         {
             //validacoes

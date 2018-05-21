@@ -33,9 +33,9 @@
             this.Senha = new System.Windows.Forms.Label();
             this.EsquecerSenha = new System.Windows.Forms.Label();
             this.NovoCadastro = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.Acessar = new System.Windows.Forms.Button();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbSenha = new System.Windows.Forms.TextBox();
+            this.btAcessar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Teach
@@ -93,39 +93,40 @@
             this.NovoCadastro.Size = new System.Drawing.Size(100, 13);
             this.NovoCadastro.TabIndex = 4;
             this.NovoCadastro.Text = "Quero me cadastrar";
+            this.NovoCadastro.Click += new System.EventHandler(this.NovoCadastro_Click);
             // 
-            // textBox1
+            // tbEmail
             // 
-            this.textBox1.Location = new System.Drawing.Point(78, 99);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 20);
-            this.textBox1.TabIndex = 5;
+            this.tbEmail.Location = new System.Drawing.Point(78, 99);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(170, 20);
+            this.tbEmail.TabIndex = 5;
             // 
-            // textBox2
+            // tbSenha
             // 
-            this.textBox2.Location = new System.Drawing.Point(78, 125);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(170, 20);
-            this.textBox2.TabIndex = 6;
+            this.tbSenha.Location = new System.Drawing.Point(78, 125);
+            this.tbSenha.Name = "tbSenha";
+            this.tbSenha.Size = new System.Drawing.Size(170, 20);
+            this.tbSenha.TabIndex = 6;
             // 
-            // Acessar
+            // btAcessar
             // 
-            this.Acessar.Location = new System.Drawing.Point(91, 181);
-            this.Acessar.Name = "Acessar";
-            this.Acessar.Size = new System.Drawing.Size(75, 23);
-            this.Acessar.TabIndex = 7;
-            this.Acessar.Text = "Acessar";
-            this.Acessar.UseVisualStyleBackColor = true;
-            this.Acessar.Click += new System.EventHandler(this.button1_Click);
+            this.btAcessar.Location = new System.Drawing.Point(91, 181);
+            this.btAcessar.Name = "btAcessar";
+            this.btAcessar.Size = new System.Drawing.Size(75, 23);
+            this.btAcessar.TabIndex = 7;
+            this.btAcessar.Text = "Entrar";
+            this.btAcessar.UseVisualStyleBackColor = true;
+            this.btAcessar.Click += new System.EventHandler(this.button1_Click);
             // 
             // TelaLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.Acessar);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btAcessar);
+            this.Controls.Add(this.tbSenha);
+            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.NovoCadastro);
             this.Controls.Add(this.EsquecerSenha);
             this.Controls.Add(this.Senha);
@@ -146,9 +147,9 @@
         private System.Windows.Forms.Label Senha;
         private System.Windows.Forms.Label EsquecerSenha;
         private System.Windows.Forms.Label NovoCadastro;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button Acessar;
+        private System.Windows.Forms.TextBox tbEmail;
+        private System.Windows.Forms.TextBox tbSenha;
+        private System.Windows.Forms.Button btAcessar;
     }
 }
 

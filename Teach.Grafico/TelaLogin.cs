@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Teach.Negocio;
+using Teach.Negocio.Models;
 
 namespace Teach.Grafico
 {
@@ -34,12 +36,39 @@ namespace Teach.Grafico
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Professor LoginProfessor = new Professor();
+            LoginProfessor.Email = tbEmail.Text;
+            LoginProfessor.Senha = tbSenha.Text;
 
+            Validacao validacao = Program.Gerenciador.EfetuaLogin(LoginProfessor);
+
+            if (validacao.Valido)
+            {
+                TelaPrincipal tela = new TelaPrincipal();
+                tela.Show();
+            }
+            else
+            {
+                String mensagemValidacao = " ";
+                foreach (var chave in validacao.Mensagens.Keys)
+                {
+                    String msg = validacao.Mensagens[chave];
+                    mensagemValidacao += msg;
+                    mensagemValidacao += Environment.NewLine;
+                }
+                MessageBox.Show(mensagemValidacao);
+            }
         }
 
         private void TelaLogin_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void NovoCadastro_Click(object sender, EventArgs e)
+        {
+            CadastroProfessor telaCadastro = new CadastroProfessor();
+            telaCadastro.Show();
         }
     }
 }

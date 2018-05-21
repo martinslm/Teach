@@ -21,7 +21,7 @@ namespace Teach.Negocio
             this.Agendamentos = new List<Agenda>();
         }
 
-        public Validacao CadastroProfessor(Professor Usuario)
+        public Validacao CadastroProfessor(Professor Usuario, String ValidadorSenha)
         {
             Validacao validacao = new Validacao();
             if (this.Prof.Where(c => c.Email == Usuario.Email).Any())
@@ -45,11 +45,11 @@ namespace Teach.Negocio
             {
                 validacao.Mensagens.Add("Senha", "Você deve preencher a senha");
             }
-            if (String.IsNullOrEmpty(Usuario.ConfirmacaoSenha))
+            if (String.IsNullOrEmpty(ValidadorSenha))
             {
                 validacao.Mensagens.Add("Confirmação de Senha", "O preenchimento da confirmação de senha é obrigatória");
             }
-            if (Usuario.Senha != Usuario.ConfirmacaoSenha)
+            if (Usuario.Senha != ValidadorSenha)
             {
                 validacao.Mensagens.Add("Senhas", "Os parâmetros de senha e Confirmação de senha são divergentes");
             }
@@ -73,36 +73,21 @@ namespace Teach.Negocio
             return validacao;
         }
 
-        public Validacao EfetuaLogin(String email, String senha)
+        public Validacao EfetuaLogin(Professor Professor)
         {
             Validacao validacao = new Validacao();
-            /*
-             * 
-             * CODIGO FEITO PELO PROFESSOR 
-             * var professorDb = this.banco.Professores.Where(p => p.Email == email).FirstOrDefault();
+            var professorDb = this.Prof.Where(p => p.Email == Professor.Email).FirstOrDefault();
             if(professorDb == null)
             {
-                validacao.Mensagens.Add("Email", "Não existe ninguém com esse email");
+                validacao.Mensagens.Add("Email", "E-mail não cadastrado");
             }
             else
             {
-                if(professorDb.Senha != senha)
+                if(professorDb.Senha != Professor.Senha)
                 {
                     validacao.Mensagens.Add("Senha", "Senha inválida");
                 }
             }
-
-
-
-            FOR ME :D
-            if (!this.Prof.Where(d =>d.Email == email.Email).Any())
-            {
-                validacao.Mensagens.Add("Email não cadastrado", "Não existe nenhuma conta cadastrada para este e-mail, crie uma nova conta para ter acesso ao sistema.");
-            }
-            else
-            {
-                if(senha.Senha != this.Prof)
-            } */
 
             return validacao;
         }
@@ -169,7 +154,7 @@ namespace Teach.Negocio
             return validacao;
         }
 
-        public Validacao NovoAgendamento (Aluno aluno)
+        public Validacao NovoAgendamento (Agenda agendamento)
         {
             Validacao validacao = new Validacao();
             //

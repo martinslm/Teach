@@ -11,7 +11,6 @@ namespace Teach.Negocio.Models
         public String Nome { get; set; }
         public String Email { get; set; }
         public String Senha { get; set; }
-        public String ConfirmacaoSenha { get; set; }
         public int Telefone { get; set; }
         public List<Disciplina> Discplina { get; set; }
 
