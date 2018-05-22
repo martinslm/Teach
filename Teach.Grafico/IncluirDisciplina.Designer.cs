@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDisciplina = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbDisciplina
             // 
-            this.textBox1.Location = new System.Drawing.Point(116, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(249, 20);
-            this.textBox1.TabIndex = 0;
+            this.tbDisciplina.Location = new System.Drawing.Point(116, 24);
+            this.tbDisciplina.Name = "tbDisciplina";
+            this.tbDisciplina.Size = new System.Drawing.Size(249, 20);
+            this.tbDisciplina.TabIndex = 0;
             // 
             // label1
             // 
@@ -69,6 +69,7 @@
             this.btSalvar.TabIndex = 3;
             this.btSalvar.Text = "Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
+            this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
             // 
             // IncluirDisciplina
             // 
@@ -78,7 +79,7 @@
             this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbDisciplina);
             this.Name = "IncluirDisciplina";
             this.Text = "IncluirDisciplina";
             this.ResumeLayout(false);
@@ -88,7 +89,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbDisciplina;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.Button btSalvar;

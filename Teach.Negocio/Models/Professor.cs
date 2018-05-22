@@ -8,10 +8,11 @@ namespace Teach.Negocio.Models
 {
     public class Professor
     {
+        public String ID { get; set; }
         public String Nome { get; set; }
         public String Email { get; set; }
         public String Senha { get; set; }
-        public int Telefone { get; set; }
+        public String Telefone { get; set; }
         public List<Disciplina> Discplina { get; set; }
 
         public Professor()
