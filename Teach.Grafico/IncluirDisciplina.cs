@@ -33,7 +33,7 @@ namespace Teach.Grafico
             Professor disciplinaLecionada = new Professor();
             Disciplina novaDisciplina = new Disciplina();
             novaDisciplina.disciplina = tbDisciplina.Text;
-            
+            disciplinaLecionada.Discplina.Add(novaDisciplina);
             this.Close();
         }
     }
