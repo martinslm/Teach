@@ -30,11 +30,11 @@ namespace Teach.Grafico
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-           /* List<Disciplina> disciplina = new List<Disciplina>();
-            Professor novadisciplina = new Professor();
-            String a = tbDisciplina.Text;
-            disciplina.Add(a);
-            novadisciplina.Discplina = disciplina; */
+            Professor disciplinaLecionada = new Professor();
+            Disciplina novaDisciplina = new Disciplina();
+            novaDisciplina.disciplina = tbDisciplina.Text;
+            
+            this.Close();
         }
     }
 }

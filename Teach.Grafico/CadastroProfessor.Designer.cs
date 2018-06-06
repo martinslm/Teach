@@ -34,7 +34,6 @@
             this.tbSenha = new System.Windows.Forms.TextBox();
             this.tbConfirmacao = new System.Windows.Forms.TextBox();
             this.DgDisciplinas = new System.Windows.Forms.DataGridView();
-            this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtDisciplina = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DgDisciplinas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,11 +91,6 @@
             this.DgDisciplinas.Size = new System.Drawing.Size(225, 104);
             this.DgDisciplinas.TabIndex = 5;
             this.DgDisciplinas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Disciplina
-            // 
-            this.Disciplina.HeaderText = "Disciplinas";
-            this.Disciplina.Name = "Disciplina";
             // 
             // BtDisciplina
             // 
@@ -172,6 +167,12 @@
             this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 13;
             this.label5.Text = "Confirmação  Senha";
+            // 
+            // Disciplina
+            // 
+            this.Disciplina.DataPropertyName = "Disciplina";
+            this.Disciplina.HeaderText = "Disciplinas";
+            this.Disciplina.Name = "Disciplina";
             // 
             // CadastroProfessor
             // 

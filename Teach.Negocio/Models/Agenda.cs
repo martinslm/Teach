@@ -15,12 +15,12 @@ namespace Teach.Negocio.Models
         public TimeSpan TotalHoras { get; set; }
         public String Observacoes { get; set; }
 
-        public TimeSpan TotalHorasCalculo()
-        {
+        //public TimeSpan TotalHorasCalculo()
+        //{
             //validacoes
-            TimeSpan acalcular=0;
-            return acalcular;
-        }
+          //  TimeSpan acalcular=0;
+            //return acalcular;
+        //}
 
     }
 }

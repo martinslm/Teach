@@ -12,6 +12,7 @@ namespace Teach.Negocio
         public List<Professor> Prof;
         public List<Aluno> Alunos;
         public List<Agenda> Agendamentos;
+        public List<Disciplina> Disciplina;
 
 
         public Gerenciador()
@@ -19,6 +20,7 @@ namespace Teach.Negocio
             this.Prof = new List<Professor>();
             this.Alunos = new List<Aluno>();
             this.Agendamentos = new List<Agenda>();
+           this.Disciplina = new List<Disciplina>();
         }
 
         public Validacao CadastroProfessor(Professor Usuario, String ValidadorSenha)
