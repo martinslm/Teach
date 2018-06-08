@@ -65,6 +65,7 @@ namespace Teach.Negocio
             if (validacao.Valido)
             {
                 this.banco.Prof.Add(Usuario);
+                this.banco.SaveChanges();
             }
             return validacao;
         }
