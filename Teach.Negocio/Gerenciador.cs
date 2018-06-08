@@ -4,29 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Teach.Negocio.Models;
+using Teach.Negocio.Persistencia;
 
 namespace Teach.Negocio
 {
     public class Gerenciador
     {
-        public List<Professor> Prof;
-        public List<Aluno> Alunos;
-        public List<Agenda> Agendamentos;
-        public List<Disciplina> Disciplina;
-
+        private Banco banco = new Banco();
 
         public Gerenciador()
         {
-            this.Prof = new List<Professor>();
-            this.Alunos = new List<Aluno>();
-            this.Agendamentos = new List<Agenda>();
-           this.Disciplina = new List<Disciplina>();
+            Console.WriteLine(banco.Database.Connection.ConnectionString);
         }
 
         public Validacao CadastroProfessor(Professor Usuario, String ValidadorSenha)
         {
             Validacao validacao = new Validacao();
-            if (this.Prof.Where(c => c.Email == Usuario.Email).Any())
+            if (this.banco.Prof.Where(c => c.Email == Usuario.Email).Any())
             {
                 validacao.Mensagens.Add("E-mail já cadastrado", "Já existe uma conta com este endereço de e-mail");
             }
@@ -70,7 +64,7 @@ namespace Teach.Negocio
 
             if (validacao.Valido)
             {
-                this.Prof.Add(Usuario);
+                this.banco.Prof.Add(Usuario);
             }
             return validacao;
         }
@@ -78,7 +72,7 @@ namespace Teach.Negocio
         public Validacao EfetuaLogin(Professor Professor)
         {
             Validacao validacao = new Validacao();
-            var professorDb = this.Prof.Where(p => p.Email == Professor.Email).FirstOrDefault();
+            var professorDb = this.banco.Prof.Where(p => p.Email == Professor.Email).FirstOrDefault();
             if(professorDb == null)
             {
                 validacao.Mensagens.Add("Email", "E-mail não cadastrado");
@@ -106,7 +100,7 @@ namespace Teach.Negocio
             {
                 validacao.Mensagens.Add("Email", "O e-mail informado é inválido.");
             }
-            if(this.Alunos.Where(p => p.Email == AlunoAdicionado.Email).Any())
+            if(this.banco.Alunos.Where(p => p.Email == AlunoAdicionado.Email).Any())
             {
                 validacao.Mensagens.Add("Aluno/Email", "Já existe um aluno cadastrado com este e-mail.");
             }
@@ -151,7 +145,7 @@ namespace Teach.Negocio
 
             if(validacao.Valido)
             {
-                this.Alunos.Add(AlunoAdicionado);
+                this.banco.Alunos.Add(AlunoAdicionado);
             }
             return validacao;
         }

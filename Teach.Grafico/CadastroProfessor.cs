@@ -14,9 +14,12 @@ namespace Teach.Grafico
 {
     public partial class CadastroProfessor : Form
     {
+        private List<Disciplina> ListaDisciplina;
         public CadastroProfessor()
         {
             InitializeComponent();
+            ListaDisciplina = new List<Disciplina>();
+            DgDisciplinas.DataSource = ListaDisciplina;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -38,6 +41,7 @@ namespace Teach.Grafico
         {
             IncluirDisciplina tela = new IncluirDisciplina();
             tela.Show();
+            ListaDisciplina.Add(tela.novaDisciplina);
         }
 
         private void btSalvar_Click(object sender, EventArgs e)
@@ -47,6 +51,7 @@ namespace Teach.Grafico
             NovoCadastro.Email = tbEmail.Text;
             NovoCadastro.Telefone = tbTelefone.Text;
             NovoCadastro.Senha = tbSenha.Text;
+            NovoCadastro.Discplina.AddRange(ListaDisciplina);
             String ConfirmacaoSenha = tbConfirmacao.Text;
 
             /*Ver como adicionar disciplina*/
@@ -69,5 +74,25 @@ namespace Teach.Grafico
                 MessageBox.Show(mensagemValidacao);
             }
             }
+
+        private void CadastroProfessor_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

@@ -13,11 +13,11 @@ namespace Teach.Grafico
 {
     public partial class IncluirDisciplina : Form
     {
+        public Disciplina novaDisciplina;
         public IncluirDisciplina()
         {
             InitializeComponent();
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
@@ -30,11 +30,15 @@ namespace Teach.Grafico
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            Professor disciplinaLecionada = new Professor();
-            Disciplina novaDisciplina = new Disciplina();
+            novaDisciplina = new Disciplina();
             novaDisciplina.disciplina = tbDisciplina.Text;
-            disciplinaLecionada.Discplina.Add(novaDisciplina);
+            
             this.Close();
+        }
+
+        private void IncluirDisciplina_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

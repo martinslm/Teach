@@ -30,10 +30,10 @@
         {
             this.tbNome = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
-            this.tbTelefone = new System.Windows.Forms.TextBox();
             this.tbSenha = new System.Windows.Forms.TextBox();
             this.tbConfirmacao = new System.Windows.Forms.TextBox();
             this.DgDisciplinas = new System.Windows.Forms.DataGridView();
+            this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtDisciplina = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DgDisciplinas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,6 +52,7 @@
             this.tbNome.Name = "tbNome";
             this.tbNome.Size = new System.Drawing.Size(225, 20);
             this.tbNome.TabIndex = 0;
+            this.tbNome.TextChanged += new System.EventHandler(this.tbNome_TextChanged);
             // 
             // tbEmail
             // 
@@ -60,17 +61,11 @@
             this.tbEmail.Size = new System.Drawing.Size(225, 20);
             this.tbEmail.TabIndex = 1;
             // 
-            // tbTelefone
-            // 
-            this.tbTelefone.Location = new System.Drawing.Point(158, 83);
-            this.tbTelefone.Name = "tbTelefone";
-            this.tbTelefone.Size = new System.Drawing.Size(225, 20);
-            this.tbTelefone.TabIndex = 2;
-            // 
             // tbSenha
             // 
             this.tbSenha.Location = new System.Drawing.Point(158, 109);
             this.tbSenha.Name = "tbSenha";
+            this.tbSenha.PasswordChar = '*';
             this.tbSenha.Size = new System.Drawing.Size(225, 20);
             this.tbSenha.TabIndex = 3;
             // 
@@ -78,6 +73,7 @@
             // 
             this.tbConfirmacao.Location = new System.Drawing.Point(158, 135);
             this.tbConfirmacao.Name = "tbConfirmacao";
+            this.tbConfirmacao.PasswordChar = '*';
             this.tbConfirmacao.Size = new System.Drawing.Size(225, 20);
             this.tbConfirmacao.TabIndex = 4;
             // 
@@ -91,6 +87,12 @@
             this.DgDisciplinas.Size = new System.Drawing.Size(225, 104);
             this.DgDisciplinas.TabIndex = 5;
             this.DgDisciplinas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // Disciplina
+            // 
+            this.Disciplina.DataPropertyName = "Disciplina";
+            this.Disciplina.HeaderText = "Disciplinas";
+            this.Disciplina.Name = "Disciplina";
             // 
             // BtDisciplina
             // 
@@ -144,16 +146,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(103, 86);
+            this.label3.Location = new System.Drawing.Point(104, 86);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 11;
             this.label3.Text = "Telefone";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(111, 112);
+            this.label4.Location = new System.Drawing.Point(112, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 12;
@@ -168,17 +171,21 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Confirmação  Senha";
             // 
-            // Disciplina
+            // tbTelefone
             // 
-            this.Disciplina.DataPropertyName = "Disciplina";
-            this.Disciplina.HeaderText = "Disciplinas";
-            this.Disciplina.Name = "Disciplina";
+            this.tbTelefone.Location = new System.Drawing.Point(158, 83);
+            this.tbTelefone.Mask = "0-0000-0000";
+            this.tbTelefone.Name = "tbTelefone";
+            this.tbTelefone.Size = new System.Drawing.Size(224, 20);
+            this.tbTelefone.TabIndex = 14;
+            this.tbTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // CadastroProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 331);
+            this.Controls.Add(this.tbTelefone);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -190,10 +197,11 @@
             this.Controls.Add(this.DgDisciplinas);
             this.Controls.Add(this.tbConfirmacao);
             this.Controls.Add(this.tbSenha);
-            this.Controls.Add(this.tbTelefone);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbNome);
             this.Name = "CadastroProfessor";
+            this.Text = "Cadastro Professor";
+            this.Load += new System.EventHandler(this.CadastroProfessor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgDisciplinas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -204,7 +212,6 @@
 
         private System.Windows.Forms.TextBox tbNome;
         private System.Windows.Forms.TextBox tbEmail;
-        private System.Windows.Forms.TextBox tbTelefone;
         private System.Windows.Forms.TextBox tbSenha;
         private System.Windows.Forms.TextBox tbConfirmacao;
         private System.Windows.Forms.DataGridView DgDisciplinas;
@@ -217,5 +224,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Disciplina;
+        private System.Windows.Forms.MaskedTextBox tbTelefone;
     }
 }

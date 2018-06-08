@@ -42,10 +42,10 @@
             // 
             this.Teach.AutoSize = true;
             this.Teach.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.Teach.Font = new System.Drawing.Font("Fontastique", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Teach.Location = new System.Drawing.Point(83, 19);
+            this.Teach.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Teach.Location = new System.Drawing.Point(139, 22);
             this.Teach.Name = "Teach";
-            this.Teach.Size = new System.Drawing.Size(122, 45);
+            this.Teach.Size = new System.Drawing.Size(133, 42);
             this.Teach.TabIndex = 0;
             this.Teach.Text = "Teach!";
             this.Teach.Click += new System.EventHandler(this.label1_Click);
@@ -54,7 +54,7 @@
             // 
             this.Email.AutoSize = true;
             this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Email.Location = new System.Drawing.Point(28, 99);
+            this.Email.Location = new System.Drawing.Point(96, 104);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(47, 17);
             this.Email.TabIndex = 1;
@@ -65,7 +65,7 @@
             // 
             this.Senha.AutoSize = true;
             this.Senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Senha.Location = new System.Drawing.Point(28, 125);
+            this.Senha.Location = new System.Drawing.Point(96, 130);
             this.Senha.Name = "Senha";
             this.Senha.Size = new System.Drawing.Size(49, 17);
             this.Senha.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.EsquecerSenha.AutoSize = true;
             this.EsquecerSenha.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EsquecerSenha.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.EsquecerSenha.Location = new System.Drawing.Point(140, 148);
+            this.EsquecerSenha.Location = new System.Drawing.Point(172, 153);
             this.EsquecerSenha.Name = "EsquecerSenha";
             this.EsquecerSenha.Size = new System.Drawing.Size(108, 13);
             this.EsquecerSenha.TabIndex = 3;
@@ -88,7 +88,7 @@
             this.NovoCadastro.AutoSize = true;
             this.NovoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NovoCadastro.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.NovoCadastro.Location = new System.Drawing.Point(172, 239);
+            this.NovoCadastro.Location = new System.Drawing.Point(172, 225);
             this.NovoCadastro.Name = "NovoCadastro";
             this.NovoCadastro.Size = new System.Drawing.Size(100, 13);
             this.NovoCadastro.TabIndex = 4;
@@ -97,21 +97,22 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(78, 99);
+            this.tbEmail.Location = new System.Drawing.Point(146, 104);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(170, 20);
             this.tbEmail.TabIndex = 5;
             // 
             // tbSenha
             // 
-            this.tbSenha.Location = new System.Drawing.Point(78, 125);
+            this.tbSenha.Location = new System.Drawing.Point(146, 130);
             this.tbSenha.Name = "tbSenha";
+            this.tbSenha.PasswordChar = '*';
             this.tbSenha.Size = new System.Drawing.Size(170, 20);
             this.tbSenha.TabIndex = 6;
             // 
             // btAcessar
             // 
-            this.btAcessar.Location = new System.Drawing.Point(91, 181);
+            this.btAcessar.Location = new System.Drawing.Point(187, 181);
             this.btAcessar.Name = "btAcessar";
             this.btAcessar.Size = new System.Drawing.Size(75, 23);
             this.btAcessar.TabIndex = 7;
@@ -123,7 +124,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(446, 308);
             this.Controls.Add(this.btAcessar);
             this.Controls.Add(this.tbSenha);
             this.Controls.Add(this.tbEmail);
