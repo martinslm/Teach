@@ -10,7 +10,7 @@ namespace Teach.Negocio.Models
     [Table(name: "Faturas")]
     public class Fatura
     {
-        public string ID { get; set; }
+        public long Id { get; set; }
         public virtual List<Agenda> Descricao { get; set; }
         public Int64 ValorTotal { get; set; }
         public DateTime DataGeracao { get; set; }

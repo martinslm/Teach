@@ -10,7 +10,8 @@ namespace Teach.Negocio.Models
     [Table (name: "Agendas")]
     public class Agenda
     {
-        public virtual List<Aluno> Aluno { get; set; }
+        public long Id { get; set; }
+        public virtual ICollection<Aluno> Aluno { get; set; }
         public String Endereco { get; set; } 
         public DateTime HoraInicial { get; set; }
         public DateTime HoraFinal { get; set; }
@@ -19,14 +20,13 @@ namespace Teach.Negocio.Models
 
         public Agenda()
         {
-            //Fazer essa parte
+            this.Aluno = new List<Aluno>();
         }
-        //public TimeSpan TotalHorasCalculo()
-        //{
-            //validacoes
-          //  TimeSpan acalcular=0;
-            //return acalcular;
-        //}
+         public TimeSpan HorasCalculo()
+        {
+            this.TotalHoras = HoraFinal - HoraInicial;
+            return TotalHoras;
+        }
 
     }
 }

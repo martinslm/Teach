@@ -99,7 +99,7 @@
             this.BtDisciplina.Location = new System.Drawing.Point(65, 191);
             this.BtDisciplina.Name = "BtDisciplina";
             this.BtDisciplina.Size = new System.Drawing.Size(75, 36);
-            this.BtDisciplina.TabIndex = 6;
+            this.BtDisciplina.TabIndex = 5;
             this.BtDisciplina.Text = "Incluir Disicplina";
             this.BtDisciplina.UseVisualStyleBackColor = true;
             this.BtDisciplina.Click += new System.EventHandler(this.BtDisciplina_Click);
@@ -109,7 +109,7 @@
             this.btCancelar.Location = new System.Drawing.Point(227, 271);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 28);
-            this.btCancelar.TabIndex = 7;
+            this.btCancelar.TabIndex = 6;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
@@ -174,10 +174,10 @@
             // tbTelefone
             // 
             this.tbTelefone.Location = new System.Drawing.Point(158, 83);
-            this.tbTelefone.Mask = "0-0000-0000";
+            this.tbTelefone.Mask = "00000-0000";
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(224, 20);
-            this.tbTelefone.TabIndex = 14;
+            this.tbTelefone.TabIndex = 2;
             this.tbTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // CadastroProfessor

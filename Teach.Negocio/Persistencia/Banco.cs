@@ -14,5 +14,6 @@ namespace Teach.Negocio.Persistencia
         public virtual DbSet<Aluno> Alunos { get; set; }
         public virtual DbSet<Agenda> Agendamentos { get; set; }
         public virtual DbSet<Disciplina> Disciplina { get; set; }
+        public virtual DbSet<Fatura> Faturas { get; set; }
     }
 }

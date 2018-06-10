@@ -17,6 +17,7 @@ namespace Teach.Negocio
             Console.WriteLine(banco.Database.Connection.ConnectionString);
         }
 
+        /* Tela Inicial */
         public Validacao CadastroProfessor(Professor Usuario, String ValidadorSenha)
         {
             Validacao validacao = new Validacao();
@@ -50,17 +51,18 @@ namespace Teach.Negocio
                 validacao.Mensagens.Add("Senhas", "Os parâmetros de senha e Confirmação de senha são divergentes");
             }
 
-            if(Usuario.Discplina.Count == 0)
+            if(Usuario.Disciplina.Count==0)
             {
                 validacao.Mensagens.Add("Disciplina", "Você deve incluir pelo menos uma disciplina");
             }
-            foreach(var disc in Usuario.Discplina)
+            /*     foreach(var disc in Usuario.Discplina)
             {
                 if (String.IsNullOrEmpty(disc.disciplina))
                 {
                     validacao.Mensagens.Add("Disciplina", "Disciplina com nome inválido");
                 }
             }
+            */
 
             if (validacao.Valido)
             {
@@ -88,6 +90,8 @@ namespace Teach.Negocio
 
             return validacao;
         }
+
+        /* Tela Cadastros*/
 
         public Validacao CadastroAluno(Aluno AlunoAdicionado)
         {
@@ -151,14 +155,58 @@ namespace Teach.Negocio
             return validacao;
         }
 
+        /*Tela Agenda*/
+
         public Validacao NovoAgendamento (Agenda agendamento)
         {
             Validacao validacao = new Validacao();
+            /* if (!(this.banco.Clientes.Where(x => x.Id == PedidoAdicionado.Cliente.Id).Any()))
+            {
+                validacao.Mensagens.Add("cliente", "Não existe nenhum cliente cadastrado com esse código idenfiticador");
+            }*/
+            if(!(this.banco.Alunos.Where(x => x.Id == agendamento.Aluno.Id).Any()))
+            {
+                validacao.Mensagens.Add("aluno", "Aluno Inválido");
+            }
+            
             //
             //
             //
 
             return validacao;
+        }
+
+        /* Tela Financeiro */
+
+            /*Buscas por ID e Listas */
+
+            public List<Aluno> TodosOsAlunos()
+        {
+            return this.banco.Alunos.ToList();
+        }
+        public List<Agenda> TodosOsAgendamentos()
+        {
+            return this.banco.Agendamentos.ToList();
+        }
+        public List<Fatura> TodasAsFaturas()
+        {
+            return this.banco.Faturas.ToList();
+        }
+        public Aluno BuscaAlunoPorID(long Id)
+        {
+            return this.banco.Alunos.Where(c => c.Id == Id).FirstOrDefault();
+        }
+        public Disciplina BuscaDisciplinaPorId(long Id)
+        {
+            return this.banco.Disciplina.Where(c => c.Id == Id).FirstOrDefault();
+        }
+        public Agenda BuscaAgendamentoPorId(long Id)
+        {
+            return this.banco.Agendamentos.Where(c => c.Id == Id).FirstOrDefault();
+        }
+        public Fatura BuscaFaturaPorId (long Id)
+        {
+            return this.banco.Faturas.Where(c => c.Id == Id).FirstOrDefault();
         }
     }
 }

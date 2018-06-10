@@ -10,16 +10,16 @@ namespace Teach.Negocio.Models
     [Table(name: "Professores")]
     public class Professor
     {
-        public String ID { get; set; }
+        public long Id { get; set; }
         public String Nome { get; set; }
         public String Email { get; set; }
         public String Senha { get; set; }
         public String Telefone { get; set; }
-        public List<Disciplina> Discplina { get; set; }
+        public virtual ICollection<Disciplina> Disciplina { get; set; }
 
         public Professor()
         {
-            this.Discplina = new List<Disciplina>();
+            this.Disciplina = new List<Disciplina>();
         }
     }
 }

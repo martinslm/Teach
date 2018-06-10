@@ -13,5 +13,6 @@ namespace Teach.Negocio.Persistencia
         public List<Aluno> Alunos;
         public List<Agenda> Agendamentos;
         public List<Disciplina> Disciplina;
+        public List<Fatura> Faturas;
     }
 }

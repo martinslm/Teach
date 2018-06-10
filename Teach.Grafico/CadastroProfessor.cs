@@ -19,7 +19,7 @@ namespace Teach.Grafico
         {
             InitializeComponent();
             ListaDisciplina = new List<Disciplina>();
-            DgDisciplinas.DataSource = ListaDisciplina;
+            DgDisciplinas.DataSource = ListaDisciplina.ToList();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -42,6 +42,7 @@ namespace Teach.Grafico
             IncluirDisciplina tela = new IncluirDisciplina();
             tela.Show();
             ListaDisciplina.Add(tela.novaDisciplina);
+            CarregaDG();
         }
 
         private void btSalvar_Click(object sender, EventArgs e)
@@ -51,7 +52,7 @@ namespace Teach.Grafico
             NovoCadastro.Email = tbEmail.Text;
             NovoCadastro.Telefone = tbTelefone.Text;
             NovoCadastro.Senha = tbSenha.Text;
-            NovoCadastro.Discplina.AddRange(ListaDisciplina);
+            NovoCadastro.Disciplina = ListaDisciplina;
             String ConfirmacaoSenha = tbConfirmacao.Text;
 
             /*Ver como adicionar disciplina*/
@@ -61,6 +62,7 @@ namespace Teach.Grafico
             if (validacao.Valido)
             {
                 MessageBox.Show("Cadastro realizado com sucesso.");
+                this.Close();
             }
             else
             {
@@ -93,6 +95,12 @@ namespace Teach.Grafico
         private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
 
+        }
+
+        private void CarregaDG()
+        {
+            DgDisciplinas.DataSource = ListaDisciplina.ToList();
+            DgDisciplinas.AutoGenerateColumns = false;
         }
     }
 }
