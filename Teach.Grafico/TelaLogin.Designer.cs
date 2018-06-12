@@ -86,6 +86,7 @@
             // NovoCadastro
             // 
             this.NovoCadastro.AutoSize = true;
+            this.NovoCadastro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.NovoCadastro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NovoCadastro.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.NovoCadastro.Location = new System.Drawing.Point(172, 225);

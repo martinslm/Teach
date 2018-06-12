@@ -11,7 +11,7 @@ namespace Teach.Negocio.Models
     public class Agenda
     {
         public long Id { get; set; }
-        public virtual ICollection<Aluno> Aluno { get; set; }
+        public virtual Aluno Aluno { get; set; }
         public String Endereco { get; set; } 
         public DateTime HoraInicial { get; set; }
         public DateTime HoraFinal { get; set; }
@@ -20,7 +20,6 @@ namespace Teach.Negocio.Models
 
         public Agenda()
         {
-            this.Aluno = new List<Aluno>();
         }
          public TimeSpan HorasCalculo()
         {

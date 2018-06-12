@@ -71,18 +71,18 @@ namespace Teach.Negocio
             }
             return validacao;
         }
-
+        //public Validacao EditaCadastro(Professor Usuario, String ValidadorSenha);
         public Validacao EfetuaLogin(Professor Professor)
         {
             Validacao validacao = new Validacao();
             var professorDb = this.banco.Prof.Where(p => p.Email == Professor.Email).FirstOrDefault();
-            if(professorDb == null)
+            if (professorDb == null)
             {
                 validacao.Mensagens.Add("Email", "E-mail não cadastrado");
             }
             else
             {
-                if(professorDb.Senha != Professor.Senha)
+                if (professorDb.Senha != Professor.Senha)
                 {
                     validacao.Mensagens.Add("Senha", "Senha inválida");
                 }
@@ -90,6 +90,7 @@ namespace Teach.Negocio
 
             return validacao;
         }
+        // public Validacao EsqueciMinhaSenha()
 
         /* Tela Cadastros*/
 
@@ -154,25 +155,31 @@ namespace Teach.Negocio
             }
             return validacao;
         }
+        //public Validacao EditarAluno(Aluno Aluno)
 
         /*Tela Agenda*/
 
         public Validacao NovoAgendamento (Agenda agendamento)
         {
             Validacao validacao = new Validacao();
-            /* if (!(this.banco.Clientes.Where(x => x.Id == PedidoAdicionado.Cliente.Id).Any()))
-            {
-                validacao.Mensagens.Add("cliente", "Não existe nenhum cliente cadastrado com esse código idenfiticador");
-            }*/
             if(!(this.banco.Alunos.Where(x => x.Id == agendamento.Aluno.Id).Any()))
             {
                 validacao.Mensagens.Add("aluno", "Aluno Inválido");
             }
-            
-            //
-            //
-            //
-
+            if(String.IsNullOrEmpty(agendamento.Endereco))
+            {
+                validacao.Mensagens.Add("end", "Por favor, inclua um endereço para esta aula");
+            }
+            if(agendamento.HoraFinal<=agendamento.HoraInicial)
+            {
+                validacao.Mensagens.Add("Horario", "O horário inicial da aula é maior que o horário final da aula.");
+            }
+            //É valido realizarmos uma validação para o professor não conseguir cadastrar nada dentro do periodo 
+            //de um agendamento já existente? Visando que um professor pode marcar uma aula com dois alunos diferentes no mesmo horário.
+            if(this.banco.Agendamentos.Where(v => v.HoraInicial == agendamento.HoraInicial).Any())
+            {
+                //if(criar uma condicional para verificar se os endereços são iguais.)
+            }
             return validacao;
         }
 
@@ -204,6 +211,20 @@ namespace Teach.Negocio
         {
             return this.banco.Agendamentos.Where(c => c.Id == Id).FirstOrDefault();
         }
+        //public Agenda BuscaAgendamentoPorAluno(Aluno Aluno)
+        //{
+                //este trecho do Where também poderia ser uma condicional IF, onde, SE VERDADEIRO, é realizado o foreach. 
+            //return this.banco.Agendamentos.Where(c => c.Aluno.Nome == Aluno.Nome).Any();
+
+            /* Para somar o total de horas por aluno:
+             * TimeSpan soma;
+             * foreach (var total in Agenda)
+             * {
+             *  soma += total.totalhora;
+             * }
+             * 
+             */
+        //}
         public Fatura BuscaFaturaPorId (long Id)
         {
             return this.banco.Faturas.Where(c => c.Id == Id).FirstOrDefault();
