@@ -260,6 +260,11 @@ namespace Teach.Negocio
         {
             return this.banco.Faturas.ToList();
         }
+        //Teste
+        public List<Disciplina> TodasAsDisciplina()
+        {
+            return this.banco.Disciplina.ToList();
+        }
         public Aluno BuscaAlunoPorID(long Id)
         {
             return this.banco.Alunos.Where(c => c.Id == Id).FirstOrDefault();

@@ -48,6 +48,10 @@ namespace Teach.Grafico
             //NovoCadastro.Bairro =
             //NovoCadastro.Cidade = 
             //NovoCadastro.CEP = 
+<<<<<<< HEAD
+=======
+
+>>>>>>> a892ba0497a0989b25b86264a0a409409aab6a88
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
