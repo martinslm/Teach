@@ -155,7 +155,44 @@ namespace Teach.Negocio
             }
             return validacao;
         }
-        //public Validacao EditarAluno(Aluno Aluno)
+        public Validacao EditarAluno(Aluno Aluno)
+        {
+            Validacao validacao = new Validacao();
+            Aluno AlunoBanco = BuscaAlunoPorID(Aluno.Id);
+            AlunoBanco.Nome = Aluno.Nome;
+            AlunoBanco.Email = Aluno.Email;
+            AlunoBanco.Celular = Aluno.Celular;
+            AlunoBanco.DisciplinaCursada = Aluno.DisciplinaCursada;
+            AlunoBanco.CargaHoraria = Aluno.CargaHoraria;
+            AlunoBanco.ValorHoraAula = Aluno.ValorHoraAula;
+            AlunoBanco.Rua = Aluno.Rua;
+            AlunoBanco.Numero = Aluno.Numero;
+            AlunoBanco.Complemento = Aluno.Complemento;
+            AlunoBanco.Bairro = Aluno.Bairro;
+            AlunoBanco.Cidade = Aluno.Cidade;
+            AlunoBanco.CEP = Aluno.CEP;
+            this.banco.SaveChanges();
+            return validacao;
+        }
+        public Validacao RemoverAluno(Aluno AlunoRemover)
+        {
+            Validacao validacao = new Validacao();
+            banco.Alunos.Remove(AlunoRemover);
+            banco.SaveChanges();
+            return validacao;
+        }
+        public Validacao MinhaConta(Professor Usuario, String ValidadorSenha)
+        {
+            Validacao validacao = new Validacao();
+            Professor ProfessorBanco = BuscaProfessorPorId(Usuario.Id);
+            ProfessorBanco.Nome = Usuario.Nome;
+            ProfessorBanco.Email = Usuario.Email;
+            ProfessorBanco.Senha = Usuario.Senha;
+            ProfessorBanco.Telefone = Usuario.Telefone;
+            ProfessorBanco.Disciplina = Usuario.Disciplina;
+            this.banco.SaveChanges();
+            return validacao;
+        }
 
         /*Tela Agenda*/
 
@@ -229,5 +266,10 @@ namespace Teach.Negocio
         {
             return this.banco.Faturas.Where(c => c.Id == Id).FirstOrDefault();
         }
+        public Professor BuscaProfessorPorId(long Id)
+        {
+            return this.banco.Prof.Where(c => c.Id == Id).FirstOrDefault();
+        }
+
     }
 }
