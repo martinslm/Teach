@@ -34,16 +34,16 @@ namespace Teach.Grafico
         { /*
             novaDisciplina = new Disciplina();
             novaDisciplina.disciplina = tbDisciplina.Text; */
-            Professor disciplinaLecionada = new Professor();
-            Disciplina novaDisciplina = new Disciplina();
-            novaDisciplina.disciplina = tbDisciplina.Text;
+            //Professor disciplinaLecionada = new Professor();
+            //Disciplina novaDisciplina = new Disciplina();
+            //novaDisciplina.disciplina = tbDisciplina.Text;
 
-            disciplinaLecionada.Disciplina.Add(novaDisciplina);
+            //disciplinaLecionada.Disciplina.Add(novaDisciplina);
             this.Close();
-            this.banco.Disciplina.Add(novaDisciplina);
-            this.banco.SaveChanges();
+            //this.banco.Disciplina.Add(novaDisciplina);
+            //this.banco.SaveChanges();
             
-            this.Close();
+            //this.Close();
         }
 
         private void IncluirDisciplina_Load(object sender, EventArgs e)

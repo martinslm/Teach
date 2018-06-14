@@ -71,7 +71,6 @@ namespace Teach.Negocio
             }
             return validacao;
         }
-        //public Validacao EditaCadastro(Professor Usuario, String ValidadorSenha);
         public Validacao EfetuaLogin(Professor Professor)
         {
             Validacao validacao = new Validacao();
@@ -152,6 +151,7 @@ namespace Teach.Negocio
             if(validacao.Valido)
             {
                 this.banco.Alunos.Add(AlunoAdicionado);
+                this.banco.SaveChanges();
             }
             return validacao;
         }
@@ -213,22 +213,46 @@ namespace Teach.Negocio
             }
             //É valido realizarmos uma validação para o professor não conseguir cadastrar nada dentro do periodo 
             //de um agendamento já existente? Visando que um professor pode marcar uma aula com dois alunos diferentes no mesmo horário.
-            if(this.banco.Agendamentos.Where(v => v.HoraInicial == agendamento.HoraInicial).Any())
+            var AgendamentoDb = this.banco.Agendamentos.Where(v => v.HoraInicial == agendamento.HoraInicial).FirstOrDefault();
+            if(AgendamentoDb.Endereco != agendamento.Endereco)
             {
-                //if(criar uma condicional para verificar se os endereços são iguais.)
+                validacao.Mensagens.Add("Agendamento", "Você já possui uma aula agendada para este horário em outro endereço");
             }
             return validacao;
         }
-
+        public Validacao EditarAgendamento (Agenda novasInformacoes)
+        {
+            Validacao validacao = new Validacao();
+            Agenda AgendaBanco = BuscaAgendamentoPorId(novasInformacoes.Id);
+            AgendaBanco.Aluno = novasInformacoes.Aluno;
+            AgendaBanco.Endereco = novasInformacoes.Endereco;
+            AgendaBanco.HoraInicial = novasInformacoes.HoraInicial;
+            AgendaBanco.HoraFinal = novasInformacoes.HoraFinal;
+            AgendaBanco.Observacoes = novasInformacoes.Observacoes;
+            this.banco.SaveChanges();
+            return validacao;
+        }
+        public Validacao RemoveAgendamento (Agenda AgendamentoAremover)
+        {
+            Validacao validacao = new Validacao();
+            banco.Agendamentos.Remove(AgendamentoAremover);
+            banco.SaveChanges();
+            return validacao; 
+        }
         /* Tela Financeiro */
 
             /*Buscas por ID e Listas */
 
-            public List<Aluno> TodosOsAlunos()
+        public List<Aluno> TodosOsAlunos()
         {
             return this.banco.Alunos.ToList();
         }
-        public List<Agenda> TodosOsAgendamentos()
+        //teste
+        public List<Disciplina> TodasAsDisciplina()
+        {
+            return this.banco.Disciplina.ToList();
+        }
+    public List<Agenda> TodosOsAgendamentos()
         {
             return this.banco.Agendamentos.ToList();
         }

@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Teach.Negocio;
 using Teach.Negocio.Models;
+using Teach.Negocio.Persistencia;
 
 namespace Teach.Grafico
 {
     public partial class CadastroProfessor : Form
     {
+        private Banco banco = new Banco();
         private List<Disciplina> ListaDisciplina;
         public CadastroProfessor()
         {
@@ -75,7 +77,18 @@ namespace Teach.Grafico
                 }
                 MessageBox.Show(mensagemValidacao);
             }
+
+            //Teste essa função, para verificar se esta retornando o id cadastrado no banco
+            long idProfessor = NovoCadastro.Id;
+
+            foreach (Disciplina item in ListaDisciplina)
+            {
+                item.Idprofessor = idProfessor;
+                this.banco.Disciplina.Add(item);
+                this.banco.SaveChanges();
+
             }
+        }
 
         private void CadastroProfessor_Load(object sender, EventArgs e)
         {
@@ -99,8 +112,11 @@ namespace Teach.Grafico
 
         private void CarregaDG()
         {
-            DgDisciplinas.DataSource = ListaDisciplina.ToList();
+            DgDisciplinas.MultiSelect = false;
+            DgDisciplinas.SelectionMode = DataGridViewSelectionMode.FullColumnSelect;
             DgDisciplinas.AutoGenerateColumns = false;
+            List<Disciplina> Disciplinas = Program.Gerenciador.TodasAsDisciplina();
+            DgDisciplinas.DataSource = ListaDisciplina.ToList();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Teach.Negocio.Models
     public class Disciplina
     {
         public long Id { get; set; }
+        public long Idprofessor { get; set; }
         public String disciplina { get; set; }
     }
 }

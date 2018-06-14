@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Teach.Negocio.Models;
 
 namespace Teach.Grafico
 {
@@ -30,6 +31,28 @@ namespace Teach.Grafico
         private void Cadastro_Aluno_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void btSalvar_Click(object sender, EventArgs e)
+        {
+            Aluno NovoCadastro = new Aluno();
+            NovoCadastro.Nome = tbNome.Text;
+            NovoCadastro.Email = tbEmail.Text;
+            NovoCadastro.Celular = tbEmail.Text;
+            //NovoCadastro.DisciplinaCursada = 
+            //NovoCadastro.CargaHoraria = ;
+            //NovoCadastro.ValorHoraAula =
+            //NovoCadastro.Rua = 
+            //NovoCadastro.Numero = 
+            //NovoCadastro.Complemento =
+            //NovoCadastro.Bairro =
+            //NovoCadastro.Cidade = 
+            //NovoCadastro.CEP = 
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

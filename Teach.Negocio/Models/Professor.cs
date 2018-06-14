@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Teach.Negocio.Models
 {
     [Table(name: "Professores")]
-    public class Professor
+    public class Professor : Disciplina
     {
         public long Id { get; set; }
         public String Nome { get; set; }
