@@ -77,10 +77,6 @@ namespace Teach.Grafico
                 }
                 MessageBox.Show(mensagemValidacao);
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> a892ba0497a0989b25b86264a0a409409aab6a88
             //Teste essa função, para verificar se esta retornando o id cadastrado no banco
             long idProfessor = NovoCadastro.Id;
 
@@ -89,10 +85,6 @@ namespace Teach.Grafico
                 item.Idprofessor = idProfessor;
                 this.banco.Disciplina.Add(item);
                 this.banco.SaveChanges();
-<<<<<<< HEAD
-
-=======
->>>>>>> a892ba0497a0989b25b86264a0a409409aab6a88
             }
         }
 
@@ -123,10 +115,6 @@ namespace Teach.Grafico
             DgDisciplinas.AutoGenerateColumns = false;
             List<Disciplina> Disciplinas = Program.Gerenciador.TodasAsDisciplina();
             DgDisciplinas.DataSource = ListaDisciplina.ToList();
-<<<<<<< HEAD
-=======
-            
->>>>>>> a892ba0497a0989b25b86264a0a409409aab6a88
         }
     }
 }

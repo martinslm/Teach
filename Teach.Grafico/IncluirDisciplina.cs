@@ -33,13 +33,8 @@ namespace Teach.Grafico
         private void btSalvar_Click(object sender, EventArgs e)
         { 
             novaDisciplina = new Disciplina();
-<<<<<<< HEAD
-            novaDisciplina.disciplina = tbDisciplina.Text; */
-=======
             novaDisciplina.disciplina = tbDisciplina.Text;
             //novaDisciplina.Add(novaDisciplina.disciplina);
-            
->>>>>>> a892ba0497a0989b25b86264a0a409409aab6a88
             //Professor disciplinaLecionada = new Professor();
             //Disciplina novaDisciplina = new Disciplina();
             //novaDisciplina.disciplina = tbDisciplina.Text;

@@ -252,18 +252,13 @@ namespace Teach.Negocio
         {
             return this.banco.Disciplina.ToList();
         }
-    public List<Agenda> TodosOsAgendamentos()
+         public List<Agenda> TodosOsAgendamentos()
         {
             return this.banco.Agendamentos.ToList();
         }
         public List<Fatura> TodasAsFaturas()
         {
             return this.banco.Faturas.ToList();
-        }
-        //Teste
-        public List<Disciplina> TodasAsDisciplina()
-        {
-            return this.banco.Disciplina.ToList();
         }
         public Aluno BuscaAlunoPorID(long Id)
         {
