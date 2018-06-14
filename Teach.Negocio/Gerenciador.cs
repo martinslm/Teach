@@ -152,6 +152,7 @@ namespace Teach.Negocio
             if(validacao.Valido)
             {
                 this.banco.Alunos.Add(AlunoAdicionado);
+                this.banco.SaveChanges();
             }
             return validacao;
         }
@@ -224,7 +225,7 @@ namespace Teach.Negocio
 
             /*Buscas por ID e Listas */
 
-            public List<Aluno> TodosOsAlunos()
+        public List<Aluno> TodosOsAlunos()
         {
             return this.banco.Alunos.ToList();
         }
@@ -235,6 +236,11 @@ namespace Teach.Negocio
         public List<Fatura> TodasAsFaturas()
         {
             return this.banco.Faturas.ToList();
+        }
+        //Teste
+        public List<Disciplina> TodasAsDisciplina()
+        {
+            return this.banco.Disciplina.ToList();
         }
         public Aluno BuscaAlunoPorID(long Id)
         {

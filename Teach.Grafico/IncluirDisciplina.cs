@@ -29,21 +29,23 @@ namespace Teach.Grafico
         {
             this.Close();
         }
-
+       
         private void btSalvar_Click(object sender, EventArgs e)
-        { /*
+        { 
             novaDisciplina = new Disciplina();
-            novaDisciplina.disciplina = tbDisciplina.Text; */
-            Professor disciplinaLecionada = new Professor();
-            Disciplina novaDisciplina = new Disciplina();
             novaDisciplina.disciplina = tbDisciplina.Text;
-
-            disciplinaLecionada.Disciplina.Add(novaDisciplina);
-            this.Close();
-            this.banco.Disciplina.Add(novaDisciplina);
-            this.banco.SaveChanges();
+            //novaDisciplina.Add(novaDisciplina.disciplina);
             
+            //Professor disciplinaLecionada = new Professor();
+            //Disciplina novaDisciplina = new Disciplina();
+            //novaDisciplina.disciplina = tbDisciplina.Text;
+
+            //disciplinaLecionada.Disciplina.Add(novaDisciplina);
             this.Close();
+            //this.banco.Disciplina.Add(novaDisciplina);
+            //this.banco.SaveChanges();
+            
+            //this.Close();
         }
 
         private void IncluirDisciplina_Load(object sender, EventArgs e)
