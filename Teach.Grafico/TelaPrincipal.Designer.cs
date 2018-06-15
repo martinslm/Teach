@@ -72,14 +72,15 @@
             // alunosToolStripMenuItem
             // 
             this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
-            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alunosToolStripMenuItem.Text = "Alunos";
             // 
             // minhaContaToolStripMenuItem
             // 
             this.minhaContaToolStripMenuItem.Name = "minhaContaToolStripMenuItem";
-            this.minhaContaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.minhaContaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.minhaContaToolStripMenuItem.Text = "Minha Conta";
+            this.minhaContaToolStripMenuItem.Click += new System.EventHandler(this.minhaContaToolStripMenuItem_Click);
             // 
             // agendaToolStripMenuItem
             // 

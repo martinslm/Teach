@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Teach.Negocio.Models;
 
 namespace Teach.Grafico
 {
     public partial class TelaPrincipal : Form
     {
         private int childFormNumber = 0;
+        private Professor ProfessorSelecionado {get;set;}
 
         public TelaPrincipal()
         {
@@ -107,6 +109,12 @@ namespace Teach.Grafico
         private void TelaPrincipal_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void minhaContaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CadastroProfessor tela = new CadastroProfessor();
+            tela.Show();
         }
     }
 }

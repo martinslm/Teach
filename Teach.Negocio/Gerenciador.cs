@@ -241,13 +241,12 @@ namespace Teach.Negocio
         }
 
         /* Tela Financeiro */
-
-        public Validacao FechamentoFatura(String AlunoPesquisado)
+        public Validacao FechamentoDeFatura()
         {
             Validacao validacao = new Validacao();
-            //if(this.banco.Alunos.Where(c => c.Nome.ToUpper == AlunoPesquisado.ToUpper).Any())
-            // if (this.banco.Prof.Where(c => c.Email == Usuario.Email).Any())
-                return validacao;
+            //ja tem um funçao para buscar aluno pela informacao do campo de pesquisa, continuar logica.
+            //material para auxilio: foodtruck
+            return validacao;
         }
         public Validacao ContasAReceber()
         {
@@ -312,6 +311,22 @@ namespace Teach.Negocio
         {
             return this.banco.Prof.Where(c => c.Id == Id).FirstOrDefault();
         }
-
+        public List<Aluno> PesquisaAlunosPorNome(String AlunoPesquisado)
+        {
+            Validacao validacao = new Validacao();
+            List<Aluno> ResultadoBusca = new List<Aluno>();
+            foreach (var aluno in this.banco.Alunos)
+            {
+                if (aluno.Nome.ToUpper() == AlunoPesquisado.ToUpper())
+                {
+                    ResultadoBusca.Add(aluno);
+                }
+            }
+            if (ResultadoBusca == null)
+            {
+                validacao.Mensagens.Add("Aluno", "Não foi possível localizar nenhum aluno com o nome informado");
+            }
+            return ResultadoBusca.ToList();
+        }
     }
 }

@@ -116,7 +116,7 @@ namespace Teach.Grafico
         {
             dgDisciplinas.MultiSelect = false;
             //DgDisciplinas.SelectionMode = DataGridViewSelectionMode.FullColumnSelect;
-            //DgDisciplinas.AutoGenerateColumns = false;
+            dgDisciplinas.AutoGenerateColumns = false;
             //List<Disciplina> Disciplinas = Program.Gerenciador.TodasAsDisciplina();
             dgDisciplinas.DataSource = this.NovoCadastro.Disciplina.ToList();
         }
