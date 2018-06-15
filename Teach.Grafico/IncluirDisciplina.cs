@@ -14,6 +14,8 @@ namespace Teach.Grafico
 {
     public partial class IncluirDisciplina : Form
     {
+        public Professor professor;
+
         public Disciplina novaDisciplina;
         private Banco banco = new Banco();
         public IncluirDisciplina()
@@ -31,20 +33,17 @@ namespace Teach.Grafico
         }
        
         private void btSalvar_Click(object sender, EventArgs e)
-        { 
-            novaDisciplina = new Disciplina();
+        {
+            /*novaDisciplina = new Disciplina();
             novaDisciplina.disciplina = tbDisciplina.Text;
-            //novaDisciplina.Add(novaDisciplina.disciplina);
-            //Professor disciplinaLecionada = new Professor();
-            //Disciplina novaDisciplina = new Disciplina();
-            //novaDisciplina.disciplina = tbDisciplina.Text;
-
-            //disciplinaLecionada.Disciplina.Add(novaDisciplina);
-            this.Close();
-            //this.banco.Disciplina.Add(novaDisciplina);
-            //this.banco.SaveChanges();
+            */
             
-            //this.Close();
+            Disciplina novaDisciplina = new Disciplina();
+            novaDisciplina.disciplina = tbDisciplina.Text;
+
+            professor.Disciplina.Add(novaDisciplina);
+
+            this.Close();
         }
 
         private void IncluirDisciplina_Load(object sender, EventArgs e)

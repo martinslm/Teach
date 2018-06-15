@@ -32,8 +32,6 @@
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbSenha = new System.Windows.Forms.TextBox();
             this.tbConfirmacao = new System.Windows.Forms.TextBox();
-            this.DgDisciplinas = new System.Windows.Forms.DataGridView();
-            this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtDisciplina = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
             this.btSalvar = new System.Windows.Forms.Button();
@@ -43,7 +41,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.DgDisciplinas)).BeginInit();
+            this.dgDisciplinas = new System.Windows.Forms.DataGridView();
+            this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDisciplinas)).BeginInit();
             this.SuspendLayout();
             // 
             // tbNome
@@ -76,23 +76,6 @@
             this.tbConfirmacao.PasswordChar = '*';
             this.tbConfirmacao.Size = new System.Drawing.Size(225, 20);
             this.tbConfirmacao.TabIndex = 4;
-            // 
-            // DgDisciplinas
-            // 
-            this.DgDisciplinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgDisciplinas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Disciplina});
-            this.DgDisciplinas.Location = new System.Drawing.Point(158, 161);
-            this.DgDisciplinas.Name = "DgDisciplinas";
-            this.DgDisciplinas.Size = new System.Drawing.Size(225, 104);
-            this.DgDisciplinas.TabIndex = 5;
-            this.DgDisciplinas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // Disciplina
-            // 
-            this.Disciplina.DataPropertyName = "Disciplina";
-            this.Disciplina.HeaderText = "Disciplinas";
-            this.Disciplina.Name = "Disciplina";
             // 
             // BtDisciplina
             // 
@@ -180,11 +163,28 @@
             this.tbTelefone.TabIndex = 2;
             this.tbTelefone.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
+            // dgDisciplinas
+            // 
+            this.dgDisciplinas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgDisciplinas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Disciplina});
+            this.dgDisciplinas.Location = new System.Drawing.Point(158, 169);
+            this.dgDisciplinas.Name = "dgDisciplinas";
+            this.dgDisciplinas.Size = new System.Drawing.Size(225, 96);
+            this.dgDisciplinas.TabIndex = 14;
+            // 
+            // Disciplina
+            // 
+            this.Disciplina.DataPropertyName = "disciplina";
+            this.Disciplina.HeaderText = "Disciplina";
+            this.Disciplina.Name = "Disciplina";
+            // 
             // CadastroProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 331);
+            this.Controls.Add(this.dgDisciplinas);
             this.Controls.Add(this.tbTelefone);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -194,7 +194,6 @@
             this.Controls.Add(this.btSalvar);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.BtDisciplina);
-            this.Controls.Add(this.DgDisciplinas);
             this.Controls.Add(this.tbConfirmacao);
             this.Controls.Add(this.tbSenha);
             this.Controls.Add(this.tbEmail);
@@ -202,7 +201,7 @@
             this.Name = "CadastroProfessor";
             this.Text = "Cadastro Professor";
             this.Load += new System.EventHandler(this.CadastroProfessor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DgDisciplinas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgDisciplinas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,7 +213,6 @@
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbSenha;
         private System.Windows.Forms.TextBox tbConfirmacao;
-        private System.Windows.Forms.DataGridView DgDisciplinas;
         private System.Windows.Forms.Button BtDisciplina;
         private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.Button btSalvar;
@@ -223,7 +221,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Disciplina;
         private System.Windows.Forms.MaskedTextBox tbTelefone;
+        private System.Windows.Forms.DataGridView dgDisciplinas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Disciplina;
     }
 }

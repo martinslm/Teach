@@ -21,10 +21,6 @@ namespace Teach.Negocio
         public Validacao CadastroProfessor(Professor Usuario, String ValidadorSenha)
         {
             Validacao validacao = new Validacao();
-            if (this.banco.Prof.Where(c => c.Email == Usuario.Email).Any())
-            {
-                validacao.Mensagens.Add("E-mail já cadastrado", "Já existe uma conta com este endereço de e-mail");
-            }
             //melhorar validação do E-mail.
             if (!Usuario.Email.Contains("@"))
             {
@@ -33,6 +29,10 @@ namespace Teach.Negocio
             if (String.IsNullOrEmpty(Usuario.Email))
             {
                 validacao.Mensagens.Add("Email", "Você deve preencher o e-mail");
+            }
+            if (this.banco.Prof.Where(c => c.Email == Usuario.Email).Any())
+            {
+                validacao.Mensagens.Add("E-mail já cadastrado", "Já existe uma conta com este endereço de e-mail");
             }
             if (String.IsNullOrEmpty(Usuario.Nome))
             {
@@ -239,8 +239,26 @@ namespace Teach.Negocio
             banco.SaveChanges();
             return validacao; 
         }
+
         /* Tela Financeiro */
 
+        public Validacao FechamentoFatura(String AlunoPesquisado)
+        {
+            Validacao validacao = new Validacao();
+            //if(this.banco.Alunos.Where(c => c.Nome.ToUpper == AlunoPesquisado.ToUpper).Any())
+            // if (this.banco.Prof.Where(c => c.Email == Usuario.Email).Any())
+                return validacao;
+        }
+        public Validacao ContasAReceber()
+        {
+            Validacao validacao = new Validacao();
+            return validacao;
+        }
+        public Validacao Recibos()
+        {
+            Validacao validacao = new Validacao();
+            return validacao;
+        }
             /*Buscas por ID e Listas */
 
         public List<Aluno> TodosOsAlunos()
@@ -248,10 +266,10 @@ namespace Teach.Negocio
             return this.banco.Alunos.ToList();
         }
         //teste
-        public List<Disciplina> TodasAsDisciplina()
-        {
-            return this.banco.Disciplina.ToList();
-        }
+        //public List<Disciplina> TodasAsDisciplina()
+        //{
+        //    return this.banco.Disciplina.ToList();
+        //}
          public List<Agenda> TodosOsAgendamentos()
         {
             return this.banco.Agendamentos.ToList();

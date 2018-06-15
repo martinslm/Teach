@@ -14,5 +14,6 @@ namespace Teach.Negocio.Models
         public virtual List<Agenda> Descricao { get; set; }
         public Int64 ValorTotal { get; set; }
         public DateTime DataGeracao { get; set; }
+        public String Situacao { get; set; }
     }
 }

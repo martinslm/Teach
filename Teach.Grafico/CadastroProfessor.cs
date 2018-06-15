@@ -15,13 +15,12 @@ namespace Teach.Grafico
 {
     public partial class CadastroProfessor : Form
     {
+        Professor NovoCadastro = new Professor();
         private Banco banco = new Banco();
-        private List<Disciplina> ListaDisciplina;
         public CadastroProfessor()
         {
             InitializeComponent();
-            ListaDisciplina = new List<Disciplina>();
-            DgDisciplinas.DataSource = ListaDisciplina.ToList();
+            CarregaDG();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -42,19 +41,24 @@ namespace Teach.Grafico
         private void BtDisciplina_Click(object sender, EventArgs e)
         {
             IncluirDisciplina tela = new IncluirDisciplina();
+            tela.FormClosed += Tela_FormClosed;
+            tela.professor = this.NovoCadastro;
             tela.Show();
-            ListaDisciplina.Add(tela.novaDisciplina);
+            
+        }
+
+        private void Tela_FormClosed(object sender, FormClosedEventArgs e)
+        {
             CarregaDG();
         }
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            Professor NovoCadastro = new Professor();
+            
             NovoCadastro.Nome = tbNome.Text;
             NovoCadastro.Email = tbEmail.Text;
             NovoCadastro.Telefone = tbTelefone.Text;
             NovoCadastro.Senha = tbSenha.Text;
-            NovoCadastro.Disciplina = ListaDisciplina;
             String ConfirmacaoSenha = tbConfirmacao.Text;
 
             /*Ver como adicionar disciplina*/
@@ -80,12 +84,12 @@ namespace Teach.Grafico
             //Teste essa função, para verificar se esta retornando o id cadastrado no banco
             long idProfessor = NovoCadastro.Id;
 
-            foreach (Disciplina item in ListaDisciplina)
+            /*foreach (Disciplina item in ListaDisciplina)
             {
                 item.Idprofessor = idProfessor;
                 this.banco.Disciplina.Add(item);
                 this.banco.SaveChanges();
-            }
+            }*/
         }
 
         private void CadastroProfessor_Load(object sender, EventArgs e)
@@ -110,11 +114,11 @@ namespace Teach.Grafico
 
         private void CarregaDG()
         {
-            DgDisciplinas.MultiSelect = false;
-            DgDisciplinas.SelectionMode = DataGridViewSelectionMode.FullColumnSelect;
-            DgDisciplinas.AutoGenerateColumns = false;
-            List<Disciplina> Disciplinas = Program.Gerenciador.TodasAsDisciplina();
-            DgDisciplinas.DataSource = ListaDisciplina.ToList();
+            dgDisciplinas.MultiSelect = false;
+            //DgDisciplinas.SelectionMode = DataGridViewSelectionMode.FullColumnSelect;
+            //DgDisciplinas.AutoGenerateColumns = false;
+            //List<Disciplina> Disciplinas = Program.Gerenciador.TodasAsDisciplina();
+            dgDisciplinas.DataSource = this.NovoCadastro.Disciplina.ToList();
         }
     }
 }
