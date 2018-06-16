@@ -10,7 +10,6 @@ namespace Teach.Negocio.Models
     [Table(name: "Alunos")]
     public class Aluno
     {
-        //Neste cadastro deve constar o nome do aluno, e-mail, celular, disciplina, carga horária máxima por semestre, endereço, contrato (opcional), situação financeira e valor por hora aula.   
         public long Id { get; set; }
         public String Nome { get; set; }
         public String Email { get; set; }
@@ -26,12 +25,21 @@ namespace Teach.Negocio.Models
         public String CEP { get; set; }
         public virtual Professor Professor { get; set; }
 
-        //verificar contrato
-
         public String SituacaoFinanceira()
         {
             //validacoes
             return String.Format("");
         }
+
+        /*[NotMapped]
+        public String Disciplina
+        {
+            get
+            {
+                return DisciplinaCursada.ToString();
+            }
+        }*/
+
+        
     }
 }

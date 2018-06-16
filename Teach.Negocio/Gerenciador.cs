@@ -10,7 +10,7 @@ namespace Teach.Negocio
 {
     public class Gerenciador
     {
-        long ProfessorLogado;
+        public long ProfessorLogado;
         private Banco banco = new Banco();
 
         public Gerenciador()
@@ -186,7 +186,7 @@ namespace Teach.Negocio
         public Validacao MinhaConta(Professor Usuario, String ValidadorSenha)
         {
             Validacao validacao = new Validacao();
-            Professor ProfessorBanco = BuscaProfessorPorId(Usuario.Id);
+            Professor ProfessorBanco = BuscaProfessorPorID(ProfessorLogado);
             ProfessorBanco.Nome = Usuario.Nome;
             ProfessorBanco.Email = Usuario.Email;
             ProfessorBanco.Senha = Usuario.Senha;
@@ -303,19 +303,26 @@ namespace Teach.Negocio
         public List<Aluno> PesquisaAlunosPorNome(String AlunoPesquisado)
         {
             Validacao validacao = new Validacao();
-            List<Aluno> ResultadoBusca = new List<Aluno>();
-            foreach (var aluno in this.banco.Alunos)
+            List<Aluno> ResultadoBusca2 = new List<Aluno>();
+            foreach (var alunos in this.banco.Alunos)
             {
-                if (aluno.Nome.ToUpper() == AlunoPesquisado.ToUpper())
+                if (alunos.Professor.Id == ProfessorLogado)
                 {
-                    ResultadoBusca.Add(aluno);
+                    foreach (var aluno in this.banco.Alunos)
+                    {
+                        if (aluno.Nome.ToUpper() == AlunoPesquisado.ToUpper())
+                        {
+                            ResultadoBusca2.Add(aluno);
+                        }
+                    }
                 }
             }
-            if (ResultadoBusca == null)
+            if (ResultadoBusca2 == null)
             {
                 validacao.Mensagens.Add("Aluno", "Não foi possível localizar nenhum aluno com o nome informado");
             }
-            return ResultadoBusca.ToList();
+
+            return ResultadoBusca2.ToList();
         }
 
         public List<Disciplina> TodasAsDisciplinaDoProfessorLogado()

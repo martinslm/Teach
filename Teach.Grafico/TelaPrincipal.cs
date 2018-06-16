@@ -121,7 +121,6 @@ namespace Teach.Grafico
 
         private void TelaPrincipal_Load(object sender, EventArgs e)
         {
-
         }
 
         private void minhaContaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -132,12 +131,7 @@ namespace Teach.Grafico
 
         private void alunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void adicionarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Cadastro_Aluno tela = new Cadastro_Aluno();
+            TelaGestaoAlunos tela = new TelaGestaoAlunos();
             tela.Show();
         }
 

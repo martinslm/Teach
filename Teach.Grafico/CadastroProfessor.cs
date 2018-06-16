@@ -62,7 +62,15 @@ namespace Teach.Grafico
             String ConfirmacaoSenha = tbConfirmacao.Text;
             /*Ver como adicionar disciplina*/
 
-            Validacao validacao = Program.Gerenciador.CadastroProfessor(NovoCadastro, ConfirmacaoSenha);
+            Validacao validacao;
+            if (Program.Gerenciador.ProfessorLogado == 0)
+            {
+               validacao = Program.Gerenciador.CadastroProfessor(NovoCadastro, ConfirmacaoSenha);
+            }
+            else
+            {
+                validacao = Program.Gerenciador.MinhaConta(NovoCadastro, ConfirmacaoSenha);
+            }
 
             if (validacao.Valido)
             {
@@ -80,15 +88,6 @@ namespace Teach.Grafico
                 }
                 MessageBox.Show(mensagemValidacao);
             }
-            //Teste essa função, para verificar se esta retornando o id cadastrado no banco
-            long idProfessor = NovoCadastro.Id;
-
-            /*foreach (Disciplina item in ListaDisciplina)
-            {
-                item.Idprofessor = idProfessor;
-                this.banco.Disciplina.Add(item);
-                this.banco.SaveChanges();
-            }*/
         }
 
         private void CadastroProfessor_Load(object sender, EventArgs e)
@@ -118,6 +117,20 @@ namespace Teach.Grafico
             dgDisciplinas.AutoGenerateColumns = false;
             //List<Disciplina> Disciplinas = Program.Gerenciador.TodasAsDisciplina();
             dgDisciplinas.DataSource = this.NovoCadastro.Disciplina.ToList();
+        }
+
+        private void CadastroProfessor_Shown(object sender, EventArgs e)
+        {
+            if(Program.Gerenciador.ProfessorLogado != 0)
+            {
+                Professor DadosProfessor = Program.Gerenciador.BuscaProfessorPorID(Program.Gerenciador.ProfessorLogado);
+                this.tbEmail.Text = DadosProfessor.Email.ToString();
+                this.tbNome.Text = DadosProfessor.Nome.ToString();
+                this.tbSenha.Text = DadosProfessor.Senha.ToString();
+                this.tbTelefone.Text = DadosProfessor.Telefone.ToString();
+                this.dgDisciplinas.DataSource = DadosProfessor.Disciplina.ToList();
+                this.NovoCadastro.Disciplina = DadosProfessor.Disciplina.ToList();
+            }
         }
     }
 }

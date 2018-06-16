@@ -201,6 +201,7 @@
             this.Name = "CadastroProfessor";
             this.Text = "Cadastro Professor";
             this.Load += new System.EventHandler(this.CadastroProfessor_Load);
+            this.Shown += new System.EventHandler(this.CadastroProfessor_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgDisciplinas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

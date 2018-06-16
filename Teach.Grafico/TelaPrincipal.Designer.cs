@@ -32,7 +32,6 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adicionarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minhaContaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,24 +78,15 @@
             // 
             // alunosToolStripMenuItem
             // 
-            this.alunosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.adicionarAlunoToolStripMenuItem});
             this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
-            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alunosToolStripMenuItem.Text = "Alunos";
             this.alunosToolStripMenuItem.Click += new System.EventHandler(this.alunosToolStripMenuItem_Click);
-            // 
-            // adicionarAlunoToolStripMenuItem
-            // 
-            this.adicionarAlunoToolStripMenuItem.Name = "adicionarAlunoToolStripMenuItem";
-            this.adicionarAlunoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.adicionarAlunoToolStripMenuItem.Text = "Adicionar Aluno";
-            this.adicionarAlunoToolStripMenuItem.Click += new System.EventHandler(this.adicionarAlunoToolStripMenuItem_Click);
             // 
             // minhaContaToolStripMenuItem
             // 
             this.minhaContaToolStripMenuItem.Name = "minhaContaToolStripMenuItem";
-            this.minhaContaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+            this.minhaContaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.minhaContaToolStripMenuItem.Text = "Minha Conta";
             this.minhaContaToolStripMenuItem.Click += new System.EventHandler(this.minhaContaToolStripMenuItem_Click);
             // 
@@ -263,7 +253,6 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ToolStripMenuItem adicionarAlunoToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgAgendamentos;
         private System.Windows.Forms.DataGridViewTextBoxColumn HorarioInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn HorarioFinal;
