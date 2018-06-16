@@ -10,6 +10,7 @@ namespace Teach.Negocio
 {
     public class Gerenciador
     {
+        long ProfessorLogado;
         private Banco banco = new Banco();
 
         public Gerenciador()
@@ -81,6 +82,7 @@ namespace Teach.Negocio
             }
             else
             {
+                ProfessorLogado = professorDb.Id;
                 if (professorDb.Senha != Professor.Senha)
                 {
                     validacao.Mensagens.Add("Senha", "Senha inválida");
@@ -260,23 +262,6 @@ namespace Teach.Negocio
         }
             /*Buscas por ID e Listas */
 
-        public List<Aluno> TodosOsAlunos()
-        {
-            return this.banco.Alunos.ToList();
-        }
-        //teste
-        //public List<Disciplina> TodasAsDisciplina()
-        //{
-        //    return this.banco.Disciplina.ToList();
-        //}
-         public List<Agenda> TodosOsAgendamentos()
-        {
-            return this.banco.Agendamentos.ToList();
-        }
-        public List<Fatura> TodasAsFaturas()
-        {
-            return this.banco.Faturas.ToList();
-        }
         public Aluno BuscaAlunoPorID(long Id)
         {
             return this.banco.Alunos.Where(c => c.Id == Id).FirstOrDefault();
@@ -326,6 +311,60 @@ namespace Teach.Negocio
             {
                 validacao.Mensagens.Add("Aluno", "Não foi possível localizar nenhum aluno com o nome informado");
             }
+            return ResultadoBusca.ToList();
+        }
+
+        public List<Disciplina> TodasAsDisciplinaDoProfessorLogado()
+        {
+            List<Disciplina> ResultadoBusca = new List<Disciplina>();
+            foreach (var disc in this.banco.Disciplina)
+            {
+                if(disc.Professor.Id == ProfessorLogado)
+                {
+                    ResultadoBusca.Add(disc);
+                }
+            }
+            return ResultadoBusca.ToList();
+        }
+
+        public List<Aluno> TodosOsAlunosDoProfessorLogado()
+        {
+            List<Aluno> ResultadoBusca = new List<Aluno>();
+            foreach (var alunos in this.banco.Alunos)
+            {
+                if(alunos.Professor.Id == ProfessorLogado)
+                {
+                    ResultadoBusca.Add(alunos);
+                }
+            }
+            return ResultadoBusca.ToList();
+        }
+
+        public List<Agenda> TodosAgendamentosDoProfessorLogado()
+        {
+            List<Agenda> ResultadoBusca = new List<Agenda>();
+            foreach (var agn in this.banco.Agendamentos)
+            {
+                if(agn.Professor.Id == ProfessorLogado)
+                {
+                    ResultadoBusca.Add(agn);
+                }
+            }
+
+            return ResultadoBusca.ToList();
+        }
+
+        public List<Fatura> TodasAsFaturasDoProfessorLogado()
+        {
+            List<Fatura> ResultadoBusca = new List<Fatura>();
+            foreach (var fat in this.banco.Faturas)
+            {
+                if(fat.Professor.Id == ProfessorLogado)
+                {
+                    ResultadoBusca.Add(fat);
+                }
+            }
+
             return ResultadoBusca.ToList();
         }
     }

@@ -24,6 +24,7 @@ namespace Teach.Negocio.Models
         public String Bairro { get; set; }
         public String Cidade { get; set; }
         public String CEP { get; set; }
+        public virtual Professor Professor { get; set; }
 
         //verificar contrato
 

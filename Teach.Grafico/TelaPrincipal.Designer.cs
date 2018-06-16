@@ -44,6 +44,7 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.adicionarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -71,9 +72,12 @@
             // 
             // alunosToolStripMenuItem
             // 
+            this.alunosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.adicionarAlunoToolStripMenuItem});
             this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
             this.alunosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alunosToolStripMenuItem.Text = "Alunos";
+            this.alunosToolStripMenuItem.Click += new System.EventHandler(this.alunosToolStripMenuItem_Click);
             // 
             // minhaContaToolStripMenuItem
             // 
@@ -156,6 +160,13 @@
             this.button2.Text = "Remover agendamento";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // adicionarAlunoToolStripMenuItem
+            // 
+            this.adicionarAlunoToolStripMenuItem.Name = "adicionarAlunoToolStripMenuItem";
+            this.adicionarAlunoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.adicionarAlunoToolStripMenuItem.Text = "Adicionar Aluno";
+            this.adicionarAlunoToolStripMenuItem.Click += new System.EventHandler(this.adicionarAlunoToolStripMenuItem_Click);
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,6 +209,7 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem adicionarAlunoToolStripMenuItem;
     }
 }
 

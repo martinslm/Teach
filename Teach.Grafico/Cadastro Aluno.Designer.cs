@@ -51,8 +51,6 @@
             this.tbVha = new System.Windows.Forms.TextBox();
             this.tbCelular = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label5
@@ -102,7 +100,7 @@
             // 
             // btSalvar
             // 
-            this.btSalvar.Location = new System.Drawing.Point(293, 330);
+            this.btSalvar.Location = new System.Drawing.Point(293, 250);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(75, 28);
             this.btSalvar.TabIndex = 22;
@@ -112,7 +110,7 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(212, 330);
+            this.btCancelar.Location = new System.Drawing.Point(212, 250);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 28);
             this.btCancelar.TabIndex = 21;
@@ -247,30 +245,11 @@
             this.button1.Text = "Incluir";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(90, 307);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 13);
-            this.label11.TabIndex = 43;
-            this.label11.Text = "Contrato";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(143, 304);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(225, 20);
-            this.textBox6.TabIndex = 42;
-            // 
             // Cadastro_Aluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 370);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox6);
+            this.ClientSize = new System.Drawing.Size(470, 311);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbCelular);
             this.Controls.Add(this.tbVha);
@@ -327,7 +306,5 @@
         private System.Windows.Forms.TextBox tbVha;
         private System.Windows.Forms.MaskedTextBox tbCelular;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox6;
     }
 }

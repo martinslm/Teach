@@ -116,5 +116,16 @@ namespace Teach.Grafico
             CadastroProfessor tela = new CadastroProfessor();
             tela.Show();
         }
+
+        private void alunosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adicionarAlunoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cadastro_Aluno tela = new Cadastro_Aluno();
+            tela.Show();
+        }
     }
 }
