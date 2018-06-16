@@ -32,6 +32,7 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minhaContaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,9 +45,15 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.adicionarAlunoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dgAgendamentos = new System.Windows.Forms.DataGridView();
+            this.HorarioInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HorarioFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Observacoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAgendamentos)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -57,7 +64,7 @@
             this.financeiroToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(632, 24);
+            this.menuStrip.Size = new System.Drawing.Size(841, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -75,14 +82,21 @@
             this.alunosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adicionarAlunoToolStripMenuItem});
             this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
-            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.alunosToolStripMenuItem.Text = "Alunos";
             this.alunosToolStripMenuItem.Click += new System.EventHandler(this.alunosToolStripMenuItem_Click);
+            // 
+            // adicionarAlunoToolStripMenuItem
+            // 
+            this.adicionarAlunoToolStripMenuItem.Name = "adicionarAlunoToolStripMenuItem";
+            this.adicionarAlunoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.adicionarAlunoToolStripMenuItem.Text = "Adicionar Aluno";
+            this.adicionarAlunoToolStripMenuItem.Click += new System.EventHandler(this.adicionarAlunoToolStripMenuItem_Click);
             // 
             // minhaContaToolStripMenuItem
             // 
             this.minhaContaToolStripMenuItem.Name = "minhaContaToolStripMenuItem";
-            this.minhaContaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.minhaContaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.minhaContaToolStripMenuItem.Text = "Minha Conta";
             this.minhaContaToolStripMenuItem.Click += new System.EventHandler(this.minhaContaToolStripMenuItem_Click);
             // 
@@ -126,7 +140,7 @@
             this.toolStripStatusLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 431);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.Size = new System.Drawing.Size(841, 22);
             this.statusStrip.TabIndex = 2;
             this.statusStrip.Text = "StatusStrip";
             // 
@@ -160,18 +174,57 @@
             this.button2.Text = "Remover agendamento";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // adicionarAlunoToolStripMenuItem
+            // dgAgendamentos
             // 
-            this.adicionarAlunoToolStripMenuItem.Name = "adicionarAlunoToolStripMenuItem";
-            this.adicionarAlunoToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.adicionarAlunoToolStripMenuItem.Text = "Adicionar Aluno";
-            this.adicionarAlunoToolStripMenuItem.Click += new System.EventHandler(this.adicionarAlunoToolStripMenuItem_Click);
+            this.dgAgendamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAgendamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.HorarioInicial,
+            this.HorarioFinal,
+            this.Aluno,
+            this.Endereco,
+            this.Observacoes});
+            this.dgAgendamentos.Location = new System.Drawing.Point(258, 46);
+            this.dgAgendamentos.Name = "dgAgendamentos";
+            this.dgAgendamentos.Size = new System.Drawing.Size(544, 351);
+            this.dgAgendamentos.TabIndex = 8;
+            this.dgAgendamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // HorarioInicial
+            // 
+            this.HorarioInicial.DataPropertyName = "HorarioInicial";
+            this.HorarioInicial.HeaderText = "Inicio";
+            this.HorarioInicial.Name = "HorarioInicial";
+            // 
+            // HorarioFinal
+            // 
+            this.HorarioFinal.DataPropertyName = "HorarioFinal";
+            this.HorarioFinal.HeaderText = "Fim";
+            this.HorarioFinal.Name = "HorarioFinal";
+            // 
+            // Aluno
+            // 
+            this.Aluno.DataPropertyName = "Aluno";
+            this.Aluno.HeaderText = "Aluno";
+            this.Aluno.Name = "Aluno";
+            // 
+            // Endereco
+            // 
+            this.Endereco.DataPropertyName = "Endereco";
+            this.Endereco.HeaderText = "Local";
+            this.Endereco.Name = "Endereco";
+            // 
+            // Observacoes
+            // 
+            this.Observacoes.DataPropertyName = "Observacoes";
+            this.Observacoes.HeaderText = "Observações";
+            this.Observacoes.Name = "Observacoes";
             // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 453);
+            this.ClientSize = new System.Drawing.Size(841, 453);
+            this.Controls.Add(this.dgAgendamentos);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.monthCalendar1);
@@ -187,6 +240,7 @@
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAgendamentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +264,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem adicionarAlunoToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgAgendamentos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HorarioInicial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HorarioFinal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Aluno;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Observacoes;
     }
 }
 

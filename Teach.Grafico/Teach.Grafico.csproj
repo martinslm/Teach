@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdicionarAgendamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdicionarAgendamento.Designer.cs">
+      <DependentUpon>AdicionarAgendamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cadastro Aluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdicionarAgendamento.resx">
+      <DependentUpon>AdicionarAgendamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cadastro Aluno.resx">
       <DependentUpon>Cadastro Aluno.cs</DependentUpon>
     </EmbeddedResource>

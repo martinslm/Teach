@@ -20,6 +20,20 @@ namespace Teach.Grafico
         {
             InitializeComponent();
         }
+        private void ListaAlunos_Load(object sender, EventArgs e)
+        {
+            CarregaDG();
+        }
+
+        private void CarregaDG()
+        {
+            //Ajustar para a função que a Larissa fez
+            dgAgendamentos.MultiSelect = false;
+            dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgAgendamentos.AutoGenerateColumns = false;
+            List<Aluno> Alunos = Program.Gerenciador.TodosOsAlunos();
+            dgAgendamentos.DataSource = Alunos;
+        }
 
         private void ShowNewForm(object sender, EventArgs e)
         {
@@ -126,6 +140,11 @@ namespace Teach.Grafico
         {
             Cadastro_Aluno tela = new Cadastro_Aluno();
             tela.Show();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
