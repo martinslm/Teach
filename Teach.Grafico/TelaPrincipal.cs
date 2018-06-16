@@ -27,11 +27,10 @@ namespace Teach.Grafico
 
         private void CarregaDG()
         {
-            //Ajustar para a função que a Larissa fez
             dgAgendamentos.MultiSelect = false;
             dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgAgendamentos.AutoGenerateColumns = false;
-            List<Aluno> Alunos = Program.Gerenciador.TodosOsAlunos();
+            List<Aluno> Alunos = Program.Gerenciador.TodosOsAlunosDoProfessorLogado();
             dgAgendamentos.DataSource = Alunos;
         }
 

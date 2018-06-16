@@ -46,7 +46,11 @@ namespace Teach.Grafico
             NovoCadastro.Rua = tbRua.Text;
             NovoCadastro.Numero = tbNumero.Text;
             NovoCadastro.Complemento = tbComp.Text;
+            NovoCadastro.Bairro = tbBairro.Text;
+            NovoCadastro.CEP = tbCEP.Text;
+            NovoCadastro.Cidade = tbCidade.Text;
             NovoCadastro.DisciplinaCursada = cbDisciplina.SelectedItem as Disciplina;
+            NovoCadastro.Professor = Program.Gerenciador.ProfessorLog();
             Validacao validacao;
             if (AlunoSelecionado == null)
             {
@@ -88,6 +92,11 @@ namespace Teach.Grafico
             cbDisciplina.DisplayMember = "disciplina";
             cbDisciplina.ValueMember = "Id";
             cbDisciplina.DataSource = Disciplina;
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

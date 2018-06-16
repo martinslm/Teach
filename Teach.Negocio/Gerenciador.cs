@@ -266,6 +266,10 @@ namespace Teach.Negocio
         {
             return this.banco.Alunos.Where(c => c.Id == Id).FirstOrDefault();
         }
+        public Professor BuscaProfessorPorID(long Id)
+        {
+            return this.banco.Prof.Where(c => c.Id == Id).FirstOrDefault();
+        }
         public Disciplina BuscaDisciplinaPorId(long Id)
         {
             return this.banco.Disciplina.Where(c => c.Id == Id).FirstOrDefault();
@@ -366,6 +370,12 @@ namespace Teach.Negocio
             }
 
             return ResultadoBusca.ToList();
+        }
+
+        public Professor ProfessorLog()
+        {
+
+            return BuscaProfessorPorID(ProfessorLogado);
         }
     }
 }

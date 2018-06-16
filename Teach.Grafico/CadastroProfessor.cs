@@ -60,7 +60,6 @@ namespace Teach.Grafico
             NovoCadastro.Telefone = tbTelefone.Text;
             NovoCadastro.Senha = tbSenha.Text;
             String ConfirmacaoSenha = tbConfirmacao.Text;
-
             /*Ver como adicionar disciplina*/
 
             Validacao validacao = Program.Gerenciador.CadastroProfessor(NovoCadastro, ConfirmacaoSenha);

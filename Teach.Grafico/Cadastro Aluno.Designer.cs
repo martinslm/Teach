@@ -50,7 +50,10 @@
             this.cbDisciplina = new System.Windows.Forms.ComboBox();
             this.tbVha = new System.Windows.Forms.TextBox();
             this.tbCelular = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tbCidade = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.tbCEP = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label5
@@ -100,7 +103,7 @@
             // 
             // btSalvar
             // 
-            this.btSalvar.Location = new System.Drawing.Point(293, 250);
+            this.btSalvar.Location = new System.Drawing.Point(293, 284);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(75, 28);
             this.btSalvar.TabIndex = 22;
@@ -110,7 +113,7 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(212, 250);
+            this.btCancelar.Location = new System.Drawing.Point(212, 284);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 28);
             this.btCancelar.TabIndex = 21;
@@ -207,7 +210,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(43, 213);
+            this.label10.Location = new System.Drawing.Point(42, 238);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(94, 13);
             this.label10.TabIndex = 37;
@@ -216,7 +219,7 @@
             // cbDisciplina
             // 
             this.cbDisciplina.FormattingEnabled = true;
-            this.cbDisciplina.Location = new System.Drawing.Point(143, 209);
+            this.cbDisciplina.Location = new System.Drawing.Point(143, 235);
             this.cbDisciplina.Name = "cbDisciplina";
             this.cbDisciplina.Size = new System.Drawing.Size(225, 21);
             this.cbDisciplina.TabIndex = 9;
@@ -236,21 +239,49 @@
             this.tbCelular.Size = new System.Drawing.Size(225, 20);
             this.tbCelular.TabIndex = 2;
             // 
-            // button1
+            // tbCidade
             // 
-            this.button1.Location = new System.Drawing.Point(374, 209);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 21);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "Incluir";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tbCidade.Location = new System.Drawing.Point(143, 209);
+            this.tbCidade.Name = "tbCidade";
+            this.tbCidade.Size = new System.Drawing.Size(107, 20);
+            this.tbCidade.TabIndex = 43;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(256, 212);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(31, 13);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "CEP:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(96, 212);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 45;
+            this.label12.Text = "Cidade";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // tbCEP
+            // 
+            this.tbCEP.Location = new System.Drawing.Point(293, 210);
+            this.tbCEP.Mask = "00000-000";
+            this.tbCEP.Name = "tbCEP";
+            this.tbCEP.Size = new System.Drawing.Size(75, 20);
+            this.tbCEP.TabIndex = 46;
             // 
             // Cadastro_Aluno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 311);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(470, 333);
+            this.Controls.Add(this.tbCEP);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.tbCidade);
             this.Controls.Add(this.tbCelular);
             this.Controls.Add(this.tbVha);
             this.Controls.Add(this.cbDisciplina);
@@ -305,6 +336,9 @@
         private System.Windows.Forms.ComboBox cbDisciplina;
         private System.Windows.Forms.TextBox tbVha;
         private System.Windows.Forms.MaskedTextBox tbCelular;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbCidade;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.MaskedTextBox tbCEP;
     }
 }
