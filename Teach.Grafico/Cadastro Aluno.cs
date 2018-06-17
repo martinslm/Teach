@@ -35,12 +35,31 @@ namespace Teach.Grafico
             CarregaCB();
         }
 
+        private void Cadastro_Aluno_Shown(object sender, EventArgs e)
+        {
+            if(AlunoSelecionado != null)
+            {
+                this.tbNome.Text = AlunoSelecionado.Nome.ToString();
+                this.tbEmail.Text = AlunoSelecionado.Email.ToString();
+                this.tbCelular.Text = AlunoSelecionado.Celular.ToString();
+                this.tbCh.Text = AlunoSelecionado.CargaHoraria.ToString();
+                this.tbVha.Text = AlunoSelecionado.ValorHoraAula.ToString();
+                this.tbRua.Text = AlunoSelecionado.Rua.ToString();
+                this.tbNumero.Text = AlunoSelecionado.Numero.ToString();
+                this.tbComp.Text = AlunoSelecionado.Complemento.ToString();
+                this.tbBairro.Text = AlunoSelecionado.Bairro.ToString();
+                this.tbCEP.Text = AlunoSelecionado.CEP.ToString();
+                this.tbCidade.Text = AlunoSelecionado.Cidade.ToString();
+                this.cbDisciplina.SelectedItem = AlunoSelecionado.DisciplinaCursada;
+            }
+        }
+
         private void btSalvar_Click(object sender, EventArgs e)
         {
             Aluno NovoCadastro = new Aluno();
             NovoCadastro.Nome = tbNome.Text;
             NovoCadastro.Email = tbEmail.Text;
-            NovoCadastro.Celular = tbEmail.Text;
+            NovoCadastro.Celular = tbCelular.Text;
             NovoCadastro.CargaHoraria = Convert.ToInt32(tbCh.Text);
             NovoCadastro.ValorHoraAula = Convert.ToDecimal(tbVha.Text);
             NovoCadastro.Rua = tbRua.Text;
@@ -58,6 +77,8 @@ namespace Teach.Grafico
             }
             else
             {
+                //Não apagar esta linha do ID. 
+                NovoCadastro.Id = AlunoSelecionado.Id;
                 validacao = Program.Gerenciador.EditarAluno(NovoCadastro);
             }
             if (!validacao.Valido)

@@ -307,6 +307,7 @@
             this.Name = "Cadastro_Aluno";
             this.Text = "Cadastro_Aluno";
             this.Load += new System.EventHandler(this.Cadastro_Aluno_Load);
+            this.Shown += new System.EventHandler(this.Cadastro_Aluno_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 

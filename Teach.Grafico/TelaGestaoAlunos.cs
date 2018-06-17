@@ -57,8 +57,20 @@ namespace Teach.Grafico
 
         private void btEditar_Click(object sender, EventArgs e)
         {
-            Cadastro_Aluno tela = new Cadastro_Aluno();
-            tela.Show();
+            if(VerificarSelecao())
+            {
+                Aluno AlunoSelecionado = (Aluno)dgAlunos.SelectedRows[0].DataBoundItem;
+                Cadastro_Aluno tela = new Cadastro_Aluno();
+                tela.MdiParent = this.MdiParent;
+                tela.AlunoSelecionado = AlunoSelecionado;
+                tela.FormClosed += Tela_FormClosed;
+                tela.Show();
+            }
+        }
+
+        private void Tela_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CarregaAlunos();
         }
 
         private void btRemover_Click(object sender, EventArgs e)
