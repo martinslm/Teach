@@ -26,6 +26,7 @@ namespace Teach.Grafico
         private void btAdicionar_Click(object sender, EventArgs e)
         {
             Cadastro_Aluno tela = new Cadastro_Aluno();
+            tela.FormClosed += Tela_FormClosed;
             tela.Show();
         }
 
