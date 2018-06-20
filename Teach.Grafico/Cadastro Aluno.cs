@@ -119,5 +119,10 @@ namespace Teach.Grafico
         {
 
         }
+
+        private void cbDisciplina_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

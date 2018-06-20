@@ -30,8 +30,8 @@ namespace Teach.Grafico
             dgAgendamentos.MultiSelect = false;
             dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgAgendamentos.AutoGenerateColumns = false;
-            List<Aluno> Alunos = Program.Gerenciador.TodosOsAlunosDoProfessorLogado();
-            dgAgendamentos.DataSource = Alunos;
+            List<Agenda> Agendamentos = Program.Gerenciador.TodosAgendamentosDoProfessorLogado();
+            dgAgendamentos.DataSource = Agendamentos;
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -138,6 +138,73 @@ namespace Teach.Grafico
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            //Calendario.DateSelected 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdicionarAgendamento tela = new AdicionarAgendamento();
+            tela.Show();
+            
+        }
+
+        private bool VerificaSelecao()
+        {
+            if(dgAgendamentos.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Selecione uma linha");
+
+                return false;
+            }
+            return true;
+        }
+
+        private void btRemover_Click(object sender, EventArgs e)
+        {
+            /*if (VerificarSelecao())
+            {
+                DialogResult resultado = MessageBox.Show("Remover Aluno", "Tem certeza que deseja remover este aluno?", MessageBoxButtons.OKCancel);
+                if (resultado == DialogResult.OK)
+                {
+                    Aluno AlunoSelecionado = (Aluno)dgAlunos.SelectedRows[0].DataBoundItem;
+                    var validacao = Program.Gerenciador.RemoverAluno(AlunoSelecionado);
+                    if (validacao.Valido)
+                    {
+                        MessageBox.Show("Cliente removido com sucesso");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um problema ao remover o cliente");
+                    }
+                    CarregaAlunos();
+                }
+                }
+
+                */
+
+            if(VerificaSelecao())
+            {
+                DialogResult resultado = MessageBox.Show("Remover agendamento", "Tem certeza que deseja remover este agendamento?", MessageBoxButtons.OKCancel);
+                if(resultado == DialogResult.OK)
+                {
+                    Agenda AgendamentoSelecionado = (Agenda)dgAgendamentos.SelectedRows[0].DataBoundItem;
+                    var validacao = Program.Gerenciador.RemoveAgendamento(AgendamentoSelecionado);
+                    if(validacao.Valido)
+                    {
+                        MessageBox.Show("Agendamento removido com sucesso");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocorreu um problema ao remover o agendamento");
+                    }
+                    CarregaDG();
+                }
+
+            }
         }
     }
 }

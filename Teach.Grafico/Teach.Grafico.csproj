@@ -77,12 +77,6 @@
     <Compile Include="IncluirDisciplina.Designer.cs">
       <DependentUpon>IncluirDisciplina.cs</DependentUpon>
     </Compile>
-    <Compile Include="TelaBaixadeFatura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TelaBaixadeFatura.Designer.cs">
-      <DependentUpon>TelaBaixadeFatura.cs</DependentUpon>
-    </Compile>
     <Compile Include="TelaGestaoAlunos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,18 +97,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TelaRemoverAgendamento.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TelaRemoverAgendamento.Designer.cs">
-      <DependentUpon>TelaRemoverAgendamento.cs</DependentUpon>
-    </Compile>
-    <Compile Include="TelaRemoverCadastro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TelaRemoverCadastro.Designer.cs">
-      <DependentUpon>TelaRemoverCadastro.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AdicionarAgendamento.resx">
       <DependentUpon>AdicionarAgendamento.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,9 +108,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IncluirDisciplina.resx">
       <DependentUpon>IncluirDisciplina.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TelaBaixadeFatura.resx">
-      <DependentUpon>TelaBaixadeFatura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaGestaoAlunos.resx">
       <DependentUpon>TelaGestaoAlunos.cs</DependentUpon>
@@ -148,12 +127,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TelaRemoverAgendamento.resx">
-      <DependentUpon>TelaRemoverAgendamento.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TelaRemoverCadastro.resx">
-      <DependentUpon>TelaRemoverCadastro.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

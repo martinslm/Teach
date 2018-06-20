@@ -223,6 +223,7 @@
             this.cbDisciplina.Name = "cbDisciplina";
             this.cbDisciplina.Size = new System.Drawing.Size(225, 21);
             this.cbDisciplina.TabIndex = 9;
+            this.cbDisciplina.SelectedIndexChanged += new System.EventHandler(this.cbDisciplina_SelectedIndexChanged);
             // 
             // tbVha
             // 

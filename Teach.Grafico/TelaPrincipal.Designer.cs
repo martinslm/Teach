@@ -41,9 +41,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Calendario = new System.Windows.Forms.MonthCalendar();
+            this.btAdicionar = new System.Windows.Forms.Button();
+            this.btRemover = new System.Windows.Forms.Button();
             this.dgAgendamentos = new System.Windows.Forms.DataGridView();
             this.HorarioInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HorarioFinal = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -79,14 +79,14 @@
             // alunosToolStripMenuItem
             // 
             this.alunosToolStripMenuItem.Name = "alunosToolStripMenuItem";
-            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alunosToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.alunosToolStripMenuItem.Text = "Alunos";
             this.alunosToolStripMenuItem.Click += new System.EventHandler(this.alunosToolStripMenuItem_Click);
             // 
             // minhaContaToolStripMenuItem
             // 
             this.minhaContaToolStripMenuItem.Name = "minhaContaToolStripMenuItem";
-            this.minhaContaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.minhaContaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.minhaContaToolStripMenuItem.Text = "Minha Conta";
             this.minhaContaToolStripMenuItem.Click += new System.EventHandler(this.minhaContaToolStripMenuItem_Click);
             // 
@@ -140,29 +140,32 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // monthCalendar1
+            // Calendario
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(18, 46);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 4;
+            this.Calendario.Location = new System.Drawing.Point(18, 46);
+            this.Calendario.Name = "Calendario";
+            this.Calendario.TabIndex = 4;
+            this.Calendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
-            // button1
+            // btAdicionar
             // 
-            this.button1.Location = new System.Drawing.Point(18, 284);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(227, 49);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Adicionar agendamento";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btAdicionar.Location = new System.Drawing.Point(18, 284);
+            this.btAdicionar.Name = "btAdicionar";
+            this.btAdicionar.Size = new System.Drawing.Size(227, 49);
+            this.btAdicionar.TabIndex = 5;
+            this.btAdicionar.Text = "Adicionar agendamento";
+            this.btAdicionar.UseVisualStyleBackColor = true;
+            this.btAdicionar.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btRemover
             // 
-            this.button2.Location = new System.Drawing.Point(18, 348);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(227, 49);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Remover agendamento";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btRemover.Location = new System.Drawing.Point(18, 348);
+            this.btRemover.Name = "btRemover";
+            this.btRemover.Size = new System.Drawing.Size(227, 49);
+            this.btRemover.TabIndex = 6;
+            this.btRemover.Text = "Remover agendamento";
+            this.btRemover.UseVisualStyleBackColor = true;
+            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
             // dgAgendamentos
             // 
@@ -215,9 +218,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 453);
             this.Controls.Add(this.dgAgendamentos);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.btRemover);
+            this.Controls.Add(this.btAdicionar);
+            this.Controls.Add(this.Calendario);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
@@ -250,9 +253,9 @@
         private System.Windows.Forms.ToolStripMenuItem gerarFaturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contasAReceberToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem recibosToolStripMenuItem;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.MonthCalendar Calendario;
+        private System.Windows.Forms.Button btAdicionar;
+        private System.Windows.Forms.Button btRemover;
         private System.Windows.Forms.DataGridView dgAgendamentos;
         private System.Windows.Forms.DataGridViewTextBoxColumn HorarioInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn HorarioFinal;

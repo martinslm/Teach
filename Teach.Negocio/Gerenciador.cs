@@ -216,11 +216,21 @@ namespace Teach.Negocio
             //É valido realizarmos uma validação para o professor não conseguir cadastrar nada dentro do periodo 
             //de um agendamento já existente? Visando que um professor pode marcar uma aula com dois alunos diferentes no mesmo horário.
             var AgendamentoDb = this.banco.Agendamentos.Where(v => v.HoraInicial == agendamento.HoraInicial).FirstOrDefault();
-            if(AgendamentoDb.Endereco != agendamento.Endereco)
+            if (AgendamentoDb != null)
             {
-                validacao.Mensagens.Add("Agendamento", "Você já possui uma aula agendada para este horário em outro endereço");
+                if (AgendamentoDb.Endereco != agendamento.Endereco)
+                {
+                    validacao.Mensagens.Add("Agendamento", "Você já possui uma aula agendada para este horário em outro endereço");
+                }
             }
-            return validacao;
+
+            if(validacao.Valido)
+            {
+                this.banco.Agendamentos.Add(agendamento);
+                this.banco.SaveChanges();
+            }
+                return validacao;
+         
         }
         public Validacao EditarAgendamento (Agenda novasInformacoes)
         {
@@ -310,7 +320,7 @@ namespace Teach.Negocio
                 {
                     foreach (var aluno in this.banco.Alunos)
                     {
-                        if (aluno.Nome.ToUpper() == AlunoPesquisado.ToUpper())
+                        if (aluno.Nome.ToUpper().Contains(AlunoPesquisado.ToUpper()))
                         {
                             ResultadoBusca2.Add(aluno);
                         }
