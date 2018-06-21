@@ -111,6 +111,7 @@
             this.gerarFaturaToolStripMenuItem.Name = "gerarFaturaToolStripMenuItem";
             this.gerarFaturaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.gerarFaturaToolStripMenuItem.Text = "Gerar Fatura";
+            this.gerarFaturaToolStripMenuItem.Click += new System.EventHandler(this.gerarFaturaToolStripMenuItem_Click);
             // 
             // contasAReceberToolStripMenuItem
             // 

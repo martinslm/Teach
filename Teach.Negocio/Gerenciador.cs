@@ -253,13 +253,35 @@ namespace Teach.Negocio
         }
 
         /* Tela Financeiro */
-        public Validacao FechamentoDeFatura()
+        public List<Agenda> CarregaAgendamentosDeAlunos (Aluno AlunoSelecionado)
         {
             Validacao validacao = new Validacao();
-            //ja tem um funçao para buscar aluno pela informacao do campo de pesquisa, continuar logica.
-            //material para auxilio: foodtruck
-            return validacao;
+            List<Agenda> Agendamentos = new List<Agenda>();
+            foreach(var agn in this.banco.Agendamentos)
+            {
+                if(agn.Aluno.Nome == AlunoSelecionado.Nome)
+                {
+                    if (agn.Fatura.Situacao == null)
+                    {
+                        Agendamentos.Add(agn);
+                    }
+                }
+            }
+
+            if(Agendamentos == null)
+            {
+                validacao.Mensagens.Add("Agendamento", "Não foi possível localizar nenhum agendamento com os parâmetros informados");
+
+            }
+            return Agendamentos.ToList();
         }
+        //public Validacao FechamentoDeFatura(Aluno AlunoSelecionado)
+        //{
+           // Validacao validacao = new Validacao();
+            //this.banco.Prof.Where(c => c.Email == Usuario.Email).Any()
+
+         //   return validacao;
+       // }
         public Validacao ContasAReceber()
         {
             Validacao validacao = new Validacao();

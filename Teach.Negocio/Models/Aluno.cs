@@ -25,10 +25,12 @@ namespace Teach.Negocio.Models
         public String CEP { get; set; }
         public virtual Professor Professor { get; set; }
 
-        public String SituacaoFinanceira()
+        public String SituacaoFinanceira
         {
-            //validacoes
-            return String.Format("");
+            get
+            {
+                return String.Format("teste");
+            }
         }
 
         /*[NotMapped]
@@ -36,7 +38,7 @@ namespace Teach.Negocio.Models
         {
             get
             {
-                return DisciplinaCursada.ToString();
+                return DisciplinaCursada.disciplina.ToString();
             }
         }*/
 

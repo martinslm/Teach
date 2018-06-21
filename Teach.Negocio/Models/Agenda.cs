@@ -18,6 +18,7 @@ namespace Teach.Negocio.Models
         public TimeSpan TotalHoras { get; set; }
         public String Observacoes { get; set; }
         public virtual Professor Professor { get; set; }
+        public virtual Fatura Fatura { get; set; }
 
         public Agenda()
         {

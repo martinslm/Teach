@@ -142,7 +142,7 @@ namespace Teach.Grafico
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            //Calendario.DateSelected 
+          //  DateTime Data = this.Calendario.SetDate; 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -165,27 +165,6 @@ namespace Teach.Grafico
 
         private void btRemover_Click(object sender, EventArgs e)
         {
-            /*if (VerificarSelecao())
-            {
-                DialogResult resultado = MessageBox.Show("Remover Aluno", "Tem certeza que deseja remover este aluno?", MessageBoxButtons.OKCancel);
-                if (resultado == DialogResult.OK)
-                {
-                    Aluno AlunoSelecionado = (Aluno)dgAlunos.SelectedRows[0].DataBoundItem;
-                    var validacao = Program.Gerenciador.RemoverAluno(AlunoSelecionado);
-                    if (validacao.Valido)
-                    {
-                        MessageBox.Show("Cliente removido com sucesso");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Ocorreu um problema ao remover o cliente");
-                    }
-                    CarregaAlunos();
-                }
-                }
-
-                */
-
             if(VerificaSelecao())
             {
                 DialogResult resultado = MessageBox.Show("Remover agendamento", "Tem certeza que deseja remover este agendamento?", MessageBoxButtons.OKCancel);
@@ -206,5 +185,33 @@ namespace Teach.Grafico
 
             }
         }
+
+        private void gerarFaturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FechamentoDeFaturaAluno tela = new FechamentoDeFaturaAluno();
+            tela.Show();
+        }
+
+
+        /*
+        private void CarregaDG()
+        {
+            dgAgendamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgAgendamentos.MultiSelect = false;
+            dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgAgendamentos.AutoGenerateColumns = false;
+            List<Agenda> Agendamentos = Program.Gerenciador.TodosAgendamentosDoProfessorLogado();
+            //fazer um foreach para ver se o agendamento é no mesmo dia que o selecionado no calendario para ai sim carregar as infos. 
+            List<Agenda> AgendamentosDoDia = new List<Agenda>();
+            foreach (var agn in Agendamentos)
+            {
+                if(Calendario.DateSelected += agn.HoraInicial.Date)
+                {
+                    AgendamentosDoDia.Add(agn);
+                }
+            }
+            dgAgendamentos.DataSource = AgendamentosDoDia;
+        }
+        */
     }
 }
