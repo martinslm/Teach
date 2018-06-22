@@ -36,6 +36,11 @@ namespace Teach.Grafico
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Login();
+        }
+
+        private void Login()
+        {
             Professor LoginProfessor = new Professor();
             LoginProfessor.Email = tbEmail.Text;
             LoginProfessor.Senha = tbSenha.Text;
@@ -59,6 +64,14 @@ namespace Teach.Grafico
                 MessageBox.Show(mensagemValidacao);
             }
         }
+
+        //protected override void OnKeyUp(KeyEventArgs e)
+        //{
+        //    if (e.KeyCode == Keys.Enter)
+        //        Login();
+
+        //    base.OnKeyUp(e);
+        //}
 
         private void TelaLogin_Load(object sender, EventArgs e)
         {

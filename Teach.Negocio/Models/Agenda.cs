@@ -15,7 +15,7 @@ namespace Teach.Negocio.Models
         public String Endereco { get; set; } 
         public DateTime HoraInicial { get; set; }
         public DateTime HoraFinal { get; set; }
-        public TimeSpan TotalHoras { get; set; }
+        public TimeSpan TotalHoras { get { return HoraFinal - HoraInicial; } set { } }
         public String Observacoes { get; set; }
         public virtual Professor Professor { get; set; }
         public virtual Fatura Fatura { get; set; }

@@ -251,7 +251,24 @@ namespace Teach.Negocio
             banco.SaveChanges();
             return validacao; 
         }
+        public List<Agenda> CarregaAgendamentosDia (DateTime data)
+        {
+            Validacao validacao = new Validacao();
+            List<Agenda> Agendamentos = new List<Agenda>();
+            if (this.banco.Agendamentos.Count() > 0)
+            {
+                foreach(Agenda agendamento in banco.Agendamentos)
+                {
+                    if (agendamento.HoraInicial.Date == data.Date)
+                        Agendamentos.Add(agendamento);
+                }
+            }
 
+            if (Agendamentos == null)
+                validacao.Mensagens.Add("Agendamento", string.Format("Não foi possível localizar nenhum agendamento com a data informada ({0})", data.Date));
+
+            return Agendamentos;
+        } 
         /* Tela Financeiro */
         public List<Agenda> CarregaAgendamentosDeAlunos (Aluno AlunoSelecionado)
         {

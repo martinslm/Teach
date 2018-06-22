@@ -142,7 +142,8 @@ namespace Teach.Grafico
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-          //  DateTime Data = this.Calendario.SetDate; 
+            dgAgendamentos.DataSource = Program.Gerenciador.CarregaAgendamentosDia(e.Start);
+            dgAgendamentos.Refresh();
         }
 
         private void button1_Click(object sender, EventArgs e)
