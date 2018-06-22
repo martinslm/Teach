@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.dgAgnAbertos = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgFuturaFatura = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btIncluir = new System.Windows.Forms.Button();
@@ -43,7 +43,7 @@
             this.TotalHorasIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ValorIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgAgnAbertos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFuturaFatura)).BeginInit();
             this.SuspendLayout();
             // 
             // dgAgnAbertos
@@ -58,17 +58,17 @@
             this.dgAgnAbertos.Size = new System.Drawing.Size(408, 150);
             this.dgAgnAbertos.TabIndex = 0;
             // 
-            // dataGridView2
+            // dgFuturaFatura
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgFuturaFatura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgFuturaFatura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DataIC,
             this.TotalHorasIC,
             this.ValorIC});
-            this.dataGridView2.Location = new System.Drawing.Point(12, 255);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(408, 150);
-            this.dataGridView2.TabIndex = 1;
+            this.dgFuturaFatura.Location = new System.Drawing.Point(12, 255);
+            this.dgFuturaFatura.Name = "dgFuturaFatura";
+            this.dgFuturaFatura.Size = new System.Drawing.Size(408, 150);
+            this.dgFuturaFatura.TabIndex = 1;
             // 
             // label1
             // 
@@ -128,31 +128,37 @@
             // 
             // Data
             // 
+            this.Data.DataPropertyName = "DataAgendamento";
             this.Data.HeaderText = "Data";
             this.Data.Name = "Data";
             // 
             // TotalHoras
             // 
+            this.TotalHoras.DataPropertyName = "TotalHoras";
             this.TotalHoras.HeaderText = "Total Horas";
             this.TotalHoras.Name = "TotalHoras";
             // 
             // Valor
             // 
+            this.Valor.DataPropertyName = "Valor";
             this.Valor.HeaderText = "Valor";
             this.Valor.Name = "Valor";
             // 
             // DataIC
             // 
+            this.DataIC.DataPropertyName = "DataAgendamento";
             this.DataIC.HeaderText = "Data";
             this.DataIC.Name = "DataIC";
             // 
             // TotalHorasIC
             // 
+            this.TotalHorasIC.DataPropertyName = "TotalHoras";
             this.TotalHorasIC.HeaderText = "Total Horas";
             this.TotalHorasIC.Name = "TotalHorasIC";
             // 
             // ValorIC
             // 
+            this.ValorIC.DataPropertyName = "Valor";
             this.ValorIC.HeaderText = "Valor";
             this.ValorIC.Name = "ValorIC";
             // 
@@ -167,12 +173,13 @@
             this.Controls.Add(this.btIncluir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dgFuturaFatura);
             this.Controls.Add(this.dgAgnAbertos);
             this.Name = "FechamentoDeFaturasAgenda";
             this.Text = "FechamentoDeFaturasAgenda";
+            this.Load += new System.EventHandler(this.FechamentoDeFaturasAgenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgAgnAbertos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgFuturaFatura)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,18 +188,18 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgAgnAbertos;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgFuturaFatura;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btIncluir;
+        private System.Windows.Forms.Button btRemover;
+        private System.Windows.Forms.Button btGerarFatura;
+        private System.Windows.Forms.Button btCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Data;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalHoras;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataIC;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalHorasIC;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorIC;
-        private System.Windows.Forms.Button btRemover;
-        private System.Windows.Forms.Button btGerarFatura;
-        private System.Windows.Forms.Button btCancelar;
     }
 }

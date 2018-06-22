@@ -260,7 +260,12 @@ namespace Teach.Negocio
                 foreach(Agenda agendamento in banco.Agendamentos)
                 {
                     if (agendamento.HoraInicial.Date == data.Date)
-                        Agendamentos.Add(agendamento);
+                    {
+                        if (agendamento.Aluno.Professor.Id == ProfessorLogado)
+                        {
+                            Agendamentos.Add(agendamento);
+                        }
+                    }
                 }
             }
 

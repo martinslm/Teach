@@ -121,6 +121,13 @@ namespace Teach.Grafico
 
         private void TelaPrincipal_Load(object sender, EventArgs e)
         {
+            DateTime Hoje = DateTime.Now;
+            dgAgendamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgAgendamentos.MultiSelect = false;
+            dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgAgendamentos.AutoGenerateColumns = false;
+            dgAgendamentos.DataSource = Program.Gerenciador.CarregaAgendamentosDia(Hoje);
+            dgAgendamentos.Refresh();
         }
 
         private void minhaContaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -142,6 +149,10 @@ namespace Teach.Grafico
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
+            dgAgendamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgAgendamentos.MultiSelect = false;
+            dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgAgendamentos.AutoGenerateColumns = false;
             dgAgendamentos.DataSource = Program.Gerenciador.CarregaAgendamentosDia(e.Start);
             dgAgendamentos.Refresh();
         }
@@ -192,27 +203,5 @@ namespace Teach.Grafico
             FechamentoDeFaturaAluno tela = new FechamentoDeFaturaAluno();
             tela.Show();
         }
-
-
-        /*
-        private void CarregaDG()
-        {
-            dgAgendamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgAgendamentos.MultiSelect = false;
-            dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgAgendamentos.AutoGenerateColumns = false;
-            List<Agenda> Agendamentos = Program.Gerenciador.TodosAgendamentosDoProfessorLogado();
-            //fazer um foreach para ver se o agendamento é no mesmo dia que o selecionado no calendario para ai sim carregar as infos. 
-            List<Agenda> AgendamentosDoDia = new List<Agenda>();
-            foreach (var agn in Agendamentos)
-            {
-                if(Calendario.DateSelected += agn.HoraInicial.Date)
-                {
-                    AgendamentosDoDia.Add(agn);
-                }
-            }
-            dgAgendamentos.DataSource = AgendamentosDoDia;
-        }
-        */
     }
 }

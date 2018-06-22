@@ -185,19 +185,19 @@
             // 
             // HorarioInicial
             // 
-            this.HorarioInicial.DataPropertyName = "HorarioInicial";
+            this.HorarioInicial.DataPropertyName = "HoraInicial";
             this.HorarioInicial.HeaderText = "Inicio";
             this.HorarioInicial.Name = "HorarioInicial";
             // 
             // HorarioFinal
             // 
-            this.HorarioFinal.DataPropertyName = "HorarioFinal";
+            this.HorarioFinal.DataPropertyName = "HoraFinal";
             this.HorarioFinal.HeaderText = "Fim";
             this.HorarioFinal.Name = "HorarioFinal";
             // 
             // Aluno
             // 
-            this.Aluno.DataPropertyName = "Aluno";
+            this.Aluno.DataPropertyName = "NomeAluno";
             this.Aluno.HeaderText = "Aluno";
             this.Aluno.Name = "Aluno";
             // 

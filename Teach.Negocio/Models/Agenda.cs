@@ -16,6 +16,7 @@ namespace Teach.Negocio.Models
         public DateTime HoraInicial { get; set; }
         public DateTime HoraFinal { get; set; }
         public TimeSpan TotalHoras { get { return HoraFinal - HoraInicial; } set { } }
+      //  public Double Valor { get { return Convert.ToDouble(TotalHoras) * Convert.ToDouble(Aluno.ValorHoraAula); } set { } }
         public String Observacoes { get; set; }
         public virtual Professor Professor { get; set; }
         public virtual Fatura Fatura { get; set; }
@@ -29,5 +30,22 @@ namespace Teach.Negocio.Models
             return TotalHoras;
         }
 
+        [NotMapped]
+        public String NomeAluno
+        {
+            get
+            {
+                return Aluno.Nome;
+            }
+        }
+
+        [NotMapped]
+        public DateTime DataAgendamento
+        {
+            get
+            {
+                return HoraInicial.Date;
+            }
+        }
     }
 }

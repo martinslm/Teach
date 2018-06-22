@@ -13,6 +13,7 @@ namespace Teach.Grafico
 {
     public partial class TelaGestaoAlunos : Form
     {
+        public Aluno AlunoSelecionado;
         public TelaGestaoAlunos()
         {
             InitializeComponent();
@@ -78,10 +79,10 @@ namespace Teach.Grafico
         {
             if (VerificarSelecao())
             {
-                DialogResult resultado = MessageBox.Show("Remover Aluno", "Tem certeza que deseja remover este aluno?", MessageBoxButtons.OKCancel);
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja remover este aluno?", "Remover Aluno", MessageBoxButtons.OKCancel);
                 if (resultado == DialogResult.OK)
                 {
-                    Aluno AlunoSelecionado = (Aluno)dgAlunos.SelectedRows[0].DataBoundItem;
+                    AlunoSelecionado = (Aluno)dgAlunos.SelectedRows[0].DataBoundItem;
                     var validacao = Program.Gerenciador.RemoverAluno(AlunoSelecionado);
                     if (validacao.Valido)
                     {
