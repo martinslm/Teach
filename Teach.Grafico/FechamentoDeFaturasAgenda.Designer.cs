@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.dgAgnAbertos = new System.Windows.Forms.DataGridView();
+            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalHoras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgFuturaFatura = new System.Windows.Forms.DataGridView();
+            this.DataIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalHorasIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ValorIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btIncluir = new System.Windows.Forms.Button();
             this.btRemover = new System.Windows.Forms.Button();
             this.btGerarFatura = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalHoras = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DataIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalHorasIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ValorIC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgAgnAbertos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgFuturaFatura)).BeginInit();
             this.SuspendLayout();
@@ -58,6 +58,24 @@
             this.dgAgnAbertos.Size = new System.Drawing.Size(408, 150);
             this.dgAgnAbertos.TabIndex = 0;
             // 
+            // Data
+            // 
+            this.Data.DataPropertyName = "DataAgendamento";
+            this.Data.HeaderText = "Data";
+            this.Data.Name = "Data";
+            // 
+            // TotalHoras
+            // 
+            this.TotalHoras.DataPropertyName = "TotalHoras";
+            this.TotalHoras.HeaderText = "Total Horas";
+            this.TotalHoras.Name = "TotalHoras";
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "Valor";
+            this.Valor.HeaderText = "Valor";
+            this.Valor.Name = "Valor";
+            // 
             // dgFuturaFatura
             // 
             this.dgFuturaFatura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -69,6 +87,24 @@
             this.dgFuturaFatura.Name = "dgFuturaFatura";
             this.dgFuturaFatura.Size = new System.Drawing.Size(408, 150);
             this.dgFuturaFatura.TabIndex = 1;
+            // 
+            // DataIC
+            // 
+            this.DataIC.DataPropertyName = "DataAgendamento";
+            this.DataIC.HeaderText = "Data";
+            this.DataIC.Name = "DataIC";
+            // 
+            // TotalHorasIC
+            // 
+            this.TotalHorasIC.DataPropertyName = "TotalHoras";
+            this.TotalHorasIC.HeaderText = "Total Horas";
+            this.TotalHorasIC.Name = "TotalHorasIC";
+            // 
+            // ValorIC
+            // 
+            this.ValorIC.DataPropertyName = "Valor";
+            this.ValorIC.HeaderText = "Valor";
+            this.ValorIC.Name = "ValorIC";
             // 
             // label1
             // 
@@ -98,6 +134,7 @@
             this.btIncluir.TabIndex = 4;
             this.btIncluir.Text = "Incluir na Fatura";
             this.btIncluir.UseVisualStyleBackColor = true;
+            this.btIncluir.Click += new System.EventHandler(this.btIncluir_Click);
             // 
             // btRemover
             // 
@@ -107,6 +144,7 @@
             this.btRemover.TabIndex = 5;
             this.btRemover.Text = "Remover da Fatura";
             this.btRemover.UseVisualStyleBackColor = true;
+            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
             // btGerarFatura
             // 
@@ -125,42 +163,7 @@
             this.btCancelar.TabIndex = 7;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
-            // 
-            // Data
-            // 
-            this.Data.DataPropertyName = "DataAgendamento";
-            this.Data.HeaderText = "Data";
-            this.Data.Name = "Data";
-            // 
-            // TotalHoras
-            // 
-            this.TotalHoras.DataPropertyName = "TotalHoras";
-            this.TotalHoras.HeaderText = "Total Horas";
-            this.TotalHoras.Name = "TotalHoras";
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "Valor";
-            this.Valor.HeaderText = "Valor";
-            this.Valor.Name = "Valor";
-            // 
-            // DataIC
-            // 
-            this.DataIC.DataPropertyName = "DataAgendamento";
-            this.DataIC.HeaderText = "Data";
-            this.DataIC.Name = "DataIC";
-            // 
-            // TotalHorasIC
-            // 
-            this.TotalHorasIC.DataPropertyName = "TotalHoras";
-            this.TotalHorasIC.HeaderText = "Total Horas";
-            this.TotalHorasIC.Name = "TotalHorasIC";
-            // 
-            // ValorIC
-            // 
-            this.ValorIC.DataPropertyName = "Valor";
-            this.ValorIC.HeaderText = "Valor";
-            this.ValorIC.Name = "ValorIC";
+            this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
             // FechamentoDeFaturasAgenda
             // 

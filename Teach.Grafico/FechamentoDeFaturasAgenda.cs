@@ -15,6 +15,7 @@ namespace Teach.Grafico
     public partial class FechamentoDeFaturasAgenda : Form
     {
         public Aluno AlunoParaFechamento;
+        public List<Agenda> FuturaFatura = new List<Agenda>();
         public FechamentoDeFaturasAgenda()
         {
             InitializeComponent();
@@ -37,9 +38,54 @@ namespace Teach.Grafico
 
         public void CarregaDgFuturaFatura()
         {
+            dgFuturaFatura.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgFuturaFatura.MultiSelect = false;
+            dgFuturaFatura.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgFuturaFatura.AutoGenerateColumns = false;
+            dgFuturaFatura.DataSource = FuturaFatura;
+            dgFuturaFatura.Refresh();
+        }
+
+        private void btCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btIncluir_Click(object sender, EventArgs e)
+        {
+            if (VerificarSelecao())
+            {
+                Agenda Agendamento = (Agenda)dgAgnAbertos.SelectedRows[0].DataBoundItem;
+                FuturaFatura.Add(Agendamento);
+                CarregaDgFuturaFatura();
+            }
+
+            CarregaDgFuturaFatura();
+            //ESTÁ ADICIONANDO NA LISTA, PORÉM O CARREGA DG NÃO ESTÁ FUNCIONANDO. 
+        }
+
+        private bool VerificarSelecao()
+        {
+            if (dgAgnAbertos.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Selecione uma linha");
+                return false;
+            }
+            return true;
 
         }
 
+        private void btRemover_Click(object sender, EventArgs e)
+        {
+            if(VerificarSelecao())
+            {
+                Agenda Remover = (Agenda)dgFuturaFatura.SelectedRows[0].DataBoundItem;
+                FuturaFatura.Remove(Remover);
+            }
+
+            CarregaDgFuturaFatura();
+        }
+        //2º dg ta com problema, remove nao ta funcionando. 
         //CarregaAgendamentosDeAlunos - funcao do gerenciador, passar como parametro o aluno.
     }
 }
