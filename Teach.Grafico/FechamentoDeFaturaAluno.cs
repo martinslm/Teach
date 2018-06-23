@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Teach.Negocio.Models;
+using Teach.Negocio.Persistencia;
 
 namespace Teach.Grafico
 {
@@ -62,6 +63,7 @@ namespace Teach.Grafico
             {
                 AlunoParaFechamento = (Aluno)dgAlunos2.SelectedRows[0].DataBoundItem;
                 FechamentoDeFaturasAgenda tela = new FechamentoDeFaturasAgenda();
+                tela.AlunoParaFechamento = AlunoParaFechamento;
                 tela.Show();
             }
         }

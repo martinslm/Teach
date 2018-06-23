@@ -283,7 +283,7 @@ namespace Teach.Negocio
             {
                 if(agn.Aluno.Nome == AlunoSelecionado.Nome)
                 {
-                    if (agn.Fatura.Situacao == null)
+                    if (agn.Fatura == null)
                     {
                         Agendamentos.Add(agn);
                     }

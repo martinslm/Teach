@@ -7,13 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Teach.Negocio.Models;
 
 namespace Teach.Grafico
 {
     
     public partial class FechamentoDeFaturasAgenda : Form
     {
-        TelaGestaoAlunos telaAnterior = new TelaGestaoAlunos();
+        public Aluno AlunoParaFechamento;
         public FechamentoDeFaturasAgenda()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Teach.Grafico
             dgAgnAbertos.MultiSelect = false;
             dgAgnAbertos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgAgnAbertos.AutoGenerateColumns = false;
-            dgAgnAbertos.DataSource = Program.Gerenciador.CarregaAgendamentosDeAlunos(telaAnterior.AlunoSelecionado);
+            dgAgnAbertos.DataSource = Program.Gerenciador.CarregaAgendamentosDeAlunos(AlunoParaFechamento);
 
         }
 
