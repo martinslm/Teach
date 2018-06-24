@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace Teach.Negocio.Models
 {
-    [Table (name: "Agendas")]
+    [Table(name: "Agendas")]
     public class Agenda
     {
         public long Id { get; set; }
         public virtual Aluno Aluno { get; set; }
-        public String Endereco { get; set; } 
+        public String Endereco { get; set; }
         public DateTime HoraInicial { get; set; }
         public DateTime HoraFinal { get; set; }
         public TimeSpan TotalHoras { get { return HoraFinal - HoraInicial; } set { } }
-        //public Double Valor { get { return TotalHoras * Convert.ToDouble(Aluno.ValorHoraAula); } set { } }
+        public decimal Valor { get { return Convert.ToDecimal(this.TotalHoras.Hours + (this.TotalHoras.Minutes/60)) * this.Aluno.ValorHoraAula; } set { } }
         public String Observacoes { get; set; }
         public virtual Professor Professor { get; set; }
         public virtual Fatura Fatura { get; set; }
+        
 
         public Agenda()
         {
