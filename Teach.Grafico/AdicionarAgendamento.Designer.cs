@@ -40,11 +40,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbFim = new System.Windows.Forms.MaskedTextBox();
             this.tbInicio = new System.Windows.Forms.MaskedTextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbLocal
             // 
-            this.tbLocal.Location = new System.Drawing.Point(91, 91);
+            this.tbLocal.Location = new System.Drawing.Point(91, 130);
             this.tbLocal.Name = "tbLocal";
             this.tbLocal.Size = new System.Drawing.Size(272, 20);
             this.tbLocal.TabIndex = 4;
@@ -52,14 +53,14 @@
             // cbAluno
             // 
             this.cbAluno.FormattingEnabled = true;
-            this.cbAluno.Location = new System.Drawing.Point(91, 53);
+            this.cbAluno.Location = new System.Drawing.Point(91, 92);
             this.cbAluno.Name = "cbAluno";
             this.cbAluno.Size = new System.Drawing.Size(272, 21);
             this.cbAluno.TabIndex = 3;
             // 
             // btSalvar
             // 
-            this.btSalvar.Location = new System.Drawing.Point(288, 162);
+            this.btSalvar.Location = new System.Drawing.Point(288, 201);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(75, 28);
             this.btSalvar.TabIndex = 7;
@@ -69,7 +70,7 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(207, 162);
+            this.btCancelar.Location = new System.Drawing.Point(207, 201);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 28);
             this.btCancelar.TabIndex = 6;
@@ -79,7 +80,7 @@
             // 
             // tbObs
             // 
-            this.tbObs.Location = new System.Drawing.Point(91, 127);
+            this.tbObs.Location = new System.Drawing.Point(91, 166);
             this.tbObs.Name = "tbObs";
             this.tbObs.Size = new System.Drawing.Size(272, 20);
             this.tbObs.TabIndex = 5;
@@ -87,7 +88,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(51, 15);
+            this.label1.Location = new System.Drawing.Point(51, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(32, 13);
             this.label1.TabIndex = 26;
@@ -97,7 +98,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(221, 18);
+            this.label2.Location = new System.Drawing.Point(221, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 13);
             this.label2.TabIndex = 28;
@@ -107,7 +108,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 58);
+            this.label3.Location = new System.Drawing.Point(51, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 29;
@@ -116,7 +117,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(51, 94);
+            this.label4.Location = new System.Drawing.Point(51, 133);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 30;
@@ -125,7 +126,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 131);
+            this.label6.Location = new System.Drawing.Point(32, 170);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
             this.label6.TabIndex = 32;
@@ -133,7 +134,7 @@
             // 
             // tbFim
             // 
-            this.tbFim.Location = new System.Drawing.Point(242, 15);
+            this.tbFim.Location = new System.Drawing.Point(242, 54);
             this.tbFim.Mask = "00/00/0000 00:00";
             this.tbFim.Name = "tbFim";
             this.tbFim.Size = new System.Drawing.Size(121, 20);
@@ -141,17 +142,28 @@
             // 
             // tbInicio
             // 
-            this.tbInicio.Location = new System.Drawing.Point(91, 15);
+            this.tbInicio.Location = new System.Drawing.Point(91, 54);
             this.tbInicio.Mask = "00/00/0000 00:00";
             this.tbInicio.Name = "tbInicio";
             this.tbInicio.Size = new System.Drawing.Size(121, 20);
             this.tbInicio.TabIndex = 1;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(106, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(217, 25);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "Novo Agendamento";
+            // 
             // AdicionarAgendamento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 215);
+            this.ClientSize = new System.Drawing.Size(413, 240);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.tbInicio);
             this.Controls.Add(this.tbFim);
             this.Controls.Add(this.label6);
@@ -185,5 +197,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.MaskedTextBox tbFim;
         private System.Windows.Forms.MaskedTextBox tbInicio;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -52,6 +52,7 @@ namespace Teach.Grafico
             {
                 TelaPrincipal tela = new TelaPrincipal();
                 tela.Show();
+
             }
             else
             {

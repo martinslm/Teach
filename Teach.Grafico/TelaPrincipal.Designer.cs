@@ -49,6 +49,7 @@
             this.Aluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observacoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAgendamentos)).BeginInit();
@@ -135,7 +136,7 @@
             // 
             // Calendario
             // 
-            this.Calendario.Location = new System.Drawing.Point(18, 46);
+            this.Calendario.Location = new System.Drawing.Point(19, 98);
             this.Calendario.Name = "Calendario";
             this.Calendario.TabIndex = 0;
             this.Calendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
@@ -205,11 +206,23 @@
             this.Observacoes.HeaderText = "Observações";
             this.Observacoes.Name = "Observacoes";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(51, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 42);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "Agenda";
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 453);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgAgendamentos);
             this.Controls.Add(this.btRemover);
             this.Controls.Add(this.btAdicionar);
@@ -254,6 +267,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Aluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacoes;
+        private System.Windows.Forms.Label label1;
     }
 }
 
