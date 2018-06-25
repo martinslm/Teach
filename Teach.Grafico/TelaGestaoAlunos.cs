@@ -44,6 +44,7 @@ namespace Teach.Grafico
             dgAlunos.AutoGenerateColumns = false;
             List<Aluno> Alunos = Program.Gerenciador.TodosOsAlunosDoProfessorLogado();
             dgAlunos.DataSource = Alunos;
+            dgAlunos.Refresh();
             
         }
 
@@ -55,6 +56,7 @@ namespace Teach.Grafico
             dgAlunos.AutoGenerateColumns = false;
             List<Aluno> Alunos = Program.Gerenciador.PesquisaAlunosPorNome(tbPesquisa.Text);
             dgAlunos.DataSource = Alunos;
+            dgAlunos.Refresh();
         }
 
         private void btEditar_Click(object sender, EventArgs e)

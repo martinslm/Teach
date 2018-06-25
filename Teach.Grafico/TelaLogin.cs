@@ -76,17 +76,12 @@ namespace Teach.Grafico
             telaCadastro.Show();
         }
 
-     private void tbSenha_KeyPress(object sender, KeyPressEventArgs e)
-     {
-            if(e.KeyChar == (char)13)
-            {
-               Login();
-           }
-      }
-
-        private void tbSenha_KeyPress(object sender, KeyEventArgs e)
+        private void tbSenha_KeyDown(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar == (char)13)
+            {
+                Login();
+            }
         }
     }
 }

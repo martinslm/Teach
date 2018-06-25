@@ -46,36 +46,42 @@ namespace Teach.Grafico
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            Agenda NovoAgendamento = new Agenda();
-            NovoAgendamento.HoraInicial = Convert.ToDateTime(tbInicio.Text);
-            NovoAgendamento.HoraFinal = Convert.ToDateTime(tbFim.Text);
-            NovoAgendamento.Aluno = cbAluno.SelectedItem as Aluno;
-            NovoAgendamento.Endereco = tbLocal.Text;
-            NovoAgendamento.Observacoes = tbObs.Text;
-            NovoAgendamento.Professor = Program.Gerenciador.ProfessorLog();
-
-            Validacao validacao = Program.Gerenciador.NovoAgendamento(NovoAgendamento);
-
-            if (!validacao.Valido)
+            if (tbInicio.Text == "" || tbFim.Text == "" || tbLocal.Text == "" )
             {
-                String mensagemValidacao = "";
-                foreach (var chave in validacao.Mensagens.Keys)
-                {
-                    String msg = validacao.Mensagens[chave];
-                    mensagemValidacao += msg;
-                    mensagemValidacao += Environment.NewLine;
-                }
-
-                MessageBox.Show(mensagemValidacao);
+                MessageBox.Show("Você deve preencher todos os campos obrigatórios. São eles: Horário Inicial e Final e Local");
             }
             else
             {
-                MessageBox.Show("Agendamento cadastrado com sucesso");
+                Agenda NovoAgendamento = new Agenda();
+                NovoAgendamento.HoraInicial = Convert.ToDateTime(tbInicio.Text);
+                NovoAgendamento.HoraFinal = Convert.ToDateTime(tbFim.Text);
+                NovoAgendamento.Aluno = cbAluno.SelectedItem as Aluno;
+                NovoAgendamento.Endereco = tbLocal.Text;
+                NovoAgendamento.Observacoes = tbObs.Text;
+                NovoAgendamento.Professor = Program.Gerenciador.ProfessorLog();
 
+                Validacao validacao = Program.Gerenciador.NovoAgendamento(NovoAgendamento);
+
+                if (!validacao.Valido)
+                {
+                    String mensagemValidacao = "";
+                    foreach (var chave in validacao.Mensagens.Keys)
+                    {
+                        String msg = validacao.Mensagens[chave];
+                        mensagemValidacao += msg;
+                        mensagemValidacao += Environment.NewLine;
+                    }
+
+                    MessageBox.Show(mensagemValidacao);
+                }
+                else
+                {
+                    MessageBox.Show("Agendamento cadastrado com sucesso");
+
+                }
+
+                this.Close();
             }
-
-            this.Close();
-            
         }
         
         private void CarregaCB()
