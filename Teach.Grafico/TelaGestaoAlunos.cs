@@ -79,7 +79,7 @@ namespace Teach.Grafico
         {
             if (VerificarSelecao())
             {
-                DialogResult resultado = MessageBox.Show("Tem certeza que deseja remover este aluno?", "Remover Aluno", MessageBoxButtons.OKCancel);
+                DialogResult resultado = MessageBox.Show("Remover Aluno", "Tem certeza que deseja remover este aluno?", MessageBoxButtons.OKCancel);
                 if (resultado == DialogResult.OK)
                 {
                     AlunoSelecionado = (Aluno)dgAlunos.SelectedRows[0].DataBoundItem;
