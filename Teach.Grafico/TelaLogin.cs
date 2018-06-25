@@ -64,15 +64,6 @@ namespace Teach.Grafico
                 MessageBox.Show(mensagemValidacao);
             }
         }
-
-        //protected override void OnKeyUp(KeyEventArgs e)
-        //{
-        //    if (e.KeyCode == Keys.Enter)
-        //        Login();
-
-        //    base.OnKeyUp(e);
-        //}
-
         private void TelaLogin_Load(object sender, EventArgs e)
         {
 
@@ -82,6 +73,19 @@ namespace Teach.Grafico
         {
             CadastroProfessor telaCadastro = new CadastroProfessor();
             telaCadastro.Show();
+        }
+
+     private void tbSenha_KeyPress(object sender, KeyPressEventArgs e)
+     {
+            if(e.KeyChar == (char)13)
+            {
+               Login();
+           }
+      }
+
+        private void tbSenha_KeyPress(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

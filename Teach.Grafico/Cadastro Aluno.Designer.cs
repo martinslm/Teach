@@ -106,7 +106,7 @@
             this.btSalvar.Location = new System.Drawing.Point(293, 284);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(75, 28);
-            this.btSalvar.TabIndex = 22;
+            this.btSalvar.TabIndex = 13;
             this.btSalvar.Text = "Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
@@ -116,7 +116,7 @@
             this.btCancelar.Location = new System.Drawing.Point(212, 284);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 28);
-            this.btCancelar.TabIndex = 21;
+            this.btCancelar.TabIndex = 12;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
@@ -222,7 +222,7 @@
             this.cbDisciplina.Location = new System.Drawing.Point(143, 235);
             this.cbDisciplina.Name = "cbDisciplina";
             this.cbDisciplina.Size = new System.Drawing.Size(225, 21);
-            this.cbDisciplina.TabIndex = 9;
+            this.cbDisciplina.TabIndex = 11;
             this.cbDisciplina.SelectedIndexChanged += new System.EventHandler(this.cbDisciplina_SelectedIndexChanged);
             // 
             // tbVha
@@ -235,7 +235,7 @@
             // tbCelular
             // 
             this.tbCelular.Location = new System.Drawing.Point(143, 79);
-            this.tbCelular.Mask = "00000-0000";
+            this.tbCelular.Mask = "(00) 00000-0000";
             this.tbCelular.Name = "tbCelular";
             this.tbCelular.Size = new System.Drawing.Size(225, 20);
             this.tbCelular.TabIndex = 2;
@@ -245,7 +245,7 @@
             this.tbCidade.Location = new System.Drawing.Point(143, 209);
             this.tbCidade.Name = "tbCidade";
             this.tbCidade.Size = new System.Drawing.Size(107, 20);
-            this.tbCidade.TabIndex = 43;
+            this.tbCidade.TabIndex = 9;
             // 
             // label11
             // 
@@ -272,7 +272,7 @@
             this.tbCEP.Mask = "00000-000";
             this.tbCEP.Name = "tbCEP";
             this.tbCEP.Size = new System.Drawing.Size(75, 20);
-            this.tbCEP.TabIndex = 46;
+            this.tbCEP.TabIndex = 10;
             // 
             // Cadastro_Aluno
             // 

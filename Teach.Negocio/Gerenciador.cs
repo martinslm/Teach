@@ -23,13 +23,13 @@ namespace Teach.Negocio
         {
             Validacao validacao = new Validacao();
             //melhorar validação do E-mail.
-            if (!Usuario.Email.Contains("@"))
-            {
-                validacao.Mensagens.Add("E-mail", "E-mail no formato inválido");
-            }
             if (String.IsNullOrEmpty(Usuario.Email))
             {
                 validacao.Mensagens.Add("Email", "Você deve preencher o e-mail");
+            }
+            if (!Usuario.Email.Contains("@"))
+            {
+                validacao.Mensagens.Add("E-mail", "E-mail no formato inválido");
             }
             if (this.banco.Prof.Where(c => c.Email == Usuario.Email).Any())
             {
@@ -78,7 +78,7 @@ namespace Teach.Negocio
             var professorDb = this.banco.Prof.Where(p => p.Email == Professor.Email).FirstOrDefault();
             if (professorDb == null)
             {
-                validacao.Mensagens.Add("Email", "E-mail não cadastrado");
+                validacao.Mensagens.Add("Email", "O e-mail informado está incorreto ou não possui cadastro.");
             }
             else
             {
@@ -107,6 +107,15 @@ namespace Teach.Negocio
             {
                 validacao.Mensagens.Add("Email", "O e-mail informado é inválido.");
             }
+            //veja se vai funcionar quando o campo for nulo
+            if(AlunoAdicionado.CargaHoraria <=0 || AlunoAdicionado.CargaHoraria > 300)
+            {
+                validacao.Mensagens.Add("CH", "Carga Horária: É necessário preencher esse campo com um valor maior que 0 e menor que 300");
+            }
+            if(AlunoAdicionado.ValorHoraAula < 10 || AlunoAdicionado.CargaHoraria > 999)
+            {
+                validacao.Mensagens.Add("VHA", "Valor Hora Aula: É necessário informar um valor entre 10 e 999");
+            }
             if(this.banco.Alunos.Where(p => p.Email == AlunoAdicionado.Email).Any())
             {
                 validacao.Mensagens.Add("Aluno/Email", "Já existe um aluno cadastrado com este e-mail.");
@@ -114,10 +123,6 @@ namespace Teach.Negocio
             if(String.IsNullOrEmpty(AlunoAdicionado.DisciplinaCursada.disciplina))
             {
                 validacao.Mensagens.Add("Disciplina", "Selecione uma disciplina");
-            }
-            if(AlunoAdicionado.CargaHoraria <= 0)
-            {
-                validacao.Mensagens.Add("CH","Você deve preencher uma carga horária máxima de aulas para este aluno");
             }
             if(String.IsNullOrEmpty(AlunoAdicionado.Rua)) 
             {

@@ -32,11 +32,11 @@
             this.tbPesquisa = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.dgAlunos2 = new System.Windows.Forms.DataGridView();
-            this.btPesquisar = new System.Windows.Forms.Button();
-            this.btAvançar = new System.Windows.Forms.Button();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btPesquisar = new System.Windows.Forms.Button();
+            this.btAvançar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgAlunos2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,26 +64,6 @@
             this.dgAlunos2.Size = new System.Drawing.Size(545, 363);
             this.dgAlunos2.TabIndex = 2;
             // 
-            // btPesquisar
-            // 
-            this.btPesquisar.Location = new System.Drawing.Point(403, 12);
-            this.btPesquisar.Name = "btPesquisar";
-            this.btPesquisar.Size = new System.Drawing.Size(154, 23);
-            this.btPesquisar.TabIndex = 3;
-            this.btPesquisar.Text = "Pesquisar";
-            this.btPesquisar.UseVisualStyleBackColor = true;
-            this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
-            // 
-            // btAvançar
-            // 
-            this.btAvançar.Location = new System.Drawing.Point(403, 407);
-            this.btAvançar.Name = "btAvançar";
-            this.btAvançar.Size = new System.Drawing.Size(154, 23);
-            this.btAvançar.TabIndex = 4;
-            this.btAvançar.Text = "Avançar";
-            this.btAvançar.UseVisualStyleBackColor = true;
-            this.btAvançar.Click += new System.EventHandler(this.btAvançar_Click);
-            // 
             // Nome
             // 
             this.Nome.DataPropertyName = "Nome";
@@ -101,6 +81,26 @@
             this.Situacao.DataPropertyName = "SituacaoFinanceira";
             this.Situacao.HeaderText = "Situação Financeira";
             this.Situacao.Name = "Situacao";
+            // 
+            // btPesquisar
+            // 
+            this.btPesquisar.Location = new System.Drawing.Point(403, 12);
+            this.btPesquisar.Name = "btPesquisar";
+            this.btPesquisar.Size = new System.Drawing.Size(154, 23);
+            this.btPesquisar.TabIndex = 1;
+            this.btPesquisar.Text = "Pesquisar";
+            this.btPesquisar.UseVisualStyleBackColor = true;
+            this.btPesquisar.Click += new System.EventHandler(this.btPesquisar_Click);
+            // 
+            // btAvançar
+            // 
+            this.btAvançar.Location = new System.Drawing.Point(403, 407);
+            this.btAvançar.Name = "btAvançar";
+            this.btAvançar.Size = new System.Drawing.Size(154, 23);
+            this.btAvançar.TabIndex = 3;
+            this.btAvançar.Text = "Avançar";
+            this.btAvançar.UseVisualStyleBackColor = true;
+            this.btAvançar.Click += new System.EventHandler(this.btAvançar_Click);
             // 
             // FechamentoDeFaturaAluno
             // 

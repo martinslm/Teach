@@ -47,7 +47,7 @@
             this.tbLocal.Location = new System.Drawing.Point(91, 91);
             this.tbLocal.Name = "tbLocal";
             this.tbLocal.Size = new System.Drawing.Size(272, 20);
-            this.tbLocal.TabIndex = 2;
+            this.tbLocal.TabIndex = 4;
             // 
             // cbAluno
             // 
@@ -62,7 +62,7 @@
             this.btSalvar.Location = new System.Drawing.Point(288, 162);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(75, 28);
-            this.btSalvar.TabIndex = 24;
+            this.btSalvar.TabIndex = 7;
             this.btSalvar.Text = "Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
@@ -72,7 +72,7 @@
             this.btCancelar.Location = new System.Drawing.Point(207, 162);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 28);
-            this.btCancelar.TabIndex = 23;
+            this.btCancelar.TabIndex = 6;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
@@ -82,7 +82,7 @@
             this.tbObs.Location = new System.Drawing.Point(91, 127);
             this.tbObs.Name = "tbObs";
             this.tbObs.Size = new System.Drawing.Size(272, 20);
-            this.tbObs.TabIndex = 25;
+            this.tbObs.TabIndex = 5;
             // 
             // label1
             // 
@@ -137,7 +137,7 @@
             this.tbFim.Mask = "00/00/0000 00:00";
             this.tbFim.Name = "tbFim";
             this.tbFim.Size = new System.Drawing.Size(121, 20);
-            this.tbFim.TabIndex = 34;
+            this.tbFim.TabIndex = 2;
             // 
             // tbInicio
             // 
@@ -145,7 +145,7 @@
             this.tbInicio.Mask = "00/00/0000 00:00";
             this.tbInicio.Name = "tbInicio";
             this.tbInicio.Size = new System.Drawing.Size(121, 20);
-            this.tbInicio.TabIndex = 35;
+            this.tbInicio.TabIndex = 1;
             // 
             // AdicionarAgendamento
             // 

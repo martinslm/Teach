@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.dgAlunos = new System.Windows.Forms.DataGridView();
-            this.tbPesquisa = new System.Windows.Forms.TextBox();
-            this.btPesquisa = new System.Windows.Forms.Button();
-            this.btAdicionar = new System.Windows.Forms.Button();
-            this.btEditar = new System.Windows.Forms.Button();
-            this.btRemover = new System.Windows.Forms.Button();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CargaHoraria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SituacaoFinanceira = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tbPesquisa = new System.Windows.Forms.TextBox();
+            this.btPesquisa = new System.Windows.Forms.Button();
+            this.btAdicionar = new System.Windows.Forms.Button();
+            this.btEditar = new System.Windows.Forms.Button();
+            this.btRemover = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgAlunos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,53 +56,6 @@
             this.dgAlunos.Size = new System.Drawing.Size(628, 353);
             this.dgAlunos.TabIndex = 0;
             this.dgAlunos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAlunos_CellContentClick);
-            // 
-            // tbPesquisa
-            // 
-            this.tbPesquisa.Location = new System.Drawing.Point(12, 36);
-            this.tbPesquisa.Name = "tbPesquisa";
-            this.tbPesquisa.Size = new System.Drawing.Size(304, 20);
-            this.tbPesquisa.TabIndex = 5;
-            // 
-            // btPesquisa
-            // 
-            this.btPesquisa.Location = new System.Drawing.Point(322, 35);
-            this.btPesquisa.Name = "btPesquisa";
-            this.btPesquisa.Size = new System.Drawing.Size(75, 23);
-            this.btPesquisa.TabIndex = 6;
-            this.btPesquisa.Text = "Pesquisar";
-            this.btPesquisa.UseVisualStyleBackColor = true;
-            this.btPesquisa.Click += new System.EventHandler(this.btPesquisa_Click);
-            // 
-            // btAdicionar
-            // 
-            this.btAdicionar.Location = new System.Drawing.Point(403, 35);
-            this.btAdicionar.Name = "btAdicionar";
-            this.btAdicionar.Size = new System.Drawing.Size(75, 23);
-            this.btAdicionar.TabIndex = 7;
-            this.btAdicionar.Text = "Adicionar";
-            this.btAdicionar.UseVisualStyleBackColor = true;
-            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
-            // 
-            // btEditar
-            // 
-            this.btEditar.Location = new System.Drawing.Point(484, 36);
-            this.btEditar.Name = "btEditar";
-            this.btEditar.Size = new System.Drawing.Size(75, 23);
-            this.btEditar.TabIndex = 8;
-            this.btEditar.Text = "Editar";
-            this.btEditar.UseVisualStyleBackColor = true;
-            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
-            // 
-            // btRemover
-            // 
-            this.btRemover.Location = new System.Drawing.Point(565, 36);
-            this.btRemover.Name = "btRemover";
-            this.btRemover.Size = new System.Drawing.Size(75, 23);
-            this.btRemover.TabIndex = 9;
-            this.btRemover.Text = "Remover";
-            this.btRemover.UseVisualStyleBackColor = true;
-            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
             // Nome
             // 
@@ -133,6 +86,53 @@
             this.SituacaoFinanceira.DataPropertyName = "SituacaoFinanceira";
             this.SituacaoFinanceira.HeaderText = "Situação Financeira";
             this.SituacaoFinanceira.Name = "SituacaoFinanceira";
+            // 
+            // tbPesquisa
+            // 
+            this.tbPesquisa.Location = new System.Drawing.Point(12, 36);
+            this.tbPesquisa.Name = "tbPesquisa";
+            this.tbPesquisa.Size = new System.Drawing.Size(304, 20);
+            this.tbPesquisa.TabIndex = 0;
+            // 
+            // btPesquisa
+            // 
+            this.btPesquisa.Location = new System.Drawing.Point(322, 35);
+            this.btPesquisa.Name = "btPesquisa";
+            this.btPesquisa.Size = new System.Drawing.Size(75, 23);
+            this.btPesquisa.TabIndex = 1;
+            this.btPesquisa.Text = "Pesquisar";
+            this.btPesquisa.UseVisualStyleBackColor = true;
+            this.btPesquisa.Click += new System.EventHandler(this.btPesquisa_Click);
+            // 
+            // btAdicionar
+            // 
+            this.btAdicionar.Location = new System.Drawing.Point(403, 35);
+            this.btAdicionar.Name = "btAdicionar";
+            this.btAdicionar.Size = new System.Drawing.Size(75, 23);
+            this.btAdicionar.TabIndex = 2;
+            this.btAdicionar.Text = "Adicionar";
+            this.btAdicionar.UseVisualStyleBackColor = true;
+            this.btAdicionar.Click += new System.EventHandler(this.btAdicionar_Click);
+            // 
+            // btEditar
+            // 
+            this.btEditar.Location = new System.Drawing.Point(484, 36);
+            this.btEditar.Name = "btEditar";
+            this.btEditar.Size = new System.Drawing.Size(75, 23);
+            this.btEditar.TabIndex = 3;
+            this.btEditar.Text = "Editar";
+            this.btEditar.UseVisualStyleBackColor = true;
+            this.btEditar.Click += new System.EventHandler(this.btEditar_Click);
+            // 
+            // btRemover
+            // 
+            this.btRemover.Location = new System.Drawing.Point(565, 36);
+            this.btRemover.Name = "btRemover";
+            this.btRemover.Size = new System.Drawing.Size(75, 23);
+            this.btRemover.TabIndex = 4;
+            this.btRemover.Text = "Remover";
+            this.btRemover.UseVisualStyleBackColor = true;
+            this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
             // TelaGestaoAlunos
             // 

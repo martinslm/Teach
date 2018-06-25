@@ -33,7 +33,6 @@
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alunosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minhaContaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.agendaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.financeiroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerarFaturaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contasAReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +58,6 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
-            this.agendaToolStripMenuItem,
             this.financeiroToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -89,12 +87,6 @@
             this.minhaContaToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
             this.minhaContaToolStripMenuItem.Text = "Minha Conta";
             this.minhaContaToolStripMenuItem.Click += new System.EventHandler(this.minhaContaToolStripMenuItem_Click);
-            // 
-            // agendaToolStripMenuItem
-            // 
-            this.agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
-            this.agendaToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.agendaToolStripMenuItem.Text = "Agenda";
             // 
             // financeiroToolStripMenuItem
             // 
@@ -145,7 +137,7 @@
             // 
             this.Calendario.Location = new System.Drawing.Point(18, 46);
             this.Calendario.Name = "Calendario";
-            this.Calendario.TabIndex = 4;
+            this.Calendario.TabIndex = 0;
             this.Calendario.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // btAdicionar
@@ -153,7 +145,7 @@
             this.btAdicionar.Location = new System.Drawing.Point(18, 284);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(227, 49);
-            this.btAdicionar.TabIndex = 5;
+            this.btAdicionar.TabIndex = 1;
             this.btAdicionar.Text = "Adicionar agendamento";
             this.btAdicionar.UseVisualStyleBackColor = true;
             this.btAdicionar.Click += new System.EventHandler(this.button1_Click);
@@ -163,7 +155,7 @@
             this.btRemover.Location = new System.Drawing.Point(18, 348);
             this.btRemover.Name = "btRemover";
             this.btRemover.Size = new System.Drawing.Size(227, 49);
-            this.btRemover.TabIndex = 6;
+            this.btRemover.TabIndex = 2;
             this.btRemover.Text = "Remover agendamento";
             this.btRemover.UseVisualStyleBackColor = true;
             this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
@@ -249,7 +241,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem alunosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem minhaContaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem agendaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem financeiroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gerarFaturaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contasAReceberToolStripMenuItem;

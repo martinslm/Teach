@@ -86,7 +86,7 @@
             this.dgFuturaFatura.Location = new System.Drawing.Point(12, 255);
             this.dgFuturaFatura.Name = "dgFuturaFatura";
             this.dgFuturaFatura.Size = new System.Drawing.Size(408, 150);
-            this.dgFuturaFatura.TabIndex = 1;
+            this.dgFuturaFatura.TabIndex = 2;
             // 
             // DataIC
             // 
@@ -131,7 +131,7 @@
             this.btIncluir.Location = new System.Drawing.Point(445, 91);
             this.btIncluir.Name = "btIncluir";
             this.btIncluir.Size = new System.Drawing.Size(96, 54);
-            this.btIncluir.TabIndex = 4;
+            this.btIncluir.TabIndex = 1;
             this.btIncluir.Text = "Incluir na Fatura";
             this.btIncluir.UseVisualStyleBackColor = true;
             this.btIncluir.Click += new System.EventHandler(this.btIncluir_Click);
@@ -141,7 +141,7 @@
             this.btRemover.Location = new System.Drawing.Point(445, 313);
             this.btRemover.Name = "btRemover";
             this.btRemover.Size = new System.Drawing.Size(96, 54);
-            this.btRemover.TabIndex = 5;
+            this.btRemover.TabIndex = 3;
             this.btRemover.Text = "Remover da Fatura";
             this.btRemover.UseVisualStyleBackColor = true;
             this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
@@ -151,7 +151,7 @@
             this.btGerarFatura.Location = new System.Drawing.Point(378, 411);
             this.btGerarFatura.Name = "btGerarFatura";
             this.btGerarFatura.Size = new System.Drawing.Size(163, 38);
-            this.btGerarFatura.TabIndex = 6;
+            this.btGerarFatura.TabIndex = 5;
             this.btGerarFatura.Text = "Gerar Fatura";
             this.btGerarFatura.UseVisualStyleBackColor = true;
             // 
@@ -160,7 +160,7 @@
             this.btCancelar.Location = new System.Drawing.Point(209, 411);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(163, 38);
-            this.btCancelar.TabIndex = 7;
+            this.btCancelar.TabIndex = 4;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);

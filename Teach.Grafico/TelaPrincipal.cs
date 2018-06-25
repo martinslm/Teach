@@ -133,12 +133,14 @@ namespace Teach.Grafico
         private void minhaContaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CadastroProfessor tela = new CadastroProfessor();
+            //tela.MdiParent = this;
             tela.Show();
         }
 
         private void alunosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TelaGestaoAlunos tela = new TelaGestaoAlunos();
+            //tela.MdiParent = this;
             tela.Show();
         }
 
@@ -201,6 +203,7 @@ namespace Teach.Grafico
         private void gerarFaturaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FechamentoDeFaturaAluno tela = new FechamentoDeFaturaAluno();
+           // tela.MdiParent = this;
             tela.Show();
         }
     }

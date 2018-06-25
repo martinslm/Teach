@@ -110,6 +110,7 @@
             this.tbSenha.PasswordChar = '*';
             this.tbSenha.Size = new System.Drawing.Size(170, 20);
             this.tbSenha.TabIndex = 6;
+            this.tbSenha.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSenha_KeyPress);
             // 
             // btAcessar
             // 
@@ -120,6 +121,7 @@
             this.btAcessar.Text = "Entrar";
             this.btAcessar.UseVisualStyleBackColor = true;
             this.btAcessar.Click += new System.EventHandler(this.button1_Click);
+            this.btAcessar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSenha_KeyPress);
             // 
             // TelaLogin
             // 
