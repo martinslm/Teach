@@ -26,7 +26,8 @@ namespace Teach.Grafico
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            EsqueciMinhaSenha tela = new EsqueciMinhaSenha();
+            tela.Show();
         }
 
         private void Login_Click(object sender, EventArgs e)

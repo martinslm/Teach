@@ -91,7 +91,28 @@ namespace Teach.Negocio
 
             return validacao;
         }
-        // public Validacao EsqueciMinhaSenha()
+        public Validacao EsqueciMinhaSenha(Professor Professor, String ValidadorSenha)
+        {
+            Validacao validacao = new Validacao();
+            var professorDb = this.banco.Prof.Where(p => p.Email == Professor.Email).FirstOrDefault();
+            if(professorDb == null)
+            {
+                validacao.Mensagens.Add("Email", "E-mail não encontrado");
+            }
+            else
+            {
+                if(Professor.Senha != ValidadorSenha)
+                {
+                    validacao.Mensagens.Add("Senhas", "Senhas não conferem. Gentileza verificar.");
+                }
+                else
+                {
+                    professorDb.Senha = Professor.Senha;
+                    this.banco.SaveChanges();
+                }
+            }
+            return validacao;
+        }
 
         /* Tela Cadastros*/
 

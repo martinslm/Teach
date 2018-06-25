@@ -52,41 +52,86 @@ namespace Teach.Grafico
             CarregaDG();
         }
 
+        private bool VerificaSelecao()
+        {
+            if (dgDisciplinas.SelectedRows.Count <= 0)
+            {
+                MessageBox.Show("Selecione uma linha");
+                return false;
+            }
+            return true;
+        }
+
+        //não ta funcionando 
+        private void btRemoverDisciplina_Click(object sender, EventArgs e)
+        {
+            if(VerificaSelecao())
+            {
+                Disciplina DisciplinaSelecionada = (Disciplina)dgDisciplinas.SelectedRows[0].DataBoundItem;
+                if (Program.Gerenciador.ProfessorLogado == 0)
+                {
+                    banco.Disciplina.Remove(DisciplinaSelecionada);
+                    CarregaDG();
+                }
+                else
+                {
+                    if (Program.Gerenciador.TodosOsAlunosDoProfessorLogado().Any(t => t.DisciplinaCursada.Id == DisciplinaSelecionada.Id))
+                    {
+                        MessageBox.Show("Você possui alunos cursando esta disciplina, portanto, não é possível removê-la");
+                    }
+                    else
+                    {
+                        banco.Disciplina.Remove(DisciplinaSelecionada);
+                    }
+                }
+            }
+        }
+
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            
-            NovoCadastro.Nome = tbNome.Text;
-            NovoCadastro.Email = tbEmail.Text;
-            NovoCadastro.Telefone = tbTelefone.Text;
-            NovoCadastro.Senha = tbSenha.Text;
-            String ConfirmacaoSenha = tbConfirmacao.Text;
-            /*Ver como adicionar disciplina*/
+            //QuatidadeMaximadeCaracteresPermitidos.
+            tbSenha.MaxLength = 8;
+            tbConfirmacao.MaxLength = 8;
 
-            Validacao validacao;
-            if (Program.Gerenciador.ProfessorLogado == 0)
+            if (tbConfirmacao.TextLength > 8 || tbSenha.TextLength > 8)
             {
-               validacao = Program.Gerenciador.CadastroProfessor(NovoCadastro, ConfirmacaoSenha);
+                MessageBox.Show("Sua senha não pode conter mais que 8 caracteres.");
             }
             else
             {
-                validacao = Program.Gerenciador.MinhaConta(NovoCadastro, ConfirmacaoSenha);
-            }
+                NovoCadastro.Nome = tbNome.Text;
+                NovoCadastro.Email = tbEmail.Text;
+                NovoCadastro.Telefone = tbTelefone.Text;
+                NovoCadastro.Senha = tbSenha.Text;
+                String ConfirmacaoSenha = tbConfirmacao.Text;
+                /*Ver como adicionar disciplina*/
 
-            if (validacao.Valido)
-            {
-                MessageBox.Show("Cadastro realizado com sucesso.");
-                this.Close();
-            }
-            else
-            {
-                String mensagemValidacao = " ";
-                foreach (var chave in validacao.Mensagens.Keys)
+                Validacao validacao;
+                if (Program.Gerenciador.ProfessorLogado == 0)
                 {
-                    String msg = validacao.Mensagens[chave];
-                    mensagemValidacao += msg;
-                    mensagemValidacao += Environment.NewLine;
+                    validacao = Program.Gerenciador.CadastroProfessor(NovoCadastro, ConfirmacaoSenha);
                 }
-                MessageBox.Show(mensagemValidacao);
+                else
+                {
+                    validacao = Program.Gerenciador.MinhaConta(NovoCadastro, ConfirmacaoSenha);
+                }
+
+                if (validacao.Valido)
+                {
+                    MessageBox.Show("Cadastro realizado com sucesso.");
+                    this.Close();
+                }
+                else
+                {
+                    String mensagemValidacao = " ";
+                    foreach (var chave in validacao.Mensagens.Keys)
+                    {
+                        String msg = validacao.Mensagens[chave];
+                        mensagemValidacao += msg;
+                        mensagemValidacao += Environment.NewLine;
+                    }
+                    MessageBox.Show(mensagemValidacao);
+                }
             }
         }
 

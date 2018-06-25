@@ -43,6 +43,7 @@
             this.tbTelefone = new System.Windows.Forms.MaskedTextBox();
             this.dgDisciplinas = new System.Windows.Forms.DataGridView();
             this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btRemoverDisciplina = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgDisciplinas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,7 +80,7 @@
             // 
             // BtDisciplina
             // 
-            this.BtDisciplina.Location = new System.Drawing.Point(65, 191);
+            this.BtDisciplina.Location = new System.Drawing.Point(65, 175);
             this.BtDisciplina.Name = "BtDisciplina";
             this.BtDisciplina.Size = new System.Drawing.Size(75, 36);
             this.BtDisciplina.TabIndex = 5;
@@ -92,7 +93,7 @@
             this.btCancelar.Location = new System.Drawing.Point(227, 271);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(75, 28);
-            this.btCancelar.TabIndex = 6;
+            this.btCancelar.TabIndex = 8;
             this.btCancelar.Text = "Cancelar";
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
@@ -102,7 +103,7 @@
             this.btSalvar.Location = new System.Drawing.Point(308, 271);
             this.btSalvar.Name = "btSalvar";
             this.btSalvar.Size = new System.Drawing.Size(75, 28);
-            this.btSalvar.TabIndex = 8;
+            this.btSalvar.TabIndex = 7;
             this.btSalvar.Text = "Salvar";
             this.btSalvar.UseVisualStyleBackColor = true;
             this.btSalvar.Click += new System.EventHandler(this.btSalvar_Click);
@@ -179,11 +180,22 @@
             this.Disciplina.HeaderText = "Disciplina";
             this.Disciplina.Name = "Disciplina";
             // 
+            // btRemoverDisciplina
+            // 
+            this.btRemoverDisciplina.Location = new System.Drawing.Point(65, 217);
+            this.btRemoverDisciplina.Name = "btRemoverDisciplina";
+            this.btRemoverDisciplina.Size = new System.Drawing.Size(75, 36);
+            this.btRemoverDisciplina.TabIndex = 6;
+            this.btRemoverDisciplina.Text = "Remover Disicplina";
+            this.btRemoverDisciplina.UseVisualStyleBackColor = true;
+            this.btRemoverDisciplina.Click += new System.EventHandler(this.btRemoverDisciplina_Click);
+            // 
             // CadastroProfessor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 331);
+            this.Controls.Add(this.btRemoverDisciplina);
             this.Controls.Add(this.dgDisciplinas);
             this.Controls.Add(this.tbTelefone);
             this.Controls.Add(this.label5);
@@ -225,5 +237,6 @@
         private System.Windows.Forms.MaskedTextBox tbTelefone;
         private System.Windows.Forms.DataGridView dgDisciplinas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Disciplina;
+        private System.Windows.Forms.Button btRemoverDisciplina;
     }
 }

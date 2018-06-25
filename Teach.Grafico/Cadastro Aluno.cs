@@ -56,50 +56,67 @@ namespace Teach.Grafico
 
         private void btSalvar_Click(object sender, EventArgs e)
         {
-            Aluno NovoCadastro = new Aluno();
-            NovoCadastro.Nome = tbNome.Text;
-            NovoCadastro.Email = tbEmail.Text;
-            NovoCadastro.Celular = tbCelular.Text;
-            NovoCadastro.CargaHoraria = Convert.ToInt32(tbCh.Text);
-            NovoCadastro.ValorHoraAula = Convert.ToDecimal(tbVha.Text);
-            NovoCadastro.Rua = tbRua.Text;
-            NovoCadastro.Numero = tbNumero.Text;
-            NovoCadastro.Complemento = tbComp.Text;
-            NovoCadastro.Bairro = tbBairro.Text;
-            NovoCadastro.CEP = tbCEP.Text;
-            NovoCadastro.Cidade = tbCidade.Text;
-            NovoCadastro.DisciplinaCursada = cbDisciplina.SelectedItem as Disciplina;
-            NovoCadastro.Professor = Program.Gerenciador.ProfessorLog();
-            Validacao validacao;
-            if (AlunoSelecionado == null)
+            if (tbCh.Text == "" || tbVha.Text == "")
             {
-                validacao = Program.Gerenciador.CadastroAluno(NovoCadastro);
-            }
-            else
-            {
-                //Não apagar esta linha do ID. 
-                NovoCadastro.Id = AlunoSelecionado.Id;
-                validacao = Program.Gerenciador.EditarAluno(NovoCadastro);
-            }
-            if (!validacao.Valido)
-            {
-                String mensagemValidacao = "";
-                foreach (var chave in validacao.Mensagens.Keys)
+                if(tbCh.Text == "" || tbVha.Text == "")
                 {
-                    String msg = validacao.Mensagens[chave];
-                    mensagemValidacao += msg;
-                    mensagemValidacao += Environment.NewLine;
+                    MessageBox.Show("Você precisa preencher os campos: Valor Hora Aula e Carga Horária");
                 }
-
-                MessageBox.Show(mensagemValidacao);
+                if(tbCh.Text != "" || tbVha.Text == "")
+                {
+                    MessageBox.Show("Você precisa preencher o campo VALOR HORA AULA");
+                }
+                if(tbCh.Text == "" || tbVha.Text != "")
+                {
+                    MessageBox.Show("Você precisa preencher o campo CARGA HORÁRIA");
+                }
             }
             else
             {
-                MessageBox.Show("Aluno cadastrado com sucesso");
+                Aluno NovoCadastro = new Aluno();
+                NovoCadastro.Nome = tbNome.Text;
+                NovoCadastro.Email = tbEmail.Text;
+                NovoCadastro.Celular = tbCelular.Text;
+                NovoCadastro.CargaHoraria = Convert.ToInt32(tbCh.Text);
+                NovoCadastro.ValorHoraAula = Convert.ToDecimal(tbVha.Text);
+                NovoCadastro.Rua = tbRua.Text;
+                NovoCadastro.Numero = tbNumero.Text;
+                NovoCadastro.Complemento = tbComp.Text;
+                NovoCadastro.Bairro = tbBairro.Text;
+                NovoCadastro.CEP = tbCEP.Text;
+                NovoCadastro.Cidade = tbCidade.Text;
+                NovoCadastro.DisciplinaCursada = cbDisciplina.SelectedItem as Disciplina;
+                NovoCadastro.Professor = Program.Gerenciador.ProfessorLog();
+                Validacao validacao;
+                if (AlunoSelecionado == null)
+                {
+                    validacao = Program.Gerenciador.CadastroAluno(NovoCadastro);
+                }
+                else
+                {
+                    //Não apagar esta linha do ID. 
+                    NovoCadastro.Id = AlunoSelecionado.Id;
+                    validacao = Program.Gerenciador.EditarAluno(NovoCadastro);
+                }
+                if (!validacao.Valido)
+                {
+                    String mensagemValidacao = "";
+                    foreach (var chave in validacao.Mensagens.Keys)
+                    {
+                        String msg = validacao.Mensagens[chave];
+                        mensagemValidacao += msg;
+                        mensagemValidacao += Environment.NewLine;
+                    }
 
+                    MessageBox.Show(mensagemValidacao);
+                }
+                else
+                {
+                    MessageBox.Show("Aluno cadastrado com sucesso");
+                    this.Close();
+
+                }
             }
-
-            this.Close();
         }
 
         private void btCancelar_Click(object sender, EventArgs e)
