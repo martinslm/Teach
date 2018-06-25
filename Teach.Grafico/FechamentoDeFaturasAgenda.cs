@@ -15,6 +15,7 @@ namespace Teach.Grafico
     public partial class FechamentoDeFaturasAgenda : Form
     {
         public Aluno AlunoParaFechamento;
+        public decimal ValorTotal=0;
         public List<Agenda> FuturaFatura = new List<Agenda>();
         public FechamentoDeFaturasAgenda()
         {
@@ -42,10 +43,19 @@ namespace Teach.Grafico
             dgFuturaFatura.MultiSelect = false;
             dgFuturaFatura.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgFuturaFatura.AutoGenerateColumns = false;
-            dgFuturaFatura.DataSource = FuturaFatura;
+            dgFuturaFatura.DataSource = FuturaFatura.ToList();
             dgFuturaFatura.Refresh();
         }
 
+        private void CarregaTotal()
+        {
+            ValorTotal = 0;
+            foreach(var ftr in FuturaFatura)
+            {
+                ValorTotal += ftr.Valor;
+            }
+            lbValor.Text = ValorTotal.ToString();
+        }
         private void btCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -58,6 +68,7 @@ namespace Teach.Grafico
                 Agenda Agendamento = (Agenda)dgAgnAbertos.SelectedRows[0].DataBoundItem;
                 FuturaFatura.Add(Agendamento);
                 CarregaDgFuturaFatura();
+                CarregaTotal();
             }
 
             CarregaDgFuturaFatura();
@@ -81,6 +92,8 @@ namespace Teach.Grafico
             {
                 Agenda Remover = (Agenda)dgFuturaFatura.SelectedRows[0].DataBoundItem;
                 FuturaFatura.Remove(Remover);
+                CarregaDgFuturaFatura();
+                CarregaTotal();
             }
 
             CarregaDgFuturaFatura();

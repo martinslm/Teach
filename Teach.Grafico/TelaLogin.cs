@@ -37,7 +37,18 @@ namespace Teach.Grafico
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Login();
+            if (tbSenha.Text == "")
+            {
+                MessageBox.Show("Você deve preencher a senha");
+            }
+            if (tbEmail.Text == "")
+            {
+                MessageBox.Show("O campo e-mail deve ser preenchido");
+            }
+            else
+            {
+                Login();
+            }
         }
 
         private void Login()

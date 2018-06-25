@@ -12,7 +12,7 @@ namespace Teach.Negocio.Models
     {
         public long Id { get; set; }
         public virtual List<Agenda> Descricao { get; set; }
-        public Int64 ValorTotal { get; set; }
+        public decimal ValorTotal { get; set; }
         public DateTime DataGeracao { get; set; }
         public String Situacao { get; set; }
         public virtual Professor Professor { get; set; }

@@ -42,6 +42,8 @@
             this.btRemover = new System.Windows.Forms.Button();
             this.btGerarFatura = new System.Windows.Forms.Button();
             this.btCancelar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lbValor = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgAgnAbertos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgFuturaFatura)).BeginInit();
             this.SuspendLayout();
@@ -165,11 +167,32 @@
             this.btCancelar.UseVisualStyleBackColor = true;
             this.btCancelar.Click += new System.EventHandler(this.btCancelar_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(434, 191);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(123, 20);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Valor da Fatura:";
+            // 
+            // lbValor
+            // 
+            this.lbValor.AutoSize = true;
+            this.lbValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValor.Location = new System.Drawing.Point(491, 223);
+            this.lbValor.Name = "lbValor";
+            this.lbValor.Size = new System.Drawing.Size(0, 26);
+            this.lbValor.TabIndex = 7;
+            // 
             // FechamentoDeFaturasAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(569, 461);
+            this.Controls.Add(this.lbValor);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btGerarFatura);
             this.Controls.Add(this.btRemover);
@@ -204,5 +227,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DataIC;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalHorasIC;
         private System.Windows.Forms.DataGridViewTextBoxColumn ValorIC;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbValor;
     }
 }

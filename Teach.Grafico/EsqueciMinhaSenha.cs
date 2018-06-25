@@ -31,16 +31,23 @@ namespace Teach.Grafico
 
         private void tbSalvar_Click(object sender, EventArgs e)
         {
-            Professor Professor = new Professor();
-            String ValidadorSenha;
-            Professor.Email = tbEmail.Text;
-            Professor.Senha = tbSenha.Text;
-            ValidadorSenha = tbConfirmacaoSenha.Text;
-            Validacao validacao = Program.Gerenciador.EsqueciMinhaSenha(Professor, ValidadorSenha);
-            if(validacao.Valido)
+            if (tbEmail.Text == "" || tbSenha.Text == "" || tbConfirmacaoSenha.Text == "" )
             {
-                MessageBox.Show("Alteração efetuada sucesso!");
-                this.Close();
+                MessageBox.Show("Você precisa preencher todos os campos");
+            }
+            else
+            {
+                Professor Professor = new Professor();
+                String ValidadorSenha;
+                Professor.Email = tbEmail.Text;
+                Professor.Senha = tbSenha.Text;
+                ValidadorSenha = tbConfirmacaoSenha.Text;
+                Validacao validacao = Program.Gerenciador.EsqueciMinhaSenha(Professor, ValidadorSenha);
+                if (validacao.Valido)
+                {
+                    MessageBox.Show("Alteração efetuada sucesso!");
+                    this.Close();
+                }
             }
         }
     }
