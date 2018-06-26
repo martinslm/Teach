@@ -336,6 +336,7 @@ namespace Teach.Negocio
             AgendamentoBanco.Valor = AgendamentoBanco.Valor;
             AgendamentoBanco.Observacoes = AgendamentoBanco.Observacoes;
             AgendamentoBanco.Professor = AgendamentoBanco.Professor;
+            AgendamentoBanco.Id = AgendamentoBanco.Id;
             this.banco.SaveChanges();
             return validacao;
         }
