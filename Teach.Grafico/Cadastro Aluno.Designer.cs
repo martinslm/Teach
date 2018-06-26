@@ -306,7 +306,7 @@
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbNome);
             this.Name = "Cadastro_Aluno";
-            this.Text = "Cadastro_Aluno";
+            this.Text = "Cadastro do Aluno";
             this.Load += new System.EventHandler(this.Cadastro_Aluno_Load);
             this.Shown += new System.EventHandler(this.Cadastro_Aluno_Shown);
             this.ResumeLayout(false);

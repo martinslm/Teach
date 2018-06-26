@@ -203,7 +203,7 @@
             this.Controls.Add(this.dgFuturaFatura);
             this.Controls.Add(this.dgAgnAbertos);
             this.Name = "FechamentoDeFaturasAgenda";
-            this.Text = "FechamentoDeFaturasAgenda";
+            this.Text = "Gerar Fatura";
             this.Load += new System.EventHandler(this.FechamentoDeFaturasAgenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgAgnAbertos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgFuturaFatura)).EndInit();

@@ -211,7 +211,7 @@
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbNome);
             this.Name = "CadastroProfessor";
-            this.Text = "Cadastro Professor";
+            this.Text = "Cadastro do Professor";
             this.Load += new System.EventHandler(this.CadastroProfessor_Load);
             this.Shown += new System.EventHandler(this.CadastroProfessor_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgDisciplinas)).EndInit();

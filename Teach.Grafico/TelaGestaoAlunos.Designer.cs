@@ -146,7 +146,7 @@
             this.Controls.Add(this.tbPesquisa);
             this.Controls.Add(this.dgAlunos);
             this.Name = "TelaGestaoAlunos";
-            this.Text = "TelaGestaoAlunos";
+            this.Text = "Gestão de Alunos";
             this.Load += new System.EventHandler(this.TelaGestaoAlunos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgAlunos)).EndInit();
             this.ResumeLayout(false);

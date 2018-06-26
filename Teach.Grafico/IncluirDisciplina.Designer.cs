@@ -81,7 +81,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbDisciplina);
             this.Name = "IncluirDisciplina";
-            this.Text = "IncluirDisciplina";
+            this.Text = "Incluir Disciplina";
             this.Load += new System.EventHandler(this.IncluirDisciplina_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

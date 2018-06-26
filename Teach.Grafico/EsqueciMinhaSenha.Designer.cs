@@ -122,7 +122,7 @@
             this.Controls.Add(this.tbSenha);
             this.Controls.Add(this.tbEmail);
             this.Name = "EsqueciMinhaSenha";
-            this.Text = "EsqueciMinhaSenha";
+            this.Text = "Esqueci Minha Senha";
             this.Load += new System.EventHandler(this.EsqueciMinhaSenha_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
