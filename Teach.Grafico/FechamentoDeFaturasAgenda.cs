@@ -103,12 +103,15 @@ namespace Teach.Grafico
         private void btGerarFatura_Click(object sender, EventArgs e)
         {
             Fatura Fatura = new Fatura();
-            Fatura.DataGeracao = DateTime.Now;
-            Fatura.ValorTotal = ValorTotal;
-            Fatura.Professor = Program.Gerenciador.BuscaProfessorPorId(Program.Gerenciador.ProfessorLogado);
-            Fatura.Situacao = "Aberto";
-            banco.Faturas.Add(Fatura);
-            banco.SaveChanges();
+            using (Banco db = new Banco())
+            {
+                Fatura.DataGeracao = DateTime.Now;
+                Fatura.ValorTotal = ValorTotal;
+                Fatura.Professor = Program.Gerenciador.BuscaProfessorPorId(Program.Gerenciador.ProfessorLogado);
+                Fatura.Situacao = "Aberto";
+                db.Entry(Fatura);
+                db.SaveChanges();
+            }
 
             foreach(var agn in FuturaFatura)
             {

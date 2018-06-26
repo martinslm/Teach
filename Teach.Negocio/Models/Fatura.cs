@@ -15,5 +15,7 @@ namespace Teach.Negocio.Models
         public DateTime DataGeracao { get; set; }
         public String Situacao { get; set; }
         public virtual Professor Professor { get; set; }
+        public Aluno Aluno { get; set; }
+
     }
 }
