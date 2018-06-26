@@ -62,11 +62,11 @@ namespace Teach.Grafico
                 {
                     MessageBox.Show("Você precisa preencher os campos: Valor Hora Aula e Carga Horária");
                 }
-                if(tbCh.Text != "" || tbVha.Text == "")
+                else if(tbCh.Text != "" || tbVha.Text == "")
                 {
                     MessageBox.Show("Você precisa preencher o campo VALOR HORA AULA");
                 }
-                if(tbCh.Text == "" || tbVha.Text != "")
+                else
                 {
                     MessageBox.Show("Você precisa preencher o campo CARGA HORÁRIA");
                 }

@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Teach.Negocio.Models;
+using Teach.Negocio.Persistencia;
 
 namespace Teach.Grafico
 {
     
     public partial class FechamentoDeFaturasAgenda : Form
     {
+        private Banco banco = new Banco();
         public Aluno AlunoParaFechamento;
         public decimal ValorTotal=0;
         public List<Agenda> FuturaFatura = new List<Agenda>();
@@ -54,7 +56,7 @@ namespace Teach.Grafico
             {
                 ValorTotal += ftr.Valor;
             }
-            lbValor.Text = ValorTotal.ToString();
+            lbValor.Text = "R$" + (ValorTotal.ToString());
         }
         private void btCancelar_Click(object sender, EventArgs e)
         {
@@ -71,8 +73,7 @@ namespace Teach.Grafico
                 CarregaTotal();
             }
 
-            CarregaDgFuturaFatura();
-            //ESTÁ ADICIONANDO NA LISTA, PORÉM O CARREGA DG NÃO ESTÁ FUNCIONANDO. 
+            CarregaDgFuturaFatura(); 
         }
 
         private bool VerificarSelecao()
@@ -98,7 +99,26 @@ namespace Teach.Grafico
 
             CarregaDgFuturaFatura();
         }
-        //2º dg ta com problema, remove nao ta funcionando. 
-        //CarregaAgendamentosDeAlunos - funcao do gerenciador, passar como parametro o aluno.
+
+        private void btGerarFatura_Click(object sender, EventArgs e)
+        {
+            Fatura Fatura = new Fatura();
+            Fatura.DataGeracao = DateTime.Now;
+            Fatura.ValorTotal = ValorTotal;
+            Fatura.Professor = Program.Gerenciador.BuscaProfessorPorId(Program.Gerenciador.ProfessorLogado);
+            Fatura.Situacao = "Aberto";
+            banco.Faturas.Add(Fatura);
+            banco.SaveChanges();
+
+            foreach(var agn in FuturaFatura)
+            {
+                Program.Gerenciador.AtribuiIdFaturaGeradaAoAgendamento(agn, Fatura);
+            }
+
+            String vt = Convert.ToString(ValorTotal);
+
+            MessageBox.Show($"Fatura gerada com sucesso.\n Aluno: {AlunoParaFechamento.Nome}\n Valor Total: R${vt}");
+            this.Close();
+        }
     }
 }

@@ -59,7 +59,8 @@ namespace Teach.Grafico
                 NovoAgendamento.Endereco = tbLocal.Text;
                 NovoAgendamento.Observacoes = tbObs.Text;
                 NovoAgendamento.Professor = Program.Gerenciador.ProfessorLog();
-
+                TimeSpan TotalHoras = NovoAgendamento.HoraFinal - NovoAgendamento.HoraInicial;
+                NovoAgendamento.Valor = Convert.ToDecimal(TotalHoras.Hours + (TotalHoras.Minutes / 60)) * NovoAgendamento.Aluno.ValorHoraAula;
                 Validacao validacao = Program.Gerenciador.NovoAgendamento(NovoAgendamento);
 
                 if (!validacao.Valido)

@@ -156,6 +156,7 @@
             this.btGerarFatura.TabIndex = 5;
             this.btGerarFatura.Text = "Gerar Fatura";
             this.btGerarFatura.UseVisualStyleBackColor = true;
+            this.btGerarFatura.Click += new System.EventHandler(this.btGerarFatura_Click);
             // 
             // btCancelar
             // 

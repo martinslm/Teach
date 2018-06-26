@@ -11,7 +11,6 @@ namespace Teach.Negocio.Models
     public class Fatura
     {
         public long Id { get; set; }
-        public virtual List<Agenda> Descricao { get; set; }
         public decimal ValorTotal { get; set; }
         public DateTime DataGeracao { get; set; }
         public String Situacao { get; set; }

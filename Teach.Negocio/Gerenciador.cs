@@ -323,6 +323,22 @@ namespace Teach.Negocio
             }
             return Agendamentos.ToList();
         }
+        public Validacao AtribuiIdFaturaGeradaAoAgendamento(Agenda Agendamento, Fatura Fatura)
+        {
+            Validacao validacao = new Validacao();
+            Agenda AgendamentoBanco = BuscaAgendamentoPorId(Agendamento.Id);
+            AgendamentoBanco.Fatura = Fatura;
+            AgendamentoBanco.Aluno = AgendamentoBanco.Aluno;
+            Agendamento.Endereco = Agendamento.Endereco;
+            AgendamentoBanco.HoraFinal = AgendamentoBanco.HoraFinal;
+            AgendamentoBanco.HoraInicial = AgendamentoBanco.HoraInicial;
+            AgendamentoBanco.TotalHoras = AgendamentoBanco.TotalHoras;
+            AgendamentoBanco.Valor = AgendamentoBanco.Valor;
+            AgendamentoBanco.Observacoes = AgendamentoBanco.Observacoes;
+            AgendamentoBanco.Professor = AgendamentoBanco.Professor;
+            this.banco.SaveChanges();
+            return validacao;
+        }
         //public Validacao FechamentoDeFatura(Aluno AlunoSelecionado)
         //{
            // Validacao validacao = new Validacao();

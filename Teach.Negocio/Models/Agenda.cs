@@ -16,7 +16,7 @@ namespace Teach.Negocio.Models
         public DateTime HoraInicial { get; set; }
         public DateTime HoraFinal { get; set; }
         public TimeSpan TotalHoras { get { return HoraFinal - HoraInicial; } set { } }
-        public decimal Valor { get { return Convert.ToDecimal(this.TotalHoras.Hours + (this.TotalHoras.Minutes/60)) * this.Aluno.ValorHoraAula; } set { } }
+        public decimal Valor { get; set; }
         public String Observacoes { get; set; }
         public virtual Professor Professor { get; set; }
         public virtual Fatura Fatura { get; set; }
