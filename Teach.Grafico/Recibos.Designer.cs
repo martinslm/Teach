@@ -1,6 +1,6 @@
 ﻿namespace Teach.Grafico
 {
-    partial class Form1
+    partial class Recibos
     {
         /// <summary>
         /// Required designer variable.

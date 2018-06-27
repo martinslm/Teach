@@ -102,21 +102,23 @@
             // gerarFaturaToolStripMenuItem
             // 
             this.gerarFaturaToolStripMenuItem.Name = "gerarFaturaToolStripMenuItem";
-            this.gerarFaturaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.gerarFaturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gerarFaturaToolStripMenuItem.Text = "Gerar Fatura";
             this.gerarFaturaToolStripMenuItem.Click += new System.EventHandler(this.gerarFaturaToolStripMenuItem_Click);
             // 
             // contasAReceberToolStripMenuItem
             // 
             this.contasAReceberToolStripMenuItem.Name = "contasAReceberToolStripMenuItem";
-            this.contasAReceberToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.contasAReceberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.contasAReceberToolStripMenuItem.Text = "Contas a Receber";
+            this.contasAReceberToolStripMenuItem.Click += new System.EventHandler(this.contasAReceberToolStripMenuItem_Click);
             // 
             // recibosToolStripMenuItem
             // 
             this.recibosToolStripMenuItem.Name = "recibosToolStripMenuItem";
-            this.recibosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.recibosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.recibosToolStripMenuItem.Text = "Recibos";
+            this.recibosToolStripMenuItem.Click += new System.EventHandler(this.recibosToolStripMenuItem_Click);
             // 
             // statusStrip
             // 

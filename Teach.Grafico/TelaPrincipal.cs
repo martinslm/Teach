@@ -206,5 +206,17 @@ namespace Teach.Grafico
            // tela.MdiParent = this;
             tela.Show();
         }
+
+        private void contasAReceberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ContasAReceber tela = new ContasAReceber();
+            tela.Show();
+        }
+
+        private void recibosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Recibos tela = new Recibos();
+            tela.Show();
+        }
     }
 }

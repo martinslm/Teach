@@ -95,6 +95,12 @@
     <Compile Include="FechamentoDeFaturasAgenda.Designer.cs">
       <DependentUpon>FechamentoDeFaturasAgenda.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recibos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recibos.Designer.cs">
+      <DependentUpon>Recibos.cs</DependentUpon>
+    </Compile>
     <Compile Include="IncluirDisciplina.cs">
       <SubType>Form</SubType>
     </Compile>

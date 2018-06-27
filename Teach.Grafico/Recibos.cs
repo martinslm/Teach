@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Teach.Grafico
 {
-    public partial class Form1 : Form
+    public partial class Recibos : Form
     {
-        public Form1()
+        public Recibos()
         {
             InitializeComponent();
         }
