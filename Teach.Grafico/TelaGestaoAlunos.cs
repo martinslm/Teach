@@ -50,6 +50,7 @@ namespace Teach.Grafico
 
         private void btPesquisa_Click(object sender, EventArgs e)
         {
+            
             dgAlunos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgAlunos.MultiSelect = false;
             dgAlunos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -81,7 +82,7 @@ namespace Teach.Grafico
         {
             if (VerificarSelecao())
             {
-                DialogResult resultado = MessageBox.Show("Remover Aluno", "Tem certeza que deseja remover este aluno?", MessageBoxButtons.OKCancel);
+                DialogResult resultado = MessageBox.Show("","Tem certeza que deseja remover este aluno?", MessageBoxButtons.OKCancel);
                 if (resultado == DialogResult.OK)
                 {
                     AlunoSelecionado = (Aluno)dgAlunos.SelectedRows[0].DataBoundItem;

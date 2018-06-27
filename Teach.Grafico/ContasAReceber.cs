@@ -77,5 +77,9 @@ namespace Teach.Grafico
             return true;
         }
 
+        private void dgContasReceber_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

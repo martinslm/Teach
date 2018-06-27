@@ -74,6 +74,7 @@
             this.dgContasReceber.Name = "dgContasReceber";
             this.dgContasReceber.Size = new System.Drawing.Size(766, 345);
             this.dgContasReceber.TabIndex = 3;
+            this.dgContasReceber.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgContasReceber_CellContentClick);
             // 
             // DataGeracao
             // 
