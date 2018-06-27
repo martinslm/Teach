@@ -54,7 +54,6 @@ namespace Teach.Grafico
                 return false;
             }
             return true;
-
         }
 
         private void btAvançar_Click(object sender, EventArgs e)

@@ -17,5 +17,12 @@ namespace Teach.Negocio.Models
         public virtual Professor Professor { get; set; }
         public Aluno Aluno { get; set; }
 
+        [NotMapped]
+        public String NomeAluno
+        {
+        get{
+                return Aluno.Nome;
+            }
+        }
     }
 }

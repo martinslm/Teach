@@ -71,6 +71,12 @@
     <Compile Include="CadastroProfessor.Designer.cs">
       <DependentUpon>CadastroProfessor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ContasAReceber.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContasAReceber.Designer.cs">
+      <DependentUpon>ContasAReceber.cs</DependentUpon>
+    </Compile>
     <Compile Include="EsqueciMinhaSenha.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CadastroProfessor.resx">
       <DependentUpon>CadastroProfessor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContasAReceber.resx">
+      <DependentUpon>ContasAReceber.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EsqueciMinhaSenha.resx">
       <DependentUpon>EsqueciMinhaSenha.cs</DependentUpon>

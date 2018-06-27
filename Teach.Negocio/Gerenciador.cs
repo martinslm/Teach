@@ -340,13 +340,35 @@ namespace Teach.Negocio
             this.banco.SaveChanges();
             return validacao;
         }
-        //public Validacao FechamentoDeFatura(Aluno AlunoSelecionado)
-        //{
-           // Validacao validacao = new Validacao();
-            //this.banco.Prof.Where(c => c.Email == Usuario.Email).Any()
+        public List<Fatura> BuscaFaturaPorNome(String Nome)
+        {
+            Validacao validacao = new Validacao();
+            List<Fatura> Faturas = new List<Fatura>();
+            if (Nome == "")
+            {
+                Faturas = TodasAsFaturasDoProfessorLogado();
+            }
+            else
+            {
+                foreach (var ftr in this.banco.Faturas)
+                {
+                    if (ftr.Aluno.Nome.ToUpper().Contains(Nome.ToUpper()))
+                    {
+                        if (ftr.Situacao == "Aberto")
+                        {
+                            Faturas.Add(ftr);
+                        }
+                    }
+                }
 
-         //   return validacao;
-       // }
+                if (Faturas == null)
+                {
+                    validacao.Mensagens.Add("FaturasBusca", "Não foi possível localizar nenhuma fatura com os critérios encontrados.");
+                }
+            }
+            return Faturas.ToList();
+        }
+
         public Validacao ContasAReceber()
         {
             Validacao validacao = new Validacao();
@@ -375,20 +397,7 @@ namespace Teach.Negocio
         {
             return this.banco.Agendamentos.Where(c => c.Id == Id).FirstOrDefault();
         }
-        //public Agenda BuscaAgendamentoPorAluno(Aluno Aluno)
-        //{
-                //este trecho do Where também poderia ser uma condicional IF, onde, SE VERDADEIRO, é realizado o foreach. 
-            //return this.banco.Agendamentos.Where(c => c.Aluno.Nome == Aluno.Nome).Any();
-
-            /* Para somar o total de horas por aluno:
-             * TimeSpan soma;
-             * foreach (var total in Agenda)
-             * {
-             *  soma += total.totalhora;
-             * }
-             * 
-             */
-        //}
+     
         public Fatura BuscaFaturaPorId (long Id)
         {
             return this.banco.Faturas.Where(c => c.Id == Id).FirstOrDefault();
@@ -469,7 +478,10 @@ namespace Teach.Negocio
             {
                 if(fat.Professor.Id == ProfessorLogado)
                 {
-                    ResultadoBusca.Add(fat);
+                    if (fat.Situacao == "Aberto")
+                    {
+                        ResultadoBusca.Add(fat);
+                    }
                 }
             }
 
