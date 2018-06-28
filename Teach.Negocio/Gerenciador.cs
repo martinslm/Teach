@@ -463,13 +463,12 @@ namespace Teach.Negocio
             {
                 if (alunos.Professor.Id == ProfessorLogado)
                 {
-                    foreach (var aluno in this.banco.Alunos)
-                    {
-                        if (aluno.Nome.ToUpper().Contains(AlunoPesquisado.ToUpper()))
+                   
+                        if (alunos.Nome.ToUpper().Contains(AlunoPesquisado.ToUpper()))
                         {
-                            ResultadoBusca2.Add(aluno);
+                            ResultadoBusca2.Add(alunos);
                         }
-                    }
+                    
                 }
             }
             if (ResultadoBusca2 == null)

@@ -112,6 +112,7 @@
             this.Controls.Add(this.dgAlunos2);
             this.Controls.Add(this.tbPesquisa);
             this.Name = "FechamentoDeFaturaAluno";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fechamento de Fatura Aluno";
             this.Load += new System.EventHandler(this.FechamentoDeFaturaAluno_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgAlunos2)).EndInit();

@@ -49,9 +49,10 @@
             this.Disciplina,
             this.CargaHoraria,
             this.Valor});
-            this.dgAlunos.Location = new System.Drawing.Point(12, 76);
+            this.dgAlunos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgAlunos.Location = new System.Drawing.Point(0, 88);
             this.dgAlunos.Name = "dgAlunos";
-            this.dgAlunos.Size = new System.Drawing.Size(628, 353);
+            this.dgAlunos.Size = new System.Drawing.Size(652, 353);
             this.dgAlunos.TabIndex = 0;
             this.dgAlunos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAlunos_CellContentClick);
             // 
@@ -138,6 +139,7 @@
             this.Controls.Add(this.tbPesquisa);
             this.Controls.Add(this.dgAlunos);
             this.Name = "TelaGestaoAlunos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de Alunos";
             this.Load += new System.EventHandler(this.TelaGestaoAlunos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgAlunos)).EndInit();

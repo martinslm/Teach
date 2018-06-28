@@ -177,6 +177,7 @@
             this.Controls.Add(this.cbAluno);
             this.Controls.Add(this.tbLocal);
             this.Name = "AdicionarAgendamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar Agendamento";
             this.Load += new System.EventHandler(this.AdicionarAgendamento_Load);
             this.ResumeLayout(false);

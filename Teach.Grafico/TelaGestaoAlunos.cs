@@ -50,7 +50,8 @@ namespace Teach.Grafico
 
         private void btPesquisa_Click(object sender, EventArgs e)
         {
-            
+            dgAlunos.DataSource = null;
+            dgAlunos.Rows.Clear();
             dgAlunos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgAlunos.MultiSelect = false;
             dgAlunos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;

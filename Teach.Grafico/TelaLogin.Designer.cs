@@ -136,6 +136,7 @@
             this.Controls.Add(this.Email);
             this.Controls.Add(this.Teach);
             this.Name = "TelaLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.TelaLogin_Load);
             this.ResumeLayout(false);

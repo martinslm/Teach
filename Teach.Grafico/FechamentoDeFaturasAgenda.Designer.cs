@@ -57,7 +57,7 @@
             this.Valor});
             this.dgAgnAbertos.Location = new System.Drawing.Point(12, 44);
             this.dgAgnAbertos.Name = "dgAgnAbertos";
-            this.dgAgnAbertos.Size = new System.Drawing.Size(408, 150);
+            this.dgAgnAbertos.Size = new System.Drawing.Size(343, 150);
             this.dgAgnAbertos.TabIndex = 0;
             // 
             // Data
@@ -87,7 +87,7 @@
             this.ValorIC});
             this.dgFuturaFatura.Location = new System.Drawing.Point(12, 255);
             this.dgFuturaFatura.Name = "dgFuturaFatura";
-            this.dgFuturaFatura.Size = new System.Drawing.Size(408, 150);
+            this.dgFuturaFatura.Size = new System.Drawing.Size(343, 150);
             this.dgFuturaFatura.TabIndex = 2;
             // 
             // DataIC
@@ -130,7 +130,7 @@
             // 
             // btIncluir
             // 
-            this.btIncluir.Location = new System.Drawing.Point(445, 91);
+            this.btIncluir.Location = new System.Drawing.Point(405, 74);
             this.btIncluir.Name = "btIncluir";
             this.btIncluir.Size = new System.Drawing.Size(96, 54);
             this.btIncluir.TabIndex = 1;
@@ -140,7 +140,7 @@
             // 
             // btRemover
             // 
-            this.btRemover.Location = new System.Drawing.Point(445, 313);
+            this.btRemover.Location = new System.Drawing.Point(405, 296);
             this.btRemover.Name = "btRemover";
             this.btRemover.Size = new System.Drawing.Size(96, 54);
             this.btRemover.TabIndex = 3;
@@ -172,7 +172,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(434, 191);
+            this.label3.Location = new System.Drawing.Point(394, 174);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(123, 20);
             this.label3.TabIndex = 6;
@@ -182,7 +182,7 @@
             // 
             this.lbValor.AutoSize = true;
             this.lbValor.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbValor.Location = new System.Drawing.Point(491, 223);
+            this.lbValor.Location = new System.Drawing.Point(451, 206);
             this.lbValor.Name = "lbValor";
             this.lbValor.Size = new System.Drawing.Size(0, 26);
             this.lbValor.TabIndex = 7;
@@ -203,6 +203,7 @@
             this.Controls.Add(this.dgFuturaFatura);
             this.Controls.Add(this.dgAgnAbertos);
             this.Name = "FechamentoDeFaturasAgenda";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerar Fatura";
             this.Load += new System.EventHandler(this.FechamentoDeFaturasAgenda_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgAgnAbertos)).EndInit();

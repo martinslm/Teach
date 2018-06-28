@@ -42,9 +42,10 @@
             this.Data,
             this.TotalHoras,
             this.Valor});
-            this.dgRegistros.Location = new System.Drawing.Point(0, 0);
+            this.dgRegistros.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgRegistros.Location = new System.Drawing.Point(0, 5);
             this.dgRegistros.Name = "dgRegistros";
-            this.dgRegistros.Size = new System.Drawing.Size(717, 455);
+            this.dgRegistros.Size = new System.Drawing.Size(431, 447);
             this.dgRegistros.TabIndex = 0;
             // 
             // Data
@@ -69,9 +70,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 452);
+            this.ClientSize = new System.Drawing.Size(431, 452);
             this.Controls.Add(this.dgRegistros);
             this.Name = "ExibirRegistros";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExibirRegistros";
             this.Load += new System.EventHandler(this.ExibirRegistros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgRegistros)).EndInit();

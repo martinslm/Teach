@@ -122,6 +122,7 @@
             this.Controls.Add(this.tbSenha);
             this.Controls.Add(this.tbEmail);
             this.Name = "EsqueciMinhaSenha";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Esqueci Minha Senha";
             this.Load += new System.EventHandler(this.EsqueciMinhaSenha_Load);
             this.ResumeLayout(false);

@@ -45,7 +45,7 @@
             // 
             this.tbPesquisa.Location = new System.Drawing.Point(12, 12);
             this.tbPesquisa.Name = "tbPesquisa";
-            this.tbPesquisa.Size = new System.Drawing.Size(607, 20);
+            this.tbPesquisa.Size = new System.Drawing.Size(278, 20);
             this.tbPesquisa.TabIndex = 0;
             // 
             // contextMenuStrip1
@@ -55,7 +55,7 @@
             // 
             // tbPesquisar
             // 
-            this.tbPesquisar.Location = new System.Drawing.Point(625, 12);
+            this.tbPesquisar.Location = new System.Drawing.Point(304, 10);
             this.tbPesquisar.Name = "tbPesquisar";
             this.tbPesquisar.Size = new System.Drawing.Size(153, 23);
             this.tbPesquisar.TabIndex = 2;
@@ -72,7 +72,7 @@
             this.Valor});
             this.dgContasReceber.Location = new System.Drawing.Point(12, 38);
             this.dgContasReceber.Name = "dgContasReceber";
-            this.dgContasReceber.Size = new System.Drawing.Size(766, 345);
+            this.dgContasReceber.Size = new System.Drawing.Size(495, 345);
             this.dgContasReceber.TabIndex = 3;
             this.dgContasReceber.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgContasReceber_CellContentClick);
             // 
@@ -96,7 +96,7 @@
             // 
             // btBaixa
             // 
-            this.btBaixa.Location = new System.Drawing.Point(625, 389);
+            this.btBaixa.Location = new System.Drawing.Point(354, 389);
             this.btBaixa.Name = "btBaixa";
             this.btBaixa.Size = new System.Drawing.Size(153, 36);
             this.btBaixa.TabIndex = 4;
@@ -106,7 +106,7 @@
             // 
             // btCancelar
             // 
-            this.btCancelar.Location = new System.Drawing.Point(466, 389);
+            this.btCancelar.Location = new System.Drawing.Point(195, 389);
             this.btCancelar.Name = "btCancelar";
             this.btCancelar.Size = new System.Drawing.Size(153, 36);
             this.btCancelar.TabIndex = 5;
@@ -118,14 +118,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 483);
+            this.ClientSize = new System.Drawing.Size(520, 454);
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.btBaixa);
             this.Controls.Add(this.dgContasReceber);
             this.Controls.Add(this.tbPesquisar);
             this.Controls.Add(this.tbPesquisa);
             this.Name = "ContasAReceber";
-            this.Text = "ContasAReceber";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Contas a Receber";
             this.Load += new System.EventHandler(this.ContasAReceber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgContasReceber)).EndInit();
             this.ResumeLayout(false);
