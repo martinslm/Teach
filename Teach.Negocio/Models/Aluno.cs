@@ -25,13 +25,13 @@ namespace Teach.Negocio.Models
         public String CEP { get; set; }
         public virtual Professor Professor { get; set; }
 
-        public String SituacaoFinanceira
-        {
-            get
-            {
-                return String.Format("teste");
-            }
-        }
+        //public String SituacaoFinanceira
+        //{
+        //    get
+        //    {
+        //        return String.Format("teste");
+        //    }
+        //}
 
         /*[NotMapped]
         public String Disciplina

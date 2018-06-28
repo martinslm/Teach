@@ -13,9 +13,11 @@ namespace Teach.Negocio.Models
         public long Id { get; set; }
         public decimal ValorTotal { get; set; }
         public DateTime DataGeracao { get; set; }
+        public DateTime DataBaixa { get; set; }
+       // public virtual ICollection<Agenda> Agendamentos { get; set; }
         public String Situacao { get; set; }
         public virtual Professor Professor { get; set; }
-        public Aluno Aluno { get; set; }
+        public virtual Aluno Aluno { get; set; }
 
         [NotMapped]
         public String NomeAluno

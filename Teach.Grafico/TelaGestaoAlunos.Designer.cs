@@ -29,16 +29,15 @@
         private void InitializeComponent()
         {
             this.dgAlunos = new System.Windows.Forms.DataGridView();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CargaHoraria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SituacaoFinanceira = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbPesquisa = new System.Windows.Forms.TextBox();
             this.btPesquisa = new System.Windows.Forms.Button();
             this.btAdicionar = new System.Windows.Forms.Button();
             this.btEditar = new System.Windows.Forms.Button();
             this.btRemover = new System.Windows.Forms.Button();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CargaHoraria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Valor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgAlunos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,43 +48,12 @@
             this.Nome,
             this.Disciplina,
             this.CargaHoraria,
-            this.Valor,
-            this.SituacaoFinanceira});
+            this.Valor});
             this.dgAlunos.Location = new System.Drawing.Point(12, 76);
             this.dgAlunos.Name = "dgAlunos";
             this.dgAlunos.Size = new System.Drawing.Size(628, 353);
             this.dgAlunos.TabIndex = 0;
             this.dgAlunos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAlunos_CellContentClick);
-            // 
-            // Nome
-            // 
-            this.Nome.DataPropertyName = "Nome";
-            this.Nome.HeaderText = "Nome";
-            this.Nome.Name = "Nome";
-            // 
-            // Disciplina
-            // 
-            this.Disciplina.DataPropertyName = "Disciplina";
-            this.Disciplina.HeaderText = "Disciplina";
-            this.Disciplina.Name = "Disciplina";
-            // 
-            // CargaHoraria
-            // 
-            this.CargaHoraria.DataPropertyName = "CargaHoraria";
-            this.CargaHoraria.HeaderText = "C.H.";
-            this.CargaHoraria.Name = "CargaHoraria";
-            // 
-            // Valor
-            // 
-            this.Valor.DataPropertyName = "ValorHoraAula";
-            this.Valor.HeaderText = "R$ Hora/Aula";
-            this.Valor.Name = "Valor";
-            // 
-            // SituacaoFinanceira
-            // 
-            this.SituacaoFinanceira.DataPropertyName = "SituacaoFinanceira";
-            this.SituacaoFinanceira.HeaderText = "Situação Financeira";
-            this.SituacaoFinanceira.Name = "SituacaoFinanceira";
             // 
             // tbPesquisa
             // 
@@ -134,6 +102,30 @@
             this.btRemover.UseVisualStyleBackColor = true;
             this.btRemover.Click += new System.EventHandler(this.btRemover_Click);
             // 
+            // Nome
+            // 
+            this.Nome.DataPropertyName = "Nome";
+            this.Nome.HeaderText = "Nome";
+            this.Nome.Name = "Nome";
+            // 
+            // Disciplina
+            // 
+            this.Disciplina.DataPropertyName = "Disciplina";
+            this.Disciplina.HeaderText = "Disciplina";
+            this.Disciplina.Name = "Disciplina";
+            // 
+            // CargaHoraria
+            // 
+            this.CargaHoraria.DataPropertyName = "CargaHoraria";
+            this.CargaHoraria.HeaderText = "C.H.";
+            this.CargaHoraria.Name = "CargaHoraria";
+            // 
+            // Valor
+            // 
+            this.Valor.DataPropertyName = "ValorHoraAula";
+            this.Valor.HeaderText = "R$ Hora/Aula";
+            this.Valor.Name = "Valor";
+            // 
             // TelaGestaoAlunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,6 +158,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Disciplina;
         private System.Windows.Forms.DataGridViewTextBoxColumn CargaHoraria;
         private System.Windows.Forms.DataGridViewTextBoxColumn Valor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SituacaoFinanceira;
     }
 }

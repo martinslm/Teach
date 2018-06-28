@@ -110,6 +110,8 @@ namespace Teach.Grafico
                 Fatura.Professor = Program.Gerenciador.BuscaProfessorPorId(Program.Gerenciador.ProfessorLogado);
                 Fatura.Situacao = "Aberto";
                 Fatura.Aluno = AlunoParaFechamento;
+                Fatura.DataBaixa = DateTime.Now;
+                //Fatura.Agendamentos = FuturaFatura;
                 db.Entry(Fatura);
                 db.SaveChanges();
             }

@@ -37,6 +37,7 @@ namespace Teach.Grafico
             dgContasReceber.AutoGenerateColumns = false;
             List<Fatura> Faturas = Program.Gerenciador.TodasAsFaturasDoProfessorLogado();
             dgContasReceber.DataSource = Faturas;
+            dgContasReceber.Refresh();
         }
 
         private void ContasAReceber_Load(object sender, EventArgs e)
@@ -51,6 +52,7 @@ namespace Teach.Grafico
 
         private void btBaixa_Click(object sender, EventArgs e)
         {
+
             //BAIXA DE FATURA
             if(VerificarSelecao())
             {
@@ -59,8 +61,11 @@ namespace Teach.Grafico
                 {
                     Banco banco = new Banco();
                     Fatura FaturaSelecionada = (Fatura)dgContasReceber.SelectedRows[0].DataBoundItem;
-                    FaturaSelecionada.Situacao = "Fechado";
+                    var FaturaDb = banco.Faturas.Where(p => p.Id == FaturaSelecionada.Id).FirstOrDefault();
+                    FaturaDb.Situacao = "Fechado";
+                    FaturaDb.DataBaixa = DateTime.Now;
                     banco.SaveChanges();
+                    CarregaFaturas();
 
                 }
                 CarregaFaturas();

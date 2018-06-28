@@ -126,6 +126,7 @@
             this.Controls.Add(this.tbPesquisa);
             this.Name = "ContasAReceber";
             this.Text = "ContasAReceber";
+            this.Load += new System.EventHandler(this.ContasAReceber_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgContasReceber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

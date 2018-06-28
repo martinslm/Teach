@@ -205,8 +205,16 @@ namespace Teach.Negocio
         public Validacao RemoverAluno(Aluno AlunoRemover)
         {
             Validacao validacao = new Validacao();
-            banco.Alunos.Remove(AlunoRemover);
-            banco.SaveChanges();
+            //if (Program.Gerenciador.TodosOsAlunosDoProfessorLogado().Any(t => t.DisciplinaCursada.Id == DisciplinaSelecionada.Id))
+                if (TodosAgendamentosDoProfessorLogado().Any(t => t.Aluno.Id == AlunoRemover.Id))
+            {
+                validacao.Mensagens.Add("Aluno", "Não é possível remover o aluno selecionado, pois já existem registros de agendamentos com o mesmo");
+            }
+            if (validacao.Valido)
+            {
+                banco.Alunos.Remove(AlunoRemover);
+                banco.SaveChanges();
+            }
             return validacao;
         }
         public Validacao MinhaConta(Professor Usuario, String ValidadorSenha)
@@ -301,6 +309,18 @@ namespace Teach.Negocio
             return Agendamentos;
         } 
         /* Tela Financeiro */
+        public List<Agenda> Registros(Fatura FaturaVisualizada)
+        {
+            Validacao validacao = new Validacao();
+            List<Agenda> Registros = new List<Agenda>();
+            foreach (var agn in this.banco.Agendamentos)
+            {
+                if (agn.Fatura == FaturaVisualizada)
+                    Registros.Add(agn);
+            }
+
+            return Registros.ToList();
+        }
         public List<Agenda> CarregaAgendamentosDeAlunos (Aluno AlunoSelecionado)
         {
             Validacao validacao = new Validacao();
@@ -340,6 +360,35 @@ namespace Teach.Negocio
             this.banco.SaveChanges();
             return validacao;
         }
+        public List<Fatura> BuscaReciboPorNome(String Nome)
+        {
+            Validacao validacao = new Validacao();
+            List<Fatura> Faturas = new List<Fatura>();
+            if (Nome == "")
+            {
+                Faturas = TodasAsFaturasDoProfessorLogado();
+            }
+            else
+            {
+                foreach (var ftr in this.banco.Faturas)
+                {
+                    if (ftr.Aluno.Nome.ToUpper().Contains(Nome.ToUpper()))
+                    {
+                        if (ftr.Situacao == "Fechado")
+                        {
+                            Faturas.Add(ftr);
+                        }
+                    }
+                }
+
+                if (Faturas == null)
+                {
+                    validacao.Mensagens.Add("FaturasBusca", "Não foi possível localizar nenhuma fatura com os critérios encontrados.");
+                }
+            }
+            return Faturas.ToList();
+        }
+
         public List<Fatura> BuscaFaturaPorNome(String Nome)
         {
             Validacao validacao = new Validacao();
@@ -470,7 +519,22 @@ namespace Teach.Negocio
 
             return ResultadoBusca.ToList();
         }
+        public List<Fatura> TodosOsRecibosDoProfessorLogado()
+        {
+            List<Fatura> ResultadoBusca = new List<Fatura>();
+            foreach (var fat in this.banco.Faturas)
+            {
+                if (fat.Professor.Id == ProfessorLogado)
+                {
+                    if (fat.Situacao == "Fechado")
+                    {
+                        ResultadoBusca.Add(fat);
+                    }
+                }
+            }
 
+            return ResultadoBusca.ToList();
+        }
         public List<Fatura> TodasAsFaturasDoProfessorLogado()
         {
             List<Fatura> ResultadoBusca = new List<Fatura>();

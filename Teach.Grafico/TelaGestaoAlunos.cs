@@ -89,11 +89,11 @@ namespace Teach.Grafico
                     var validacao = Program.Gerenciador.RemoverAluno(AlunoSelecionado);
                     if (validacao.Valido)
                     {
-                        MessageBox.Show("Cliente removido com sucesso");
+                        MessageBox.Show("Aluno removido com sucesso");
                     }
                     else
                     {
-                        MessageBox.Show("Ocorreu um problema ao remover o cliente");
+                        MessageBox.Show("Não é possível remover o aluno selecionado, pois já existem registros de agendamentos com o mesmo");
                     }
                     CarregaAlunos();
                 }

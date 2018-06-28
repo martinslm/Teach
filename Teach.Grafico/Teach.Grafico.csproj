@@ -83,6 +83,12 @@
     <Compile Include="EsqueciMinhaSenha.Designer.cs">
       <DependentUpon>EsqueciMinhaSenha.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExibirRegistros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExibirRegistros.Designer.cs">
+      <DependentUpon>ExibirRegistros.cs</DependentUpon>
+    </Compile>
     <Compile Include="FechamentoDeFaturaAluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     <EmbeddedResource Include="EsqueciMinhaSenha.resx">
       <DependentUpon>EsqueciMinhaSenha.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExibirRegistros.resx">
+      <DependentUpon>ExibirRegistros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FechamentoDeFaturaAluno.resx">
       <DependentUpon>FechamentoDeFaturaAluno.cs</DependentUpon>
     </EmbeddedResource>
@@ -150,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IncluirDisciplina.resx">
       <DependentUpon>IncluirDisciplina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recibos.resx">
+      <DependentUpon>Recibos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TelaGestaoAlunos.resx">
       <DependentUpon>TelaGestaoAlunos.cs</DependentUpon>
