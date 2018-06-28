@@ -68,22 +68,13 @@ namespace Teach.Grafico
             if(VerificaSelecao())
             {
                 Disciplina DisciplinaSelecionada = (Disciplina)dgDisciplinas.SelectedRows[0].DataBoundItem;
-                if (Program.Gerenciador.ProfessorLogado == 0)
+                if (Program.Gerenciador.TodosOsAlunosDoProfessorLogado().Any(t => t.DisciplinaCursada.Id == DisciplinaSelecionada.Id))
                 {
-                    banco.Disciplina.Remove(DisciplinaSelecionada);
-                    CarregaDG();
+                    MessageBox.Show("Você possui alunos cursando esta disciplina, portanto, não é possível removê-la");
                 }
                 else
-                {
-                    if (Program.Gerenciador.TodosOsAlunosDoProfessorLogado().Any(t => t.DisciplinaCursada.Id == DisciplinaSelecionada.Id))
-                    {
-                        MessageBox.Show("Você possui alunos cursando esta disciplina, portanto, não é possível removê-la");
-                    }
-                    else
-                    {
-                        banco.Disciplina.Remove(DisciplinaSelecionada);
-                    }
-                }
+                this.NovoCadastro.Disciplina.Remove(DisciplinaSelecionada);
+                CarregaDG();
             }
         }
 

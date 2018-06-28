@@ -50,6 +50,7 @@
             this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observacoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.btneditarAgendamento = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAgendamentos)).BeginInit();
@@ -102,21 +103,21 @@
             // gerarFaturaToolStripMenuItem
             // 
             this.gerarFaturaToolStripMenuItem.Name = "gerarFaturaToolStripMenuItem";
-            this.gerarFaturaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gerarFaturaToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.gerarFaturaToolStripMenuItem.Text = "Gerar Fatura";
             this.gerarFaturaToolStripMenuItem.Click += new System.EventHandler(this.gerarFaturaToolStripMenuItem_Click);
             // 
             // contasAReceberToolStripMenuItem
             // 
             this.contasAReceberToolStripMenuItem.Name = "contasAReceberToolStripMenuItem";
-            this.contasAReceberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.contasAReceberToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.contasAReceberToolStripMenuItem.Text = "Contas a Receber";
             this.contasAReceberToolStripMenuItem.Click += new System.EventHandler(this.contasAReceberToolStripMenuItem_Click);
             // 
             // recibosToolStripMenuItem
             // 
             this.recibosToolStripMenuItem.Name = "recibosToolStripMenuItem";
-            this.recibosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.recibosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.recibosToolStripMenuItem.Text = "Recibos";
             this.recibosToolStripMenuItem.Click += new System.EventHandler(this.recibosToolStripMenuItem_Click);
             // 
@@ -124,7 +125,7 @@
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip.Location = new System.Drawing.Point(0, 442);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(841, 22);
             this.statusStrip.TabIndex = 2;
@@ -145,7 +146,7 @@
             // 
             // btAdicionar
             // 
-            this.btAdicionar.Location = new System.Drawing.Point(18, 284);
+            this.btAdicionar.Location = new System.Drawing.Point(19, 272);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(227, 49);
             this.btAdicionar.TabIndex = 1;
@@ -155,7 +156,7 @@
             // 
             // btRemover
             // 
-            this.btRemover.Location = new System.Drawing.Point(18, 348);
+            this.btRemover.Location = new System.Drawing.Point(19, 381);
             this.btRemover.Name = "btRemover";
             this.btRemover.Size = new System.Drawing.Size(227, 49);
             this.btRemover.TabIndex = 2;
@@ -219,11 +220,22 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Agenda";
             // 
+            // btneditarAgendamento
+            // 
+            this.btneditarAgendamento.Location = new System.Drawing.Point(19, 327);
+            this.btneditarAgendamento.Name = "btneditarAgendamento";
+            this.btneditarAgendamento.Size = new System.Drawing.Size(227, 49);
+            this.btneditarAgendamento.TabIndex = 12;
+            this.btneditarAgendamento.Text = "Editar agendamento";
+            this.btneditarAgendamento.UseVisualStyleBackColor = true;
+            this.btneditarAgendamento.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 453);
+            this.ClientSize = new System.Drawing.Size(841, 464);
+            this.Controls.Add(this.btneditarAgendamento);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgAgendamentos);
             this.Controls.Add(this.btRemover);
@@ -270,6 +282,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacoes;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btneditarAgendamento;
     }
 }
 

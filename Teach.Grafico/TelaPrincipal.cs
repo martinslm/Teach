@@ -15,7 +15,6 @@ namespace Teach.Grafico
     {
         private int childFormNumber = 0;
         private Professor ProfessorSelecionado {get;set;}
-
         public TelaPrincipal()
         {
             InitializeComponent();
@@ -27,11 +26,8 @@ namespace Teach.Grafico
 
         private void CarregaDG()
         {
-            dgAgendamentos.MultiSelect = false;
-            dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgAgendamentos.AutoGenerateColumns = false;
-            List<Agenda> Agendamentos = Program.Gerenciador.TodosAgendamentosDoProfessorLogado();
-            dgAgendamentos.DataSource = Agendamentos;
+            dgAgendamentos.DataSource = Program.Gerenciador.CarregaAgendamentosDia(Calendario.SelectionRange.Start);
+            dgAgendamentos.Refresh();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -121,13 +117,18 @@ namespace Teach.Grafico
 
         private void TelaPrincipal_Load(object sender, EventArgs e)
         {
-            DateTime Hoje = DateTime.Now;
             dgAgendamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgAgendamentos.MultiSelect = false;
             dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgAgendamentos.AutoGenerateColumns = false;
-            dgAgendamentos.DataSource = Program.Gerenciador.CarregaAgendamentosDia(Hoje);
-            dgAgendamentos.Refresh();
+            CarregaDG();
+            //DateTime Hoje = DateTime.Now;
+            //dgAgendamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dgAgendamentos.MultiSelect = false;
+            //dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //dgAgendamentos.AutoGenerateColumns = false;
+            //dgAgendamentos.DataSource = Program.Gerenciador.CarregaAgendamentosDia(Hoje);
+            //dgAgendamentos.Refresh();
         }
 
         private void minhaContaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -151,19 +152,20 @@ namespace Teach.Grafico
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-            dgAgendamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgAgendamentos.MultiSelect = false;
-            dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgAgendamentos.AutoGenerateColumns = false;
-            dgAgendamentos.DataSource = Program.Gerenciador.CarregaAgendamentosDia(e.Start);
-            dgAgendamentos.Refresh();
+            //dgAgendamentos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            //dgAgendamentos.MultiSelect = false;
+            //dgAgendamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            //dgAgendamentos.AutoGenerateColumns = false;
+            //dgAgendamentos.DataSource = Program.Gerenciador.CarregaAgendamentosDia(e.Start);
+            //dgAgendamentos.Refresh();
+            CarregaDG();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             AdicionarAgendamento tela = new AdicionarAgendamento();
-            tela.Show();
-            
+            tela.ShowDialog();
+            CarregaDG();
         }
 
         private bool VerificaSelecao()
@@ -181,21 +183,25 @@ namespace Teach.Grafico
         {
             if(VerificaSelecao())
             {
-                DialogResult resultado = MessageBox.Show("Remover agendamento", "Tem certeza que deseja remover este agendamento?", MessageBoxButtons.OKCancel);
+
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja remover este agendamento?", "Remover agendamento", MessageBoxButtons.OKCancel);
                 if(resultado == DialogResult.OK)
                 {
                     Agenda AgendamentoSelecionado = (Agenda)dgAgendamentos.SelectedRows[0].DataBoundItem;
                     var validacao = Program.Gerenciador.RemoveAgendamento(AgendamentoSelecionado);
+
                     if(validacao.Valido)
                     {
                         MessageBox.Show("Agendamento removido com sucesso");
                     }
                     else
                     {
-                        MessageBox.Show("Ocorreu um problema ao remover o agendamento");
+                        MessageBox.Show(validacao.Mensagens["validacao"]);
                     }
                     CarregaDG();
                 }
+                
+                
 
             }
         }
@@ -217,6 +223,24 @@ namespace Teach.Grafico
         {
             Recibos tela = new Recibos();
             tela.Show();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (VerificaSelecao())
+            {
+                Agenda Agendamentoselecionado = (Agenda)dgAgendamentos.SelectedRows[0].DataBoundItem;
+                AdicionarAgendamento tela = new AdicionarAgendamento();
+                tela.MdiParent = this.MdiParent;
+                tela.Agendamentoselecionado = Agendamentoselecionado;
+                tela.FormClosed += Tela_FormClosed;
+                tela.Show();
+            }
+            dgAgendamentos.Refresh();
+        }
+        private void Tela_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //CarregaDG();
         }
     }
 }

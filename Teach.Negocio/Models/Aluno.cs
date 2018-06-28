@@ -33,14 +33,17 @@ namespace Teach.Negocio.Models
         //    }
         //}
 
-        /*[NotMapped]
-        public String Disciplina
+        [NotMapped]
+        public string Disciplina
         {
             get
             {
-                return DisciplinaCursada.disciplina.ToString();
+                if (DisciplinaCursada != null)
+                    return DisciplinaCursada.disciplina.ToString();
+                else
+                    return "";
             }
-        }*/
+        }
 
         
     }

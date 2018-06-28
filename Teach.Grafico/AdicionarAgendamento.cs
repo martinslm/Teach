@@ -14,6 +14,8 @@ namespace Teach.Grafico
 {
     public partial class AdicionarAgendamento : Form
     {
+        public Agenda Agendamentoselecionado { get; internal set; }
+
         public AdicionarAgendamento()
         {
             InitializeComponent();
@@ -21,6 +23,11 @@ namespace Teach.Grafico
 
         private void AdicionarAgendamento_Load(object sender, EventArgs e)
         {
+            if (Agendamentoselecionado != null)
+            {
+                tbInicio.Text = Agendamentoselecionado.HoraInicial.ToString();
+                tbFim.Text = Agendamentoselecionado.HoraFinal.ToString();
+            }
             CarregaCB();
         }
 
@@ -52,16 +59,25 @@ namespace Teach.Grafico
             }
             else
             {
-                Agenda NovoAgendamento = new Agenda();
-                NovoAgendamento.HoraInicial = Convert.ToDateTime(tbInicio.Text);
-                NovoAgendamento.HoraFinal = Convert.ToDateTime(tbFim.Text);
+                Agenda NovoAgendamento;
+                if (Agendamentoselecionado != null)
+                    NovoAgendamento = Agendamentoselecionado;
+                else
+                    NovoAgendamento = new Agenda();
+
+                NovoAgendamento.HoraInicial = DateTime.Parse(tbInicio.Text);
+                NovoAgendamento.HoraFinal = DateTime.Parse(tbFim.Text);
                 NovoAgendamento.Aluno = cbAluno.SelectedItem as Aluno;
                 NovoAgendamento.Endereco = tbLocal.Text;
                 NovoAgendamento.Observacoes = tbObs.Text;
                 NovoAgendamento.Professor = Program.Gerenciador.ProfessorLog();
                 TimeSpan TotalHoras = NovoAgendamento.HoraFinal - NovoAgendamento.HoraInicial;
                 NovoAgendamento.Valor = Convert.ToDecimal(TotalHoras.Hours + (TotalHoras.Minutes / 60)) * NovoAgendamento.Aluno.ValorHoraAula;
-                Validacao validacao = Program.Gerenciador.NovoAgendamento(NovoAgendamento);
+                Validacao validacao;
+                if (Agendamentoselecionado != null)
+                    validacao = Program.Gerenciador.EditarAgendamento(NovoAgendamento);
+                else
+                    validacao = Program.Gerenciador.NovoAgendamento(NovoAgendamento);
 
                 if (!validacao.Valido)
                 {
@@ -78,10 +94,10 @@ namespace Teach.Grafico
                 else
                 {
                     MessageBox.Show("Agendamento cadastrado com sucesso");
-
+                    this.Close();
                 }
 
-                this.Close();
+                
             }
         }
         

@@ -52,7 +52,7 @@ namespace Teach.Negocio
                 validacao.Mensagens.Add("Senhas", "Os parâmetros de senha e Confirmação de senha são divergentes");
             }
 
-            if(Usuario.Disciplina.Count==0)
+            if (Usuario.Disciplina.Count == 0)
             {
                 validacao.Mensagens.Add("Disciplina", "Você deve incluir pelo menos uma disciplina");
             }
@@ -95,13 +95,13 @@ namespace Teach.Negocio
         {
             Validacao validacao = new Validacao();
             var professorDb = this.banco.Prof.Where(p => p.Email == Professor.Email).FirstOrDefault();
-            if(professorDb == null)
+            if (professorDb == null)
             {
                 validacao.Mensagens.Add("Email", "E-mail não encontrado");
             }
             else
             {
-                if(Professor.Senha != ValidadorSenha)
+                if (Professor.Senha != ValidadorSenha)
                 {
                     validacao.Mensagens.Add("Senhas", "Senhas não conferem. Gentileza verificar.");
                 }
@@ -124,32 +124,32 @@ namespace Teach.Negocio
             {
                 validacao.Mensagens.Add("Nome", "O nome do aluno deve ser preenchido");
             }
-            if(!AlunoAdicionado.Email.Contains('@'))
+            if (!AlunoAdicionado.Email.Contains('@'))
             {
                 validacao.Mensagens.Add("Email", "O e-mail informado é inválido.");
             }
             //veja se vai funcionar quando o campo for nulo
-            if(AlunoAdicionado.CargaHoraria <=0 || AlunoAdicionado.CargaHoraria > 300)
+            if (AlunoAdicionado.CargaHoraria <= 0 || AlunoAdicionado.CargaHoraria > 300)
             {
                 validacao.Mensagens.Add("CH", "Carga Horária: É necessário preencher esse campo com um valor maior que 0 e menor que 300");
             }
-            if(AlunoAdicionado.ValorHoraAula < 10 || AlunoAdicionado.CargaHoraria > 999)
+            if (AlunoAdicionado.ValorHoraAula < 10 || AlunoAdicionado.CargaHoraria > 999)
             {
                 validacao.Mensagens.Add("VHA", "Valor Hora Aula: É necessário informar um valor entre 10 e 999");
             }
-            if(this.banco.Alunos.Where(p => p.Email == AlunoAdicionado.Email).Any())
+            if (this.banco.Alunos.Where(p => p.Email == AlunoAdicionado.Email).Any())
             {
                 validacao.Mensagens.Add("Aluno/Email", "Já existe um aluno cadastrado com este e-mail.");
             }
-            if(String.IsNullOrEmpty(AlunoAdicionado.DisciplinaCursada.disciplina))
+            if (String.IsNullOrEmpty(AlunoAdicionado.DisciplinaCursada.disciplina))
             {
                 validacao.Mensagens.Add("Disciplina", "Selecione uma disciplina");
             }
-            if(String.IsNullOrEmpty(AlunoAdicionado.Rua)) 
+            if (String.IsNullOrEmpty(AlunoAdicionado.Rua))
             {
                 validacao.Mensagens.Add("Rua", "O campo rua deve ser preenchido");
             }
-            if(String.IsNullOrEmpty(AlunoAdicionado.Numero))
+            if (String.IsNullOrEmpty(AlunoAdicionado.Numero))
             {
                 validacao.Mensagens.Add("Numero", "O campo numero deve ser preenchido");
             }
@@ -173,10 +173,10 @@ namespace Teach.Negocio
             {
                 validacao.Mensagens.Add("HoraAula", "Você deve preencher o valor por hora aula");
             }
-            
 
 
-            if(validacao.Valido)
+
+            if (validacao.Valido)
             {
                 this.banco.Alunos.Add(AlunoAdicionado);
                 this.banco.SaveChanges();
@@ -206,7 +206,7 @@ namespace Teach.Negocio
         {
             Validacao validacao = new Validacao();
             //if (Program.Gerenciador.TodosOsAlunosDoProfessorLogado().Any(t => t.DisciplinaCursada.Id == DisciplinaSelecionada.Id))
-                if (TodosAgendamentosDoProfessorLogado().Any(t => t.Aluno.Id == AlunoRemover.Id))
+            if (TodosAgendamentosDoProfessorLogado().Any(t => t.Aluno.Id == AlunoRemover.Id))
             {
                 validacao.Mensagens.Add("Aluno", "Não é possível remover o aluno selecionado, pois já existem registros de agendamentos com o mesmo");
             }
@@ -232,41 +232,49 @@ namespace Teach.Negocio
 
         /*Tela Agenda*/
 
-        public Validacao NovoAgendamento (Agenda agendamento)
+        public Validacao NovoAgendamento(Agenda agendamento)
         {
             Validacao validacao = new Validacao();
-            if(!(this.banco.Alunos.Where(x => x.Id == agendamento.Aluno.Id).Any()))
+            if (!(this.banco.Alunos.Where(x => x.Id == agendamento.Aluno.Id).Any()))
             {
                 validacao.Mensagens.Add("aluno", "Aluno Inválido");
             }
-            if(String.IsNullOrEmpty(agendamento.Endereco))
+            if (String.IsNullOrEmpty(agendamento.Endereco))
             {
                 validacao.Mensagens.Add("end", "Por favor, inclua um endereço para esta aula");
             }
-            if(agendamento.HoraFinal<=agendamento.HoraInicial)
+            if (agendamento.HoraFinal <= agendamento.HoraInicial)
             {
                 validacao.Mensagens.Add("Horario", "O horário inicial da aula é maior que o horário final da aula.");
             }
+
             //É valido realizarmos uma validação para o professor não conseguir cadastrar nada dentro do periodo 
             //de um agendamento já existente? Visando que um professor pode marcar uma aula com dois alunos diferentes no mesmo horário.
-            var AgendamentoDb = this.banco.Agendamentos.Where(v => v.HoraInicial == agendamento.HoraInicial).FirstOrDefault();
-            if (AgendamentoDb != null)
+            var AgendamentoInicialDb = this.banco.Agendamentos.Where(v => v.HoraInicial <= agendamento.HoraInicial &&
+                                                                          agendamento.HoraInicial < v.HoraFinal &&
+                                                                          v.Professor.Id == agendamento.Professor.Id).FirstOrDefault();
+            if (AgendamentoInicialDb != null)
             {
-                if (AgendamentoDb.Endereco != agendamento.Endereco)
-                {
-                    validacao.Mensagens.Add("Agendamento", "Você já possui uma aula agendada para este horário em outro endereço");
-                }
+                validacao.Mensagens.Add("AgendamentoHoraInicial", $" A hora inicial informada {agendamento.HoraInicial} já possui o agendamento das {AgendamentoInicialDb.HoraInicial} até {AgendamentoInicialDb.HoraFinal}");
             }
 
-            if(validacao.Valido)
+            var AgendamentoFinalDb = this.banco.Agendamentos.Where(v => v.HoraInicial <= agendamento.HoraFinal &&
+                                                                        agendamento.HoraFinal < v.HoraFinal &&
+                                                                        v.Professor.Id == agendamento.Professor.Id).FirstOrDefault();
+            if (AgendamentoFinalDb != null)
+            {
+                validacao.Mensagens.Add("AgendamentoHoraFinal", $"A hora final informada {agendamento.HoraFinal} já possui o agendamento das {AgendamentoFinalDb.HoraInicial} até {AgendamentoFinalDb.HoraFinal}");
+            }
+
+            if (validacao.Valido)
             {
                 this.banco.Agendamentos.Add(agendamento);
                 this.banco.SaveChanges();
             }
-                return validacao;
-         
+            return validacao;
+
         }
-        public Validacao EditarAgendamento (Agenda novasInformacoes)
+        public Validacao EditarAgendamento(Agenda novasInformacoes)
         {
             Validacao validacao = new Validacao();
             Agenda AgendaBanco = BuscaAgendamentoPorId(novasInformacoes.Id);
@@ -278,20 +286,42 @@ namespace Teach.Negocio
             this.banco.SaveChanges();
             return validacao;
         }
-        public Validacao RemoveAgendamento (Agenda AgendamentoAremover)
+        public Validacao RemoveAgendamento(Agenda AgendamentoAremover)
         {
             Validacao validacao = new Validacao();
-            banco.Agendamentos.Remove(AgendamentoAremover);
-            banco.SaveChanges();
-            return validacao; 
+            Agenda AgendaBanco = BuscaAgendamentoPorId(AgendamentoAremover.Id);
+            if (AgendaBanco.Fatura != null)
+                validacao.Mensagens.Add("validacao", "Não é possível remover o agendamento, pois já existe uma fatura referente ao mesmo");
+            else
+            {
+                banco.Agendamentos.Remove(AgendamentoAremover);
+                banco.SaveChanges();
+            }
+            return validacao;
+
         }
-        public List<Agenda> CarregaAgendamentosDia (DateTime data)
+        public Validacao RemoveDisciplina(Disciplina DisciplinaRemover)
+        {
+            Validacao validacao = new Validacao();
+
+            if (TodosOsAlunosDoProfessorLogado().Any(t => t.DisciplinaCursada.Id == DisciplinaRemover.Id))
+            {
+                validacao.Mensagens.Add("validacao", "Você possui alunos cursando esta disciplina, portanto, não é possível removê-la");
+            }
+            else
+            {
+                banco.Disciplina.Remove(DisciplinaRemover);
+                banco.SaveChanges();
+            }
+            return validacao;
+        }
+        public List<Agenda> CarregaAgendamentosDia(DateTime data)
         {
             Validacao validacao = new Validacao();
             List<Agenda> Agendamentos = new List<Agenda>();
             if (this.banco.Agendamentos.Count() > 0)
             {
-                foreach(Agenda agendamento in banco.Agendamentos)
+                foreach (Agenda agendamento in banco.Agendamentos)
                 {
                     if (agendamento.HoraInicial.Date == data.Date)
                     {
@@ -307,7 +337,7 @@ namespace Teach.Negocio
                 validacao.Mensagens.Add("Agendamento", string.Format("Não foi possível localizar nenhum agendamento com a data informada ({0})", data.Date));
 
             return Agendamentos;
-        } 
+        }
         /* Tela Financeiro */
         public List<Agenda> Registros(Fatura FaturaVisualizada)
         {
@@ -321,13 +351,13 @@ namespace Teach.Negocio
 
             return Registros.ToList();
         }
-        public List<Agenda> CarregaAgendamentosDeAlunos (Aluno AlunoSelecionado)
+        public List<Agenda> CarregaAgendamentosDeAlunos(Aluno AlunoSelecionado)
         {
             Validacao validacao = new Validacao();
             List<Agenda> Agendamentos = new List<Agenda>();
-            foreach(var agn in this.banco.Agendamentos)
+            foreach (var agn in this.banco.Agendamentos)
             {
-                if(agn.Aluno.Nome == AlunoSelecionado.Nome)
+                if (agn.Aluno.Nome == AlunoSelecionado.Nome)
                 {
                     if (agn.Fatura == null)
                     {
@@ -336,7 +366,7 @@ namespace Teach.Negocio
                 }
             }
 
-            if(Agendamentos == null)
+            if (Agendamentos == null)
             {
                 validacao.Mensagens.Add("Agendamento", "Não foi possível localizar nenhum agendamento com os parâmetros informados");
 
@@ -428,7 +458,7 @@ namespace Teach.Negocio
             Validacao validacao = new Validacao();
             return validacao;
         }
-            /*Buscas por ID e Listas */
+        /*Buscas por ID e Listas */
 
         public Aluno BuscaAlunoPorID(long Id)
         {
@@ -446,8 +476,8 @@ namespace Teach.Negocio
         {
             return this.banco.Agendamentos.Where(c => c.Id == Id).FirstOrDefault();
         }
-     
-        public Fatura BuscaFaturaPorId (long Id)
+
+        public Fatura BuscaFaturaPorId(long Id)
         {
             return this.banco.Faturas.Where(c => c.Id == Id).FirstOrDefault();
         }
@@ -463,12 +493,12 @@ namespace Teach.Negocio
             {
                 if (alunos.Professor.Id == ProfessorLogado)
                 {
-                   
-                        if (alunos.Nome.ToUpper().Contains(AlunoPesquisado.ToUpper()))
-                        {
-                            ResultadoBusca2.Add(alunos);
-                        }
-                    
+
+                    if (alunos.Nome.ToUpper().Contains(AlunoPesquisado.ToUpper()))
+                    {
+                        ResultadoBusca2.Add(alunos);
+                    }
+
                 }
             }
             if (ResultadoBusca2 == null)
@@ -484,7 +514,7 @@ namespace Teach.Negocio
             List<Disciplina> ResultadoBusca = new List<Disciplina>();
             foreach (var disc in this.banco.Disciplina)
             {
-                if(disc.Professor.Id == ProfessorLogado)
+                if (disc.Professor.Id == ProfessorLogado)
                 {
                     ResultadoBusca.Add(disc);
                 }
@@ -497,7 +527,7 @@ namespace Teach.Negocio
             List<Aluno> ResultadoBusca = new List<Aluno>();
             foreach (var alunos in this.banco.Alunos)
             {
-                if(alunos.Professor.Id == ProfessorLogado)
+                if (alunos.Professor.Id == ProfessorLogado)
                 {
                     ResultadoBusca.Add(alunos);
                 }
@@ -510,7 +540,7 @@ namespace Teach.Negocio
             List<Agenda> ResultadoBusca = new List<Agenda>();
             foreach (var agn in this.banco.Agendamentos)
             {
-                if(agn.Professor.Id == ProfessorLogado)
+                if (agn.Professor.Id == ProfessorLogado)
                 {
                     ResultadoBusca.Add(agn);
                 }
@@ -539,7 +569,7 @@ namespace Teach.Negocio
             List<Fatura> ResultadoBusca = new List<Fatura>();
             foreach (var fat in this.banco.Faturas)
             {
-                if(fat.Professor.Id == ProfessorLogado)
+                if (fat.Professor.Id == ProfessorLogado)
                 {
                     if (fat.Situacao == "Aberto")
                     {
