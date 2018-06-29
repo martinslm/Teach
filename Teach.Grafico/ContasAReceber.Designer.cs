@@ -124,6 +124,7 @@
             this.Controls.Add(this.dgContasReceber);
             this.Controls.Add(this.tbPesquisar);
             this.Controls.Add(this.tbPesquisa);
+            this.MaximizeBox = false;
             this.Name = "ContasAReceber";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Contas a Receber";

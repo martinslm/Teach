@@ -43,7 +43,7 @@
             this.Teach.AutoSize = true;
             this.Teach.BackColor = System.Drawing.SystemColors.MenuBar;
             this.Teach.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Teach.Location = new System.Drawing.Point(139, 22);
+            this.Teach.Location = new System.Drawing.Point(168, 39);
             this.Teach.Name = "Teach";
             this.Teach.Size = new System.Drawing.Size(133, 42);
             this.Teach.TabIndex = 0;
@@ -102,6 +102,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(170, 20);
             this.tbEmail.TabIndex = 5;
+            this.tbEmail.TextChanged += new System.EventHandler(this.tbEmail_TextChanged);
             // 
             // tbSenha
             // 
@@ -135,6 +136,7 @@
             this.Controls.Add(this.Senha);
             this.Controls.Add(this.Email);
             this.Controls.Add(this.Teach);
+            this.MaximizeBox = false;
             this.Name = "TelaLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

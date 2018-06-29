@@ -258,7 +258,7 @@ namespace Teach.Negocio
                 validacao.Mensagens.Add("AgendamentoHoraInicial", $" A hora inicial informada {agendamento.HoraInicial} já possui o agendamento das {AgendamentoInicialDb.HoraInicial} até {AgendamentoInicialDb.HoraFinal}");
             }
 
-            var AgendamentoFinalDb = this.banco.Agendamentos.Where(v => v.HoraInicial <= agendamento.HoraFinal &&
+            var AgendamentoFinalDb = this.banco.Agendamentos.Where(v => v.HoraInicial < agendamento.HoraFinal &&
                                                                         agendamento.HoraFinal < v.HoraFinal &&
                                                                         v.Professor.Id == agendamento.Professor.Id).FirstOrDefault();
             if (AgendamentoFinalDb != null)
@@ -278,7 +278,7 @@ namespace Teach.Negocio
         {
             Validacao validacao = new Validacao();
             Agenda AgendaBanco = BuscaAgendamentoPorId(novasInformacoes.Id);
-            AgendaBanco.Aluno = novasInformacoes.Aluno;
+            AgendaBanco.Aluno = BuscaAlunoPorID(novasInformacoes.Aluno.Id);
             AgendaBanco.Endereco = novasInformacoes.Endereco;
             AgendaBanco.HoraInicial = novasInformacoes.HoraInicial;
             AgendaBanco.HoraFinal = novasInformacoes.HoraFinal;
@@ -514,25 +514,34 @@ namespace Teach.Negocio
             List<Disciplina> ResultadoBusca = new List<Disciplina>();
             foreach (var disc in this.banco.Disciplina)
             {
-                if (disc.Professor.Id == ProfessorLogado)
+
+                if (disc.Professor != null && disc.Professor.Id == ProfessorLogado)
                 {
                     ResultadoBusca.Add(disc);
                 }
             }
             return ResultadoBusca.ToList();
         }
-
+        /// <summary>
+        /// / DIAGRAMA DE CLASSES. CONTINUAR A PARTIR DAQUI!
+        /// Depois que terminar o gerenciador, fazer dos models ( e validacao, pois é um tipo de retorno e classe). 
+        /// </summary>
+        /// <returns></returns>
         public List<Aluno> TodosOsAlunosDoProfessorLogado()
         {
             List<Aluno> ResultadoBusca = new List<Aluno>();
-            foreach (var alunos in this.banco.Alunos)
+            using (var banco = new Banco())
             {
-                if (alunos.Professor.Id == ProfessorLogado)
-                {
-                    ResultadoBusca.Add(alunos);
-                }
+                ResultadoBusca = banco.Alunos.Include("DisciplinaCursada").Where(o => o.Professor.Id == ProfessorLogado).ToList();
             }
-            return ResultadoBusca.ToList();
+            //foreach (var alunos in this.banco.Alunos)
+            //{
+            //    if (alunos.Professor.Id == ProfessorLogado)
+            //    {
+            //        ResultadoBusca.Add(alunos);
+            //    }
+            //}
+            return ResultadoBusca;
         }
 
         public List<Agenda> TodosAgendamentosDoProfessorLogado()
@@ -551,34 +560,49 @@ namespace Teach.Negocio
         public List<Fatura> TodosOsRecibosDoProfessorLogado()
         {
             List<Fatura> ResultadoBusca = new List<Fatura>();
-            foreach (var fat in this.banco.Faturas)
+            using (var banco = new Banco())
             {
-                if (fat.Professor.Id == ProfessorLogado)
-                {
-                    if (fat.Situacao == "Fechado")
-                    {
-                        ResultadoBusca.Add(fat);
-                    }
-                }
+                ResultadoBusca = banco.Faturas.Include("Aluno")
+                                              .Where(o => o.Professor.Id == ProfessorLogado &&
+                                                          o.Situacao == "Fechado").ToList();
+                //foreach (var fat in this.banco.Faturas)
+                //{
+                //    if (fat.Professor.Id == ProfessorLogado)
+                //    {
+                //        if (fat.Situacao == "Fechado")
+                //        {
+                //            ResultadoBusca.Add(fat);
+                //        }
+                //    }
+                //}
             }
+
+            return ResultadoBusca;
+
 
             return ResultadoBusca.ToList();
         }
         public List<Fatura> TodasAsFaturasDoProfessorLogado()
         {
             List<Fatura> ResultadoBusca = new List<Fatura>();
-            foreach (var fat in this.banco.Faturas)
+            using (var banco = new Banco())
             {
-                if (fat.Professor.Id == ProfessorLogado)
-                {
-                    if (fat.Situacao == "Aberto")
-                    {
-                        ResultadoBusca.Add(fat);
-                    }
-                }
+                ResultadoBusca = banco.Faturas.Include("Aluno")
+                                              .Where(o => o.Professor.Id == ProfessorLogado &&
+                                                          o.Situacao == "Aberto").ToList();
+                //foreach (var fat in this.banco.Faturas)
+                //{
+                //    if (fat.Professor.Id == ProfessorLogado)
+                //    {
+                //        if (fat.Situacao == "Aberto")
+                //        {
+                //            ResultadoBusca.Add(fat);
+                //        }
+                //    }
+                //}
             }
 
-            return ResultadoBusca.ToList();
+            return ResultadoBusca;
         }
 
         public Professor ProfessorLog()

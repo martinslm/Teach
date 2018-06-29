@@ -305,6 +305,7 @@
             this.Controls.Add(this.tbCh);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbNome);
+            this.MaximizeBox = false;
             this.Name = "Cadastro_Aluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro do Aluno";

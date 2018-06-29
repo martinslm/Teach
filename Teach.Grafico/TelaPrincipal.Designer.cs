@@ -50,7 +50,6 @@
             this.Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Observacoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.btneditarAgendamento = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgAgendamentos)).BeginInit();
@@ -146,7 +145,7 @@
             // 
             // btAdicionar
             // 
-            this.btAdicionar.Location = new System.Drawing.Point(19, 272);
+            this.btAdicionar.Location = new System.Drawing.Point(19, 286);
             this.btAdicionar.Name = "btAdicionar";
             this.btAdicionar.Size = new System.Drawing.Size(227, 49);
             this.btAdicionar.TabIndex = 1;
@@ -156,7 +155,7 @@
             // 
             // btRemover
             // 
-            this.btRemover.Location = new System.Drawing.Point(19, 381);
+            this.btRemover.Location = new System.Drawing.Point(19, 361);
             this.btRemover.Name = "btRemover";
             this.btRemover.Size = new System.Drawing.Size(227, 49);
             this.btRemover.TabIndex = 2;
@@ -175,7 +174,7 @@
             this.Observacoes});
             this.dgAgendamentos.Location = new System.Drawing.Point(258, 46);
             this.dgAgendamentos.Name = "dgAgendamentos";
-            this.dgAgendamentos.Size = new System.Drawing.Size(544, 351);
+            this.dgAgendamentos.Size = new System.Drawing.Size(571, 384);
             this.dgAgendamentos.TabIndex = 8;
             this.dgAgendamentos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -220,22 +219,11 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Agenda";
             // 
-            // btneditarAgendamento
-            // 
-            this.btneditarAgendamento.Location = new System.Drawing.Point(19, 327);
-            this.btneditarAgendamento.Name = "btneditarAgendamento";
-            this.btneditarAgendamento.Size = new System.Drawing.Size(227, 49);
-            this.btneditarAgendamento.TabIndex = 12;
-            this.btneditarAgendamento.Text = "Editar agendamento";
-            this.btneditarAgendamento.UseVisualStyleBackColor = true;
-            this.btneditarAgendamento.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // TelaPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 464);
-            this.Controls.Add(this.btneditarAgendamento);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgAgendamentos);
             this.Controls.Add(this.btRemover);
@@ -245,10 +233,12 @@
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
+            this.MaximizeBox = false;
             this.Name = "TelaPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Teach";
             this.Load += new System.EventHandler(this.TelaPrincipal_Load);
+            this.Enter += new System.EventHandler(this.TelaPrincipal_Enter);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
@@ -282,7 +272,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Endereco;
         private System.Windows.Forms.DataGridViewTextBoxColumn Observacoes;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btneditarAgendamento;
     }
 }
 

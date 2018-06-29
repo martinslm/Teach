@@ -56,7 +56,7 @@ namespace Teach.Grafico
             //BAIXA DE FATURA
             if(VerificarSelecao())
             {
-                DialogResult resultado = MessageBox.Show("Baixa de Fatura", "Tem certeza que deseja receber esta fatura?", MessageBoxButtons.OKCancel);
+                DialogResult resultado = MessageBox.Show("Tem certeza que deseja receber esta fatura?", "Baixa de Fatura", MessageBoxButtons.OKCancel);
                 if (resultado == DialogResult.OK)
                 {
                     Banco banco = new Banco();
@@ -64,10 +64,12 @@ namespace Teach.Grafico
                     var FaturaDb = banco.Faturas.Where(p => p.Id == FaturaSelecionada.Id).FirstOrDefault();
                     FaturaDb.Situacao = "Fechado";
                     FaturaDb.DataBaixa = DateTime.Now;
-                    banco.SaveChanges();
-                    CarregaFaturas();
+                    var salvo = banco.SaveChanges();
+                    
 
                 }
+                MessageBox.Show("Fatura baixada com sucesso");
+                //this.Close();
                 CarregaFaturas();
             }
         }

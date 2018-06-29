@@ -66,5 +66,10 @@ namespace Teach.Grafico
                 tela.Show();
             }
         }
+
+        private void dgAlunos2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

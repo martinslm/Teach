@@ -35,6 +35,7 @@ namespace Teach.Grafico
             dgRecibos.AutoGenerateColumns = false;
             List<Fatura> Recibos = Program.Gerenciador.TodosOsRecibosDoProfessorLogado();
             dgRecibos.DataSource = Recibos;
+            dgRecibos.Refresh();
         }
 
         private void Recibos_Load(object sender, EventArgs e)
@@ -62,6 +63,11 @@ namespace Teach.Grafico
                 return false;
             }
             return true;
+        }
+
+        private void dgRecibos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

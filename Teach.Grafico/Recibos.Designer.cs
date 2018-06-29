@@ -40,14 +40,14 @@
             // 
             // tbPesquisa
             // 
-            this.tbPesquisa.Location = new System.Drawing.Point(12, 12);
+            this.tbPesquisa.Location = new System.Drawing.Point(6, 13);
             this.tbPesquisa.Name = "tbPesquisa";
-            this.tbPesquisa.Size = new System.Drawing.Size(230, 20);
+            this.tbPesquisa.Size = new System.Drawing.Size(481, 20);
             this.tbPesquisa.TabIndex = 0;
             // 
             // btPesquisa
             // 
-            this.btPesquisa.Location = new System.Drawing.Point(257, 11);
+            this.btPesquisa.Location = new System.Drawing.Point(499, 11);
             this.btPesquisa.Name = "btPesquisa";
             this.btPesquisa.Size = new System.Drawing.Size(164, 23);
             this.btPesquisa.TabIndex = 1;
@@ -63,11 +63,11 @@
             this.DataBaixa,
             this.Aluno,
             this.Valor});
-            this.dgRecibos.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgRecibos.Location = new System.Drawing.Point(0, 93);
+            this.dgRecibos.Location = new System.Drawing.Point(6, 38);
             this.dgRecibos.Name = "dgRecibos";
-            this.dgRecibos.Size = new System.Drawing.Size(443, 357);
+            this.dgRecibos.Size = new System.Drawing.Size(672, 357);
             this.dgRecibos.TabIndex = 2;
+            this.dgRecibos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgRecibos_CellContentClick);
             // 
             // DataBaixa
             // 
@@ -90,7 +90,7 @@
             // btInfAgn
             // 
             this.btInfAgn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btInfAgn.Location = new System.Drawing.Point(636, 403);
+            this.btInfAgn.Location = new System.Drawing.Point(532, 403);
             this.btInfAgn.Name = "btInfAgn";
             this.btInfAgn.Size = new System.Drawing.Size(140, 36);
             this.btInfAgn.TabIndex = 3;
@@ -102,11 +102,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(443, 450);
+            this.ClientSize = new System.Drawing.Size(684, 450);
             this.Controls.Add(this.btInfAgn);
             this.Controls.Add(this.dgRecibos);
             this.Controls.Add(this.btPesquisa);
             this.Controls.Add(this.tbPesquisa);
+            this.MaximizeBox = false;
             this.Name = "Recibos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recibos";

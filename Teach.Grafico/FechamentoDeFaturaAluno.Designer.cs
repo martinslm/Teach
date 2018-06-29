@@ -34,7 +34,6 @@
             this.dgAlunos2 = new System.Windows.Forms.DataGridView();
             this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Disciplina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Situacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btPesquisar = new System.Windows.Forms.Button();
             this.btAvançar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgAlunos2)).BeginInit();
@@ -57,12 +56,12 @@
             this.dgAlunos2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAlunos2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Nome,
-            this.Disciplina,
-            this.Situacao});
+            this.Disciplina});
             this.dgAlunos2.Location = new System.Drawing.Point(12, 38);
             this.dgAlunos2.Name = "dgAlunos2";
             this.dgAlunos2.Size = new System.Drawing.Size(545, 363);
             this.dgAlunos2.TabIndex = 2;
+            this.dgAlunos2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgAlunos2_CellContentClick);
             // 
             // Nome
             // 
@@ -75,12 +74,6 @@
             this.Disciplina.DataPropertyName = "Disciplina";
             this.Disciplina.HeaderText = "Disciplina";
             this.Disciplina.Name = "Disciplina";
-            // 
-            // Situacao
-            // 
-            this.Situacao.DataPropertyName = "SituacaoFinanceira";
-            this.Situacao.HeaderText = "Situação Financeira";
-            this.Situacao.Name = "Situacao";
             // 
             // btPesquisar
             // 
@@ -111,6 +104,7 @@
             this.Controls.Add(this.btPesquisar);
             this.Controls.Add(this.dgAlunos2);
             this.Controls.Add(this.tbPesquisa);
+            this.MaximizeBox = false;
             this.Name = "FechamentoDeFaturaAluno";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fechamento de Fatura Aluno";
@@ -130,6 +124,5 @@
         private System.Windows.Forms.Button btAvançar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn Disciplina;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Situacao;
     }
 }

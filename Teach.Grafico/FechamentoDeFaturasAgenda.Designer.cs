@@ -202,6 +202,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgFuturaFatura);
             this.Controls.Add(this.dgAgnAbertos);
+            this.MaximizeBox = false;
             this.Name = "FechamentoDeFaturasAgenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gerar Fatura";

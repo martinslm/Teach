@@ -121,6 +121,7 @@
             this.Controls.Add(this.tbConfirmacaoSenha);
             this.Controls.Add(this.tbSenha);
             this.Controls.Add(this.tbEmail);
+            this.MaximizeBox = false;
             this.Name = "EsqueciMinhaSenha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Esqueci Minha Senha";

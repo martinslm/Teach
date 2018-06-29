@@ -72,6 +72,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(431, 452);
             this.Controls.Add(this.dgRegistros);
+            this.MaximizeBox = false;
             this.Name = "ExibirRegistros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ExibirRegistros";

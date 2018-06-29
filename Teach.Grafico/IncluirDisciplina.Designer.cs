@@ -80,6 +80,7 @@
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbDisciplina);
+            this.MaximizeBox = false;
             this.Name = "IncluirDisciplina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Incluir Disciplina";

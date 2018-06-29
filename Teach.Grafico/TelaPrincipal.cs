@@ -24,7 +24,7 @@ namespace Teach.Grafico
             CarregaDG();
         }
 
-        private void CarregaDG()
+        public void CarregaDG()
         {
             dgAgendamentos.DataSource = Program.Gerenciador.CarregaAgendamentosDia(Calendario.SelectionRange.Start);
             dgAgendamentos.Refresh();
@@ -241,6 +241,11 @@ namespace Teach.Grafico
         private void Tela_FormClosed(object sender, FormClosedEventArgs e)
         {
             //CarregaDG();
+        }
+
+        private void TelaPrincipal_Enter(object sender, EventArgs e)
+        {
+            CarregaDG();
         }
     }
 }

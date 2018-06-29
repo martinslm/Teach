@@ -79,7 +79,10 @@ namespace Teach.Grafico
         }
         private void TelaLogin_Load(object sender, EventArgs e)
         {
-
+#if DEBUG
+            tbEmail.Text = "guilherme@gmail.com";
+            tbSenha.Text = "1234";
+#endif
         }
 
         private void NovoCadastro_Click(object sender, EventArgs e)
@@ -94,6 +97,11 @@ namespace Teach.Grafico
             {
                 Login();
             }
+        }
+
+        private void tbEmail_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

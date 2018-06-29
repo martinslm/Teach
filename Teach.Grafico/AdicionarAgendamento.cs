@@ -19,16 +19,22 @@ namespace Teach.Grafico
         public AdicionarAgendamento()
         {
             InitializeComponent();
+
+            CarregaCB();
+
         }
 
         private void AdicionarAgendamento_Load(object sender, EventArgs e)
         {
+            CarregaCB();
+
             if (Agendamentoselecionado != null)
             {
                 tbInicio.Text = Agendamentoselecionado.HoraInicial.ToString();
                 tbFim.Text = Agendamentoselecionado.HoraFinal.ToString();
+                cbAluno.SelectedValue = Agendamentoselecionado.Aluno.Id;
+                tbLocal.Text = Agendamentoselecionado.Endereco.ToString();
             }
-            CarregaCB();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -55,7 +61,7 @@ namespace Teach.Grafico
         {
             if (tbInicio.Text == "" || tbFim.Text == "" || tbLocal.Text == "" )
             {
-                MessageBox.Show("Você deve preencher todos os campos obrigatórios. São eles: Horário Inicial e Final e Local");
+                MessageBox.Show("Você deve preencher todos os campos obrigatórios. São eles: Inicio e Fim e Local");
             }
             else
             {
@@ -107,6 +113,25 @@ namespace Teach.Grafico
             cbAluno.DisplayMember = "Nome";
             cbAluno.ValueMember = "Id";
             cbAluno.DataSource = Aluno;
+        }
+
+        private void tbLocal_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AdicionarAgendamento_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            TelaPrincipal telaPrincipal = new TelaPrincipal();
+            if (Application.OpenForms[telaPrincipal.Name] == null)
+            {
+                telaPrincipal.Show();
+            }
+            else
+            {
+                telaPrincipal.CarregaDG();
+                //telaPrincipal.Focus();
+            }
         }
     }
 }

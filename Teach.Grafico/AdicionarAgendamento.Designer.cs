@@ -48,6 +48,7 @@
             this.tbLocal.Name = "tbLocal";
             this.tbLocal.Size = new System.Drawing.Size(272, 20);
             this.tbLocal.TabIndex = 4;
+            this.tbLocal.Leave += new System.EventHandler(this.tbLocal_Leave);
             // 
             // cbAluno
             // 
@@ -164,9 +165,11 @@
             this.Controls.Add(this.btCancelar);
             this.Controls.Add(this.cbAluno);
             this.Controls.Add(this.tbLocal);
+            this.MaximizeBox = false;
             this.Name = "AdicionarAgendamento";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Agendamento";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdicionarAgendamento_FormClosed);
             this.Load += new System.EventHandler(this.AdicionarAgendamento_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
