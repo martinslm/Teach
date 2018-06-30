@@ -130,11 +130,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(104, 86);
+            this.label3.Location = new System.Drawing.Point(111, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Telefone";
+            this.label3.Text = "Celular";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
@@ -158,7 +158,7 @@
             // tbTelefone
             // 
             this.tbTelefone.Location = new System.Drawing.Point(158, 83);
-            this.tbTelefone.Mask = "00000-0000";
+            this.tbTelefone.Mask = "(00) 00000-0000";
             this.tbTelefone.Name = "tbTelefone";
             this.tbTelefone.Size = new System.Drawing.Size(224, 20);
             this.tbTelefone.TabIndex = 2;

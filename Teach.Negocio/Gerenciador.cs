@@ -321,18 +321,27 @@ namespace Teach.Negocio
             List<Agenda> Agendamentos = new List<Agenda>();
             if (this.banco.Agendamentos.Count() > 0)
             {
-                foreach (Agenda agendamento in banco.Agendamentos)
+                using (var banco = new Banco())
                 {
-                    if (agendamento.HoraInicial.Date == data.Date)
-                    {
-                        if (agendamento.Aluno.Professor.Id == ProfessorLogado)
-                        {
-                            Agendamentos.Add(agendamento);
-                        }
-                    }
+                    Agendamentos = banco.Agendamentos.Include("Aluno").Where(o => o.Professor.Id == ProfessorLogado &&
+                                                                                  o.HoraInicial.Day == data.Day &&
+                                                                                  o.HoraInicial.Month == data.Month &&
+                                                                                  o.HoraInicial.Year == data.Year).ToList();
                 }
+                //foreach (Agenda agendamento in banco.Agendamentos)
+                //{
+                //    if (agendamento.HoraInicial.Date == data.Date)
+                //    {
+                //        if (agendamento.Aluno.Professor.Id == ProfessorLogado)
+                //        {
+                //            Agendamentos.Add(agendamento);
+                //        }
+                //    }
+                //}
+                return Agendamentos;
+               
             }
-
+            
             if (Agendamentos == null)
                 validacao.Mensagens.Add("Agendamento", string.Format("Não foi possível localizar nenhum agendamento com a data informada ({0})", data.Date));
 
@@ -345,7 +354,7 @@ namespace Teach.Negocio
             List<Agenda> Registros = new List<Agenda>();
             foreach (var agn in this.banco.Agendamentos)
             {
-                if (agn.Fatura == FaturaVisualizada)
+                if (agn.Fatura != null && agn.Fatura.Id == FaturaVisualizada.Id)
                     Registros.Add(agn);
             }
 
@@ -489,24 +498,32 @@ namespace Teach.Negocio
         {
             Validacao validacao = new Validacao();
             List<Aluno> ResultadoBusca2 = new List<Aluno>();
-            foreach (var alunos in this.banco.Alunos)
+
+            using (var banco = new Banco())
             {
-                if (alunos.Professor.Id == ProfessorLogado)
-                {
-
-                    if (alunos.Nome.ToUpper().Contains(AlunoPesquisado.ToUpper()))
-                    {
-                        ResultadoBusca2.Add(alunos);
-                    }
-
-                }
+                ResultadoBusca2 = banco.Alunos.Where(o => o.Professor.Id == ProfessorLogado &&
+                                                          (string.IsNullOrEmpty(AlunoPesquisado) || o.Nome.ToUpper().Contains(AlunoPesquisado.ToUpper()))).ToList();
             }
-            if (ResultadoBusca2 == null)
+            //foreach (var alunos in this.banco.Alunos)
+            //{
+
+            //    if (alunos.Professor.Id == ProfessorLogado)
+            //    {
+
+            //        if (alunos.Nome.ToUpper().Contains(AlunoPesquisado.ToUpper()))
+            //        {
+            //            ResultadoBusca2.Add(alunos);
+            //        }
+
+            //    }
+            //}
+            
+            if (!ResultadoBusca2.Any())
             {
                 validacao.Mensagens.Add("Aluno", "Não foi possível localizar nenhum aluno com o nome informado");
             }
 
-            return ResultadoBusca2.ToList();
+            return ResultadoBusca2;
         }
 
         public List<Disciplina> TodasAsDisciplinaDoProfessorLogado()

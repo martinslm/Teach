@@ -75,7 +75,7 @@
             this.MaximizeBox = false;
             this.Name = "ExibirRegistros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ExibirRegistros";
+            this.Text = "Exibir Agendamentos";
             this.Load += new System.EventHandler(this.ExibirRegistros_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgRegistros)).EndInit();
             this.ResumeLayout(false);
